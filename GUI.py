@@ -11,7 +11,7 @@ bottomFrame.pack(side=BOTTOM)
 # TOP FRAME
 
 
-label_1 = Label(topFrame, text="Name")
+label_1 = Label(topFrame, text="Username")
 label_2 = Label(topFrame, text="Password")
 entry_1 = Entry(topFrame)
 entry_2 = Entry(topFrame)
