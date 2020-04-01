@@ -11,19 +11,16 @@ bottomFrame.pack(side=BOTTOM)
 # TOP FRAME
 
 
-label_1 = Label(topFrame, text="Username")
+label_1 = Label(topFrame, text="Name")
 label_2 = Label(topFrame, text="Password")
 entry_1 = Entry(topFrame)
 entry_2 = Entry(topFrame)
-
+c = Checkbutton(topFrame, text="Keep me logged in")
 
 label_1.grid(row=0, sticky=E)
 label_2.grid(row=1, sticky=E)
-
 entry_1.grid(row=0, column=1)
 entry_2.grid(row=1, column=1)
-
-c = Checkbutton(topFrame, text="Keep me logged in")
 c.grid(columnspan=2)
 
 
