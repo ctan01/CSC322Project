@@ -1,9 +1,21 @@
 import tkinter as tk
 
+height = 400
+width = 300
+
 root = tk.Tk()
 root.title("Registration Page")
 
-canvas = tk.Canvas(root, height=300, width=300)
+# top menu bar
+menu = tk.Menu(root)
+root.config(menu=menu)
+
+Button_back = tk.Button(menu)
+menu.add_cascade(label="Back", menu=Button_back)
+
+# main body
+
+canvas = tk.Canvas(root, height=height, width=width)
 canvas.pack()
 
 
@@ -36,7 +48,4 @@ Button_submit = tk.Button(frame, text="Submit").grid(row=11, columnspan=2)
 
 
 root.mainloop()
-
-
-
 
