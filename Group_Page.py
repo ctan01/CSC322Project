@@ -2,16 +2,12 @@ import tkinter as tk
 
 def backToHome():
    print("Back to Home Page") # jump to home page 2
-
-def register():
-  print("Register") # register page
-  
-def logIn(): # login pop up
-  print("Log in")
   
 def toInbox():
   print("Inbox")
   
+def logOut(); 
+   print("log out")
   
 class groupPage:
   root = tk.Tk()
