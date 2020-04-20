@@ -7,7 +7,7 @@ import tkinter as tk
 def backToHome(): 
   print("back to home page")
   
-def logOut():
+def logOut(): # use logOut() or jumpToHomePage1() ?
   print("log out")
   
   
