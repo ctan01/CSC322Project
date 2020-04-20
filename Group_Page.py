@@ -9,7 +9,7 @@ def toInbox():
 def logOut():
   print("log out")
   
-class groupPage:
+class GroupPage:
   root = tk.Tk()
   root.title ("Group Page")
   
