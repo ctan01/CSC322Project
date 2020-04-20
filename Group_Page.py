@@ -6,8 +6,8 @@ def backToHome():
 def toInbox():
   print("Inbox")
   
-def logOut(); 
-   print("log out")
+def logOut():
+  print("log out")
   
 class groupPage:
   root = tk.Tk()
