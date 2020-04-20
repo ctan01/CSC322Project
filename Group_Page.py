@@ -1,13 +1,19 @@
 import tkinter as tk
+# Each Group Page has the following:
+# request poll, log out, go to profile page, send complaint to SU, send compliment to SU, Leave group,
+# post to group page, comment on post
 
 def backToHome():
    print("Back to Home Page") # jump to home page 2
   
-def toInbox():
+def jumpToInbox():
   print("Inbox")
   
-def logOut():
-  print("log out")
+def jumpToHomePage1():
+  print("log out") 
+
+def jumpToProfile(event):
+   print("jump to profile page")
   
 class GroupPage:
   root = tk.Tk()
