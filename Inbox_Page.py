@@ -13,13 +13,17 @@ def logOut(): # use logOut() or jumpToHomePage1() ?
   
 class InboxPage:
   # set up always the same
+  height = 700
+  width = 800
+
   root = tk.Tk()
   root.title("Inbox")
   
-  topFrame = tk.Frame(root)
+  topFrame = tk.Frame(root, height = 50, width = width)
   topFrame.pack(side=tk.TOP)
-  bottomFrame = tk.Frame(root)
-  bottomFrame.pack(side = tk.BOTTOM)
-  
+  botFrame = tk.Frame(root, height = height, width = width)
+
   root.mainloop()
+
+
   

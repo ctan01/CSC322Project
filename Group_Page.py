@@ -4,7 +4,7 @@ import tkinter as tk
 # post to group page, comment on post
 
 def backToHome():
-   print("Back to Home Page") # jump to home page 2
+  print("Back to Home Page") # jump to home page 2
   
 def jumpToInbox():
   print("Inbox")
@@ -13,9 +13,12 @@ def jumpToHomePage1():
   print("log out") 
 
 def jumpToProfile(event):
-   print("jump to profile page")
+  print("jump to profile page")
   
 class GroupPage:
+  height = 700
+  width = 800
+  
   root = tk.Tk()
   root.title ("Group Page")
   
@@ -24,6 +27,5 @@ class GroupPage:
   topFrame.pack(side=tk.TOP)
   bottomFrame = tk.Frame(root)
   bottomFrame.pack(side=tk.BOTTOM)
-  
   
   root.mainloop()
