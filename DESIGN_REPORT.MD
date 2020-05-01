@@ -24,8 +24,12 @@ adequate details should thus be given at length.
 ![](CreateGroupClassDiagram.jpg)
 #### Forgot Password:
 ![](ForgotPasswordClassDiagram.jpg)
-#### Edit Profile
+#### Edit Profile:
 ![](EditProfileClassDiagram.jpg)
+#### Accept All Invitations:
+![](AccepteAllInviteClassDigram.png)
+#### Decline All Invitations:
+![](DeclineAllInvitationsClassDiagram.png)
     
       
 ### 3. E-R diagram for the entire system attributes and key for each class should be provided
