@@ -1,4 +1,4 @@
-# Phase II: Design Report
+# Phase II: Design Report for Team K: App: TeamUp
  
 #### This report is meant to provide the data structure and logic to
 carry out the functionalities dictated by the specification. Keep
@@ -18,7 +18,7 @@ adequate details should thus be given at length.
       
 
  ### 3. E-R diagram for the entire system attributes and key for each class should be provided
-    ![Image description](link-to-image)
+    ![Image description](logOutClassDiagram.jpg)
 
  ### 4. Detailed design:
     for EVERY method use pseudo-code to delineate the input/output and
