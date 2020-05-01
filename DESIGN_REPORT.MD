@@ -26,8 +26,12 @@ adequate details should thus be given at length.
 ![](ForgotPasswordClassDiagram.jpg)
 #### Edit Profile:
 ![](EditProfileClassDiagram.jpg)
+#### Accept Invitation:
+![](AcceptInvitationClassDiagram.jpg)
 #### Accept All Invitations:
 ![](AccepteAllInviteClassDigram.png)
+#### Decline Invitation:
+![](DeclineInvitationClassDiagram.png)
 #### Decline All Invitations:
 ![](DeclineAllInvitationsClassDiagram.png)
     
