@@ -14,7 +14,7 @@ adequate details should thus be given at length.
     o Collaboration or sequence class diagram for each use case, choose 
       3 or more use cases: draw the Petri-nets instead of class diagrams
     #### Logging In:
-![](logInClassDiagram.jpg)
+![](logOutClassDiagram.png)
       
 
  ### 3. E-R diagram for the entire system attributes and key for each class should be provided
