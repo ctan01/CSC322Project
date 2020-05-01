@@ -18,7 +18,7 @@ adequate details should thus be given at length.
       
 
  ### 3. E-R diagram for the entire system attributes and key for each class should be provided
-    ![Image description](logOutClassDiagram.jpg)
+    ![](logOutClassDiagram.jpg)
 
  ### 4. Detailed design:
     for EVERY method use pseudo-code to delineate the input/output and
