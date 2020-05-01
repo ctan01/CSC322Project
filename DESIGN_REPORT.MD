@@ -13,6 +13,8 @@ adequate details should thus be given at length.
     o Scenarios for each use case: normal AND exceptional scenarios
     o Collaboration or sequence class diagram for each use case, choose 
       3 or more use cases: draw the Petri-nets instead of class diagrams
+    #### Logging In:
+![](logInClassDiagram.jpg)
       
 
  ### 3. E-R diagram for the entire system attributes and key for each class should be provided
