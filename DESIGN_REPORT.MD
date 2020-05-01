@@ -15,11 +15,11 @@ adequate details should thus be given at length.
       3 or more use cases: draw the Petri-nets instead of class diagrams
     #### DIAGRAMS:
     #### Logging In:
-![](logInClassDiagram.png)
+![](logInClassDiagram.jpg)
     #### Logging Out:
-![](logOutClassDiagram.png)
+![](logOutClassDiagram.jpg)
     #### Accept Invitation to Join Group:
-![](AcceptInvitationClassDiagram.png)
+![](AcceptInvitationClassDiagram.jpg)
     #### Create Group:
     #### Forgot Password:
     #### Edit Profile
