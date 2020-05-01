@@ -8,18 +8,20 @@ adequate details should thus be given at length.
 
  1. Introduction
     an overall picture of the system using collaboration class diagram 
+    ![Image description](link-to-image)
 
  2. All use cases
     o Scenarios for each use case: normal AND exceptional scenarios
     o Collaboration or sequence class diagram for each use case, choose 
       3 or more use cases: draw the Petri-nets instead of class diagrams
+      
 
- 3. E-R diagram for the entire system
-    attributes and key for each class should be provided
+ 3. E-R diagram for the entire system attributes and key for each class should be provided
+    ![Image description](link-to-image)
 
  4. Detailed design:
-    for EVERY method use pseudo-code to delineate the input/output and
-    main functionalities
+    # for EVERY method use pseudo-code to delineate the input/output and
+    # main functionalities
 
  5. System screens:
     demonstrate major GUI screens of the system and a prototype of one
