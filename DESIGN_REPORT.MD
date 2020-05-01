@@ -13,30 +13,28 @@ adequate details should thus be given at length.
     o Scenarios for each use case: normal AND exceptional scenarios
     o Collaboration or sequence class diagram for each use case, choose 
       3 or more use cases: draw the Petri-nets instead of class diagrams
-    #### DIAGRAMS:
-    #### Logging In:
+#### DIAGRAMS:
+#### Logging In:
 ![](logInClassDiagram.jpg)
-    #### Logging Out:
+#### Logging Out:
 ![](logOutClassDiagram.jpg)
-    #### Accept Invitation to Join Group:
+#### Accept Invitation to Join Group:
 ![](AcceptInvitationClassDiagram.jpg)
-    #### Create Group:
-    #### Forgot Password:
-    #### Edit Profile
+#### Create Group:
+#### Forgot Password:
+#### Edit Profile
     
       
+### 3. E-R diagram for the entire system attributes and key for each class should be provided
 
- ### 3. E-R diagram for the entire system attributes and key for each class should be provided
-
- ### 4. Detailed design:
+### 4. Detailed design:
     for EVERY method use pseudo-code to delineate the input/output and
     main functionalities
-
- ### 5. System screens:
+    
+### 5. System screens:
     demonstrate major GUI screens of the system and a prototype of one
     functionality of your own choice.
-
- ### 6. Minutes of group meetings and possible concerns of team work
+### 6. Minutes of group meetings and possible concerns of team work
 
  ### 7. Address of the git repo (github, gitlab, bitbucket, etc) of your 
     team's work so far - put all materials including this report there
