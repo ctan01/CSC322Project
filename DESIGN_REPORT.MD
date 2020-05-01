@@ -7,7 +7,7 @@ adequate details should thus be given at length.
 
  ### 1. Introduction
     an overall picture of the system using collaboration class diagram 
-    ![Image description](overallClassDiagram.png)
+    ![](overallClassDiagram.png)
 
  ### 2. All use cases
     o Scenarios for each use case: normal AND exceptional scenarios
