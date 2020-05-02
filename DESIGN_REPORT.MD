@@ -25,9 +25,7 @@ https://docs.google.com/document/d/1mg6cAZ5uQf2P2sezdsFmTxK0sVSXGgF_z8rX4OM0uTI/
 #### B. Logging Out:
 > When a user clicks the log out button, they are locked out.
 ![](logOutClassDiagram.jpg)
-#### C. Accept Invitation to Join Group:
-
-![](AcceptInvitationClassDiagram.jpg)
+#### C. Invite to Join Group:
 #### D. Create Group:
 ![](CreateGroupClassDiagram.jpg)
 #### E. Forgot Password:
@@ -52,8 +50,10 @@ https://docs.google.com/document/d/1mg6cAZ5uQf2P2sezdsFmTxK0sVSXGgF_z8rX4OM0uTI/
 #### L. Post to Group Page (PETRI NET):
 ![](PosttoGroupPageClassDiagram.png)
 #### M. Set Up Vote:
+> Set up vote. The Vote can issue to a warning to a group member or praise a group member. If 80% of the users vote to do so, the group member will get a notification.
 ![](SetUpVoteClassDiagram.png)
 #### N. Request Meet Up Time:
+> Request to create a poll to vote on meet-up time.
 ![](RequestMeetUpTimeClassDiagram.png)
 #### O. Vote for Democratic SU:
 ![](VoteforDemocraticSUClassDiagram.png)
@@ -66,10 +66,11 @@ https://docs.google.com/document/d/1mg6cAZ5uQf2P2sezdsFmTxK0sVSXGgF_z8rX4OM0uTI/
 > Members get a notification in their inbox that the group is closed,
 > And Upon opening the notification, a pop up window for member evaluation opens.
 ![](EvaluateGroupMembersClassDiagram.png)
-#### R. Send Complaint
+#### R. Send Complaint:
 ![](SendComplaintClassDiagram.png)
-#### S. Send Compliment
+#### S. Send Compliment:
 ![](SendComplimentClassDiagram.png)
+#### T. Leave Project Group:
       
 ### 3. E-R diagram for the entire system attributes and key for each class should be provided
 ![](erdiagram.png)
@@ -289,6 +290,7 @@ Pseudocode:
 	If (DeclineInvitation_Button){
 		delete.Invitation;
 	}
+```
 #### P. AcceptAll():
 > Pre Conditions: User is viewing InboxPage; 
 > User must click the AcceptAllInvitation_Button 
@@ -402,6 +404,6 @@ Pseudocode
     functionality of your own choice.
 ### 6. Minutes of group meetings and possible concerns of team work
 
- ### 7. Address of the git repo (github, gitlab, bitbucket, etc) of your 
+### 7. Address of the git repo (github, gitlab, bitbucket, etc) of your 
     team's work so far - put all materials including this report there
     Git repo and such is all here.
