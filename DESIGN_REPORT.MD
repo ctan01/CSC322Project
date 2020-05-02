@@ -16,46 +16,47 @@ https://docs.google.com/document/d/1mg6cAZ5uQf2P2sezdsFmTxK0sVSXGgF_z8rX4OM0uTI/
     o Collaboration or sequence class diagram for each use case, choose 
       3 or more use cases: draw the Petri-nets instead of class diagrams
 #### DIAGRAMS:
-#### Logging In (PETRI NET):
+#### A. Logging In (PETRI NET):
 ![](logInClassDiagram.jpg)
-#### Logging Out:
+#### B. Logging Out:
 ![](logOutClassDiagram.jpg)
-#### Accept Invitation to Join Group:
+#### C. Accept Invitation to Join Group:
 ![](AcceptInvitationClassDiagram.jpg)
-#### Create Group:
+#### D. Create Group:
 ![](CreateGroupClassDiagram.jpg)
-#### Forgot Password:
+#### E. Forgot Password:
 ![](ForgotPasswordClassDiagram.jpg)
-#### Edit Profile:
+#### F. Edit Profile:
 ![](EditProfileClassDiagram.jpg)
-#### Accept Invitation:
+#### G. Accept Invitation:
 ![](AcceptInvitationClassDiagram.jpg)
-#### Accept All Invitations:
+#### H. Accept All Invitations:
 ![](AccepteAllInviteClassDigram.png)
-#### Decline Invitation:
+#### I. Decline Invitation:
 ![](DeclineInvitationClassDiagram.png)
-#### Decline All Invitations:
+#### J. Decline All Invitations:
 ![](DeclineAllInvitationsClassDiagrram.png)
-#### Register to Become an Ordinary User:
+#### K. Register to Become an Ordinary User:
 ![](RegisterClassDiagram.png)
-#### Post to Group Page (PETRI NET):
+#### L. Post to Group Page (PETRI NET):
 ![](PosttoGroupPageClassDiagram.png)
-#### Set Up Vote:
+#### M. Set Up Vote:
 ![](SetUpVoteClassDiagram.png)
-#### Request Meet Up Time:
+#### N. Request Meet Up Time:
 ![](RequestMeetUpTimeClassDiagram.png)
-#### Vote for Democratic SU:
+#### O. Vote for Democratic SU:
 ![](VoteforDemocraticSUClassDiagram.png)
-#### Vote to Close Group (PETRI NET):
+#### P. Vote to Close Group (PETRI NET):
 o If 80% of the Members that vote, vote to close the group, the group will close.
 o If it is less than 80%, the group will stay open.
 ![](VotetoCloseGroupClassDiagram.jpg)
-#### Evaluate Group Members:
+#### Q. Evaluate Group Members:
 o This is done after a group is closed.
 o Members get a notification in their inbox that the group is closed,
 o And Upon opening the notification, a pop up window for member evaluation opens.
 ![](EvaluateGroupMembersClassDiagram.png)
-
+#### R. Send Complaint
+#### S. Send Compliment
     
       
 ### 3. E-R diagram for the entire system attributes and key for each class should be provided
