@@ -4,6 +4,8 @@
 carry out the functionalities dictated by the specification. Keep
 in mind the implementation will be entirely based on this document,
 adequate details should thus be given at length.
+Google Docs of Report:
+https://docs.google.com/document/d/1mg6cAZ5uQf2P2sezdsFmTxK0sVSXGgF_z8rX4OM0uTI/edit?usp=sharing
 
  ### 1. Introduction
  an overall picture of the system using collaboration class diagram 
@@ -14,7 +16,7 @@ adequate details should thus be given at length.
     o Collaboration or sequence class diagram for each use case, choose 
       3 or more use cases: draw the Petri-nets instead of class diagrams
 #### DIAGRAMS:
-#### Logging In:
+#### Logging In (PETRI NET):
 ![](logInClassDiagram.jpg)
 #### Logging Out:
 ![](logOutClassDiagram.jpg)
@@ -34,6 +36,19 @@ adequate details should thus be given at length.
 ![](DeclineInvitationClassDiagram.png)
 #### Decline All Invitations:
 ![](DeclineAllInvitationsClassDiagrram.png)
+#### Register to Become an Ordinary User:
+![](RegisterClassDiagram.png)
+#### Post to Group Page (PETRI NET):
+![](PosttoGroupPageClassDiagram.png)
+#### Set Up Vote:
+![](SetUpVoteClassDiagram.png)
+#### Request Meet Up Time:
+![](RequestMeetUpTimeClassDiagram.png)
+#### Vote for Democratic SU:
+![](VoteforDemocraticSUClassDiagram.png)
+#### Request Poll:
+![](RequestPollClassDiagram.png)
+#### Vote to Close Group (PETRI NET):
     
       
 ### 3. E-R diagram for the entire system attributes and key for each class should be provided
