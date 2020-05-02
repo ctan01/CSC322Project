@@ -413,11 +413,16 @@ Pseudocode
 > demonstrate major GUI screens of the system and a prototype of one
 > functionality of your own choice.
 > Codes for each found in this repo. Codes with prefix "OLD" are from the old code in Tkinter. We are now using PyQt5.
-#### Home Page
+#### Home Page 1 
+![](homepage1.png)
 #### Login Page
+![](loginpage.png)
 #### Profile Page
+![](profilepage.png)
 #### Registration Page
+![](registrationpage.png)
 #### Group Page
+![](grouppage.png)
 
 ### 6. Minutes of group meetings and possible concerns of team work
 > Our team had 5 group meeting sessions adding up to a total of 7hrs and 22mins of group working together. 
