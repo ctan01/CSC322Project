@@ -71,8 +71,8 @@ Pre-Conditions: User must click the HomePage1 Button
 if Button is clicked, then jumpHomepage1_Button == true
 Post-Conditions: Current window will be closed from view and Homepage1 will be opened.
 Pseudocode:
-				void jump_Homepage1() {
-					if(jumpHomepage1_Button) {
+    void jump_Homepage1() {
+	if(jumpHomepage1_Button) {
 						current_Window.close()
 						homepage.open()
 					}
