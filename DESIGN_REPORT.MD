@@ -56,8 +56,9 @@ https://docs.google.com/document/d/1mg6cAZ5uQf2P2sezdsFmTxK0sVSXGgF_z8rX4OM0uTI/
 > And Upon opening the notification, a pop up window for member evaluation opens.
 ![](EvaluateGroupMembersClassDiagram.png)
 #### R. Send Complaint
+![](SendComplaintClassDiagram.png)
 #### S. Send Compliment
-    
+![](SendComplimentClassDiagram.png)
       
 ### 3. E-R diagram for the entire system attributes and key for each class should be provided
 
