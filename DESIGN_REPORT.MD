@@ -82,12 +82,12 @@ https://docs.google.com/document/d/1mg6cAZ5uQf2P2sezdsFmTxK0sVSXGgF_z8rX4OM0uTI/
 > if Button is clicked, then jumpHomePage2_Button==true
 > Post-Conditions: Current window will be closed from view and Homepage2 will be opened.
 > Pseudocode:
-> void jump_Homepage2() {
-> if(jumpHomeback2_Button) {
-> curernt_Window.close()
-> Homepage2.open()
->	}
-> }
+		void jump_Homepage2() {
+			if(jumpHomeback2_Button) {
+			curernt_Window.close()
+			Homepage2.open()
+			}
+		}
 #### C. jump_Inbox(userID) {
 > Pre-Conditions: User must click the Inbox_Button
 > if Button is clicked, then jumpInbox_button == true
