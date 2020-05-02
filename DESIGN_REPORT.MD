@@ -67,16 +67,16 @@ https://docs.google.com/document/d/1mg6cAZ5uQf2P2sezdsFmTxK0sVSXGgF_z8rX4OM0uTI/
       o for EVERY method use pseudo-code to delineate the input/output and
       o main functionalities
 ##### A. jump_Homepage1():
-> Pre-Conditions: User must click the HomePage1 Button
-> if Button is clicked, then jumpHomepage1_Button == true
-> Post-Conditions: Current window will be closed from view and Homepage1 will be opened.
-> Pseudocode:
->		void jump_Homepage1() {
->		if(jumpHomepage1_Button) {
->				current_Window.close()
->				homepage.open()
->			}
->		}
+Pre-Conditions: User must click the HomePage1 Button
+if Button is clicked, then jumpHomepage1_Button == true
+Post-Conditions: Current window will be closed from view and Homepage1 will be opened.
+Pseudocode:
+		void jump_Homepage1() {
+		if(jumpHomepage1_Button) {
+				current_Window.close()
+				homepage.open()
+			}
+		}
 #### B. jump_Homepage2():
 > Pre-Conditions: User must click the HomePage2 Button
 > if Button is clicked, then jumpHomePage2_Button==true
