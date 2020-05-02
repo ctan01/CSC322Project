@@ -33,7 +33,7 @@ adequate details should thus be given at length.
 #### Decline Invitation:
 ![](DeclineInvitationClassDiagram.png)
 #### Decline All Invitations:
-![](DeclineAllInvitationsClassDiagram.png)
+![](DeclineAllInvitationsClassDiagrram.png)
     
       
 ### 3. E-R diagram for the entire system attributes and key for each class should be provided
