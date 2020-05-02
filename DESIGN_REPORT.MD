@@ -46,9 +46,16 @@ https://docs.google.com/document/d/1mg6cAZ5uQf2P2sezdsFmTxK0sVSXGgF_z8rX4OM0uTI/
 ![](RequestMeetUpTimeClassDiagram.png)
 #### Vote for Democratic SU:
 ![](VoteforDemocraticSUClassDiagram.png)
-#### Request Poll:
-![](RequestPollClassDiagram.png)
 #### Vote to Close Group (PETRI NET):
+o If 80% of the Members that vote, vote to close the group, the group will close.
+o If it is less than 80%, the group will stay open.
+![](VotetoCloseGroupClassDiagram.jpg)
+#### Evaluate Group Members:
+o This is done after a group is closed.
+o Members get a notification in their inbox that the group is closed,
+o And Upon opening the notification, a pop up window for member evaluation opens.
+![](EvaluateGroupMembersClassDiagram.png)
+
     
       
 ### 3. E-R diagram for the entire system attributes and key for each class should be provided
