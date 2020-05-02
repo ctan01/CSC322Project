@@ -67,108 +67,119 @@ https://docs.google.com/document/d/1mg6cAZ5uQf2P2sezdsFmTxK0sVSXGgF_z8rX4OM0uTI/
       o for EVERY method use pseudo-code to delineate the input/output and
       o main functionalities
 ##### A. jump_Homepage1():
-Pre-Conditions: User must click the HomePage1 Button
-if Button is clicked, then jumpHomepage1_Button == true
-Post-Conditions: Current window will be closed from view and Homepage1 will be opened.
+>Pre-Conditions: User must click the HomePage1 Button
+>if Button is clicked, then jumpHomepage1_Button == true
+>Post-Conditions: Current window will be closed from view and Homepage1 will be opened.
 Pseudocode:
-    void jump_Homepage1() {
-	if(jumpHomepage1_Button) {
-						current_Window.close()
-						homepage.open()
-					}
-				}
+```
+	void jump_Homepage1() {
+		if(jumpHomepage1_Button) {
+			current_Window.close()
+			homepage.open()
+		}
+	}
+```
 #### B. jump_Homepage2():
 > Pre-Conditions: User must click the HomePage2 Button
 > if Button is clicked, then jumpHomePage2_Button==true
 > Post-Conditions: Current window will be closed from view and Homepage2 will be opened.
-> Pseudocode:
-				void jump_Homepage2() {
-					if(jumpHomeback2_Button) {
-						curernt_Window.close()
-						Homepage2.open()
-					}
-				}
-#### C. jump_Inbox(userID) 
+Pseudocode:
+```
+	void jump_Homepage2() {
+		if(jumpHomeback2_Button) {
+			curernt_Window.close()
+			Homepage2.open()
+		}
+	}
+```
+#### C. jump_Inbox(userID):
 > Pre-Conditions: User must click the Inbox_Button
 > if Button is clicked, then jumpInbox_button == true
 > Post-Conditions: Current window will be closed from view and Inbox_Page will be opened.
-> Pseudocode:
+Pseudocode:
 ```
 
-				void jump_Inbox() {
-					if(jumpInbox_Button) {
-						current_Window.close()
-						Inbox_Page.open()
-					}
-				}
+	void jump_Inbox() {
+		if(jumpInbox_Button) {
+			current_Window.close()
+			Inbox_Page.open()
+		}
+	}
 ```
-jump_GroupPage(groupID)
-Pre-Conditions: User must click Group_Page_Button
-Post-Conditions: Current window will be closed from view and Group Page will be opened. Then Current window will be set to Group Page.
+#### D. jump_GroupPage(groupID):
+> Pre-Conditions: User must click Group_Page_Button
+> Post-Conditions: Current window will be closed from view and Group Page will be opened. Then Current window will be set to Group Page.
 Pseudocode:
 ```
-				void jump_GroupPage(){
-					if(this.Group_Page_Button) {
-						current_window.close()
-						this.Group_Page.open()
-					}
-				}
+	void jump_GroupPage(){
+		if(this.Group_Page_Button) {
+			current_window.close()
+			this.Group_Page.open()
+		}
+	}
 ```
-jump_Profile(userID)
-Pre-Conditions: User must click Profile_Button
-if Profile_Button is clicked, Profile_Button==true
-Post-Conditions: Current window will be closed, User’s Profile Window will be opened.
+#### E. jump_Profile(userID): 
+> Pre-Conditions: User must click Profile_Button
+> if Profile_Button is clicked, Profile_Button==true
+> Post-Conditions: Current window will be closed, User’s Profile Window will be opened.
 Pseudocode:
-	  			void jump_Profile(){
-					if(Profile_Button) {
-						current_Window.close()  # close current window
- 						profilepage = new ProfileWindow()	
-						(create new ProfileWindow called profilepage)
-						(ProfileWindow class is a Window subclass)
-						profilepage.setPage(user.profile) 
-						(Set profilepage info to current user’s profile info)
-						profilepage.open() # open newly made profilepage
-					}
-				}
-Create_Post() 
-Pre-Conditions: 
-User Must Be in Group
-User Must Click Create_Post_Button
-Post-Conditions:
-Pop Up Window will appear to take user text input
+```
+	  void jump_Profile(){
+		if(Profile_Button) {
+			current_Window.close()  # close current window
+ 			profilepage = new ProfileWindow()	
+			(create new ProfileWindow called profilepage)
+			(ProfileWindow class is a Window subclass)
+			profilepage.setPage(user.profile) 
+			(Set profilepage info to current user’s profile info)
+			profilepage.open() # open newly made profilepage
+		}
+	}
+#### F. Create_Post():
+> Pre-Conditions: 
+> User Must Be in Group
+> User Must Click Create_Post_Button
+> Post-Conditions:
+> Pop Up Window will appear to take user text input
 Pseudocode:
-				void Create_Post() {
-					if(Create_Post_Button) {
-						new_Post = new createPostWindow()
-						new_Post.open()
-					}
-				}
-Publish_Post()
-Pre-Conditions: 
-User has typed text input into a create_post box
-User has pressed publish_post_button.
-Post-Conditions: User Input will be read and stored in database for group’s posts and then a new textbox will appear at the top of the group’s dashboard.
+```
+	void Create_Post() {
+		if(Create_Post_Button) {
+			new_Post = new createPostWindow()
+			new_Post.open()
+		}
+	}
+```
+#### G. Publish_Post():
+> Pre-Conditions: 
+> User has typed text input into a create_post box
+> User has pressed publish_post_button.
+> Post-Conditions: User Input will be read and stored in database for group’s posts and then a new textbox will appear at the top of the > group’s dashboard.
 Pseudocode:
-		void Publish_Post() {
+```
+	void Publish_Post() {
 			if (publish_post_button) {
 				database.insert(new_Post.text)
 				jumpGroupPage(this.groupID) 
-#^refreshing group page to show new post
-new_Post.close()
-}
+				(refreshing group page to show new post)
+				new_Post.close()
+			}
 		}
-Create_Comment()
-Pre-Conditions:
-User has to have clicked create_comment_button
-Post-Conditions:
-Pop up window will appear to take in user input
-Pseudocode:
-void create_Comment() {
-	if(create_comment_button) {
-					new_Comment = new createCommentWindow()
-					new_Comment.open()
-				}
-			}		
+```
+#### H. Create_Comment():
+> Pre-Conditions:
+> User has to have clicked create_comment_button
+> Post-Conditions:
+> Pop up window will appear to take in user input
+> Pseudocode:
+```
+	void create_Comment() {
+		if(create_comment_button) {
+			new_Comment = new createCommentWindow()
+			new_Comment.open()
+		}
+	}		
+```
 Publish_Comment()
 Pre-Conditions: 
 User has typed into comment text box window
