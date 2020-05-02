@@ -93,22 +93,27 @@ Pseudocode:
 > if Button is clicked, then jumpInbox_button == true
 > Post-Conditions: Current window will be closed from view and Inbox_Page will be opened.
 > Pseudocode:
+```
+
 				void jump_Inbox() {
 					if(jumpInbox_Button) {
 						current_Window.close()
 						Inbox_Page.open()
 					}
 				}
+```
 jump_GroupPage(groupID)
 Pre-Conditions: User must click Group_Page_Button
 Post-Conditions: Current window will be closed from view and Group Page will be opened. Then Current window will be set to Group Page.
 Pseudocode:
+```
 				void jump_GroupPage(){
 					if(this.Group_Page_Button) {
 						current_window.close()
 						this.Group_Page.open()
 					}
 				}
+```
 jump_Profile(userID)
 Pre-Conditions: User must click Profile_Button
 if Profile_Button is clicked, Profile_Button==true
