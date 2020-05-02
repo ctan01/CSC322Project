@@ -47,13 +47,13 @@ https://docs.google.com/document/d/1mg6cAZ5uQf2P2sezdsFmTxK0sVSXGgF_z8rX4OM0uTI/
 #### O. Vote for Democratic SU:
 ![](VoteforDemocraticSUClassDiagram.png)
 #### P. Vote to Close Group (PETRI NET):
-o If 80% of the Members that vote, vote to close the group, the group will close.
-o If it is less than 80%, the group will stay open.
+> If 80% of the Members that vote, vote to close the group, the group will close.
+> If it is less than 80%, the group will stay open.
 ![](VotetoCloseGroupClassDiagram.jpg)
 #### Q. Evaluate Group Members:
-o This is done after a group is closed.
-o Members get a notification in their inbox that the group is closed,
-o And Upon opening the notification, a pop up window for member evaluation opens.
+> This is done after a group is closed.
+> Members get a notification in their inbox that the group is closed,
+> And Upon opening the notification, a pop up window for member evaluation opens.
 ![](EvaluateGroupMembersClassDiagram.png)
 #### R. Send Complaint
 #### S. Send Compliment
