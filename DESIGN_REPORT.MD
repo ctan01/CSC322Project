@@ -61,6 +61,7 @@ https://docs.google.com/document/d/1mg6cAZ5uQf2P2sezdsFmTxK0sVSXGgF_z8rX4OM0uTI/
 ![](SendComplimentClassDiagram.png)
       
 ### 3. E-R diagram for the entire system attributes and key for each class should be provided
+![](erdiagram.png)
 
 ### 4. Detailed design:
     for EVERY method use pseudo-code to delineate the input/output and
