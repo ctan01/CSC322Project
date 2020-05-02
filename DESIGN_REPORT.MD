@@ -135,6 +135,7 @@ Pseudocode:
 			profilepage.open() # open newly made profilepage
 		}
 	}
+```
 #### F. Create_Post():
 > Pre-Conditions: 
 > User Must Be in Group
@@ -171,7 +172,7 @@ Pseudocode:
 > User has to have clicked create_comment_button
 > Post-Conditions:
 > Pop up window will appear to take in user input
-> Pseudocode:
+Pseudocode:
 ```
 	void create_Comment() {
 		if(create_comment_button) {
@@ -180,197 +181,210 @@ Pseudocode:
 		}
 	}		
 ```
-Publish_Comment()
-Pre-Conditions: 
-User has typed into comment text box window
-User has clicked publish_comment_button
-Post-Conditions:
-User input will be read and inserted into database for group’s posts in comment column
+#### I. Publish_Comment():
+> Pre-Conditions: 
+> User has typed into comment text box window
+> User has clicked publish_comment_button
+> Post-Conditions:
+> User input will be read and inserted into database for group’s posts in comment column
 Pseudocode:
-void publish_comment() {
- 			if(database.insert(new_comment.text)
-				jumpGroupPage(this.groupID) 
-#^refreshing group page to show new comment
-new_Comment.close()
-}
-		    }
-			
-LogIn()
-Pre Conditions: User is in HomePage1; User must click the PublishPoll_Button 
-If Button is clicked, then ClickPublishPoll_Button == true
-Post_Condition: redirected to HomePage2;
+```
+	void publish_comment() {
+ 		if(database.insert(new_comment.text)
+			jumpGroupPage(this.groupID) 
+			(refreshing group page to show new comment)
+			new_Comment.close()
+		}
+	}
+```			
+#### J. LogIn():
+> Pre Conditions: User is in HomePage1; User must click the PublishPoll_Button 
+> If Button is clicked, then ClickPublishPoll_Button == true
+> Post_Condition: redirected to HomePage2;
 Pseudocode:
-Void Login(){
-Int k=3;
-Int x=0;
-cin<<username;
-cin<<password;
-if(username!=database.username[x]&&x!=#ofMember)
-{
-x++;
-if(username==database.username[x]&&password==database.username[x].password)
-{
-current_Window.close();
-Homepage2.open();
-}
-Else if(x=#ofMember+1)
-{
-cout>>no username exist;
+```
+	Void Login(){
+		Int k=3;
+		Int x=0;
+		cin<<username;
+		cin<<password;
+		if(username!=database.username[x]&&x!=#ofMember){
+			x++;
+			if(username==database.username[x]&&password==database.username[x].password){
+				current_Window.close();
+				Homepage2.open();
+			} Else if(x=#ofMember+1){
+				cout>>no username exist;
+			} Else if (username==database.username[x]&&password!=database.username[x].password){
+				cout>>password wrong, you have k tries before the username got lock down;
+				k--;
+			}
+		}
+	}
+```
 
-}
-Else if (username==database.username[x]&&password!=database.username[x].password)
-{
-cout>>password wrong, you have k tries before the username got lock down;
-k--;
-}
-}
-
-LogOut()
-Pre Conditions: User must click the Logout_Button 
-If Button is clicked, then Logout_Button == true
-Post_Condition: redirect to HomePage1
+#### K. LogOut():
+> Pre Conditions: User must click the Logout_Button 
+> If Button is clicked, then Logout_Button == true
+> Post_Condition: redirect to HomePage1
 Pseudocode:
-If (Logout_Button){
-current_Window.close();
-Homepage1.open();
-}
-
-DeletePost()
-Pre Conditions: User is viewing database.post[k]; User must click the DeletePost_Button 
-If Button is clicked, then DeletePost_Button == true
-Post_Condition: redirect to GroupPage; database.post[k] got deleted;
+```
+	If (Logout_Button){
+		current_Window.close();
+		Homepage1.open();
+	}
+```
+#### L. DeletePost():
+> Pre Conditions: User is viewing database.post[k]; User must click the DeletePost_Button 
+> If Button is clicked, then DeletePost_Button == true
+> Post_Condition: redirect to GroupPage; database.post[k] got deleted;
 Pseudocode:
-If (Logout_Button){
-database.post[k]==null;
-current_Window.close();
-GroupPage.open();
-}
-DeleteComment()
-Pre Conditions: User is viewing database.comment[k]; User must click the DeleteComment_Button 
-If Button is clicked, then DeleteComment_Button == true
-Post_Condition: redirect to GroupPage; database.comment[k] got deleted;
+```
+	If (Logout_Button){
+		database.post[k]==null;
+		current_Window.close();
+		GroupPage.open();
+	}
+#### M. DeleteComment():
+> Pre Conditions: User is viewing database.comment[k]; User must click the DeleteComment_Button 
+> If Button is clicked, then DeleteComment_Button == true
+> Post_Condition: redirect to GroupPage; database.comment[k] got deleted;
 Pseudocode:
-If (Logout_Button){
-database.comment[k]==null;
-current_Window.close();
-GroupPage.open();
-}
-AcceptInvitation()
-Pre Conditions: User is viewing InboxPage; User must click the AcceptInvitation_Button 
-If Button is clicked, then AcceptInvitation_Button == true
-Post_Condition: group[k] will be added into profile; delete the invitation notice
+```
+	If (Logout_Button){
+		database.comment[k]==null;
+		current_Window.close();
+		GroupPage.open();
+	}
+```
+#### N. AcceptInvitation():
+> Pre Conditions: User is viewing InboxPage; User must click the AcceptInvitation_Button 
+> If Button is clicked, then AcceptInvitation_Button == true
+> Post_Condition: group[k] will be added into profile; delete the invitation notice
 Pseudocode:
-If (AcceptInvitation_Button){
-add.database.group[k];
-delete.Invitation[k];
-}
-DeclineInvitation()
-Pre Conditions: User is viewing InboxPage; User must click the DeclineInvitation_Button 
-If Button is clicked, then DeclineInvitation_Button == true
-Post_Condition: delete the invitation notice
+```
+	If (AcceptInvitation_Button){
+		add.database.group[k];
+		delete.Invitation[k];
+	}
+```
+#### O. DeclineInvitation():
+> Pre Conditions: User is viewing InboxPage; User must click the DeclineInvitation_Button 
+> If Button is clicked, then DeclineInvitation_Button == true
+> Post_Condition: delete the invitation notice
 Pseudocode:
-If (DeclineInvitation_Button){
-delete.Invitation;
-}
-AcceptAll()
-Pre Conditions: User is viewing InboxPage; 
-User must click the AcceptAllInvitation_Button 
-If Button is clicked, then AcceptAllInvitation_Button == true
-Post_Condition: group[A….X] will be added into profile; delete the invitation notice
+```
+	If (DeclineInvitation_Button){
+		delete.Invitation;
+	}
+#### P. AcceptAll():
+> Pre Conditions: User is viewing InboxPage; 
+> User must click the AcceptAllInvitation_Button 
+> If Button is clicked, then AcceptAllInvitation_Button == true
+> Post_Condition: group[A….X] will be added into profile; delete the invitation notice
 Pseudocode:
-If (AcceptAllInvitation_Button){
-add.database.group[A…..X];
-delete.Invitation[A...X];
-}
-DeclineAll() 
-Pre Conditions: User is viewing InboxPage; 
-User must click the DeclineAllInvitation_Button 
-If Button is clicked, then DeclineAllInvitation_Button == true
-Post_Condition: delete the invitation notice
+```
+	If (AcceptAllInvitation_Button){
+		add.database.group[A…..X];
+		delete.Invitation[A...X];
+	}
+```
+#### Q. DeclineAll():
+> Pre Conditions: User is viewing InboxPage; 
+> User must click the DeclineAllInvitation_Button 
+> If Button is clicked, then DeclineAllInvitation_Button == true
+> Post_Condition: delete the invitation notice
 Pseudocode:
-If (DeclineAllInvitation_Button){
-delete.Invitation[A...X];
-}
-CreatePoll()
-Pre Conditions: User must click the CreatePoll_Button 
-If Button is clicked, then ClickCreatePoll_Button == true
-Post Conditions: CreatePoll will be a pop-up window and pop-up in front of the main GUI
+```
+	If (DeclineAllInvitation_Button){
+		delete.Invitation[A...X];
+	}
+```
+#### R. CreatePoll():
+> Pre Conditions: User must click the CreatePoll_Button 
+> If Button is clicked, then ClickCreatePoll_Button == true
+> Post Conditions: CreatePoll will be a pop-up window and pop-up in front of the main GUI
+Pseudocode:
+```
+	Void CreatePoll(){
+		if(ClickCreatePoll_Button == true){
+			CreatePoll_Page.open()
+		}
+	}	 
+```		
+#### S. PublishPoll():
+> Pre Conditions: User must click the PublishPoll_Button 
+> If Button is clicked, then ClickPublishPoll_Button == true
+> Post Conditions: Poll will be saved into the database and be published
 Pseudocode
-Void CreatePoll(){
-	if(ClickCreatePoll_Button == true){
-	CreatePoll_Page.open()
-}
-} 
-		
-		
-PublishPoll()
-Pre Conditions: User must click the PublishPoll_Button 
-If Button is clicked, then ClickPublishPoll_Button == true
-Post Conditions: Poll will be saved into the database and be published
+```
+	Void PublishPoll(){
+		if(ClickPublishPoll_Button == true){
+			database.Create(NewPoll)	
+			SentNotification(GroupMembers)
+			CreatePoll_Page.Close()
+		}
+	}	 
+```
+#### T. VotePoll():
+> Pre Conditions: User must click the VotePoll_Button 
+> If Button is clicked, then ClickVotePoll_Button == true
+> Post Conditions: vote will be updated into the database
 Pseudocode
-Void PublishPoll(){
-	if(ClickPublishPoll_Button == true){
-	database.Create(NewPoll)	
-	SentNotification(GroupMembers)
-CreatePoll_Page.Close()
-}
-} 
-
-VotePoll()
-Pre Conditions: User must click the VotePoll_Button 
-If Button is clicked, then ClickVotePoll_Button == true
-Post Conditions: vote will be updated into the database
+```
+	Void VotePoll(){
+		if(ClickVotePoll_Button == true){
+			database.update(voteInfo)	
+		}
+	}	 
+```
+#### U. LeaveGroup():
+> Pre Conditions: User must click the LeaveGroup_Button 
+> If Button is clicked, then ClickLeaveGroup_Button == true
+> Post Conditions: update the database and send notification
+> Pseudocode
+```
+	Void LeaveGroup(){
+		if(ClickLeaveGroup_Button == true){
+			database.delete(MemberInfo)	
+			SentNotification(GroupMembers)
+		}
+	}	 
+```
+#### V. SendInvitation():
+> Pre Conditions: User must click the SendInvitation_Button 
+> If Button is clicked, then ClickSendInvitation_Button == true
+> Post Conditions: update the database and send notification
 Pseudocode
-Void VotePoll(){
-	if(ClickVotePoll_Button == true){
-	database.update(voteInfo)	
-}
-} 
-
-LeaveGroup()
-Pre Conditions: User must click the LeaveGroup_Button 
-If Button is clicked, then ClickLeaveGroup_Button == true
-Post Conditions: update the database and send notification
-Pseudocode
-Void LeaveGroup(){
-	if(ClickLeaveGroup_Button == true){
-	database.delete(MemberInfo)	
-	SentNotification(GroupMembers)
-}
-} 
-
-SendInvitation() 
-Pre Conditions: User must click the SendInvitation_Button 
-If Button is clicked, then ClickSendInvitation_Button == true
-Post Conditions: update the database and send notification
-Pseudocode
-Void SendInvitation(){
-	if(ClickSendInvitation_Button == true){	
-	SentNotification(GroupMembers)
-}
-} 
-
-EditSkills()
-Pre Conditions: User must click the EditSkills_Button 
-If Button is clicked, then ClickEditSkills_Button == true
-Post Conditions: update the database Pseudocode
-Void EditSkills(){
-	if(ClickEditSkills_Button == true){
-	database.update(skillInfo)	
-}
-} 
-
-EditInterests()
-Pre Conditions: User must click the EditInterests_Button 
-If Button is clicked, then ClickEditInterests_Button == true
-Post Conditions: update the database Pseudocode
-Void EditInterests(){
-	if(ClickEditInterests_Button == true){
-	database.update(InterestInfo)	
-}
-} 
-
-    
+```
+	Void SendInvitation(){
+		if(ClickSendInvitation_Button == true){	
+			SentNotification(GroupMembers)
+		}
+	} 
+```
+#### W. EditSkills():
+> Pre Conditions: User must click the EditSkills_Button 
+> If Button is clicked, then ClickEditSkills_Button == true
+> Post Conditions: update the database Pseudocode
+```
+	Void EditSkills(){
+		if(ClickEditSkills_Button == true){
+			database.update(skillInfo)	
+		}
+	}	 
+```
+#### X. EditInterests():
+> Pre Conditions: User must click the EditInterests_Button 
+> If Button is clicked, then ClickEditInterests_Button == true
+> Post Conditions: update the database Pseudocode
+```
+	Void EditInterests(){
+		if(ClickEditInterests_Button == true){
+			database.update(InterestInfo)	
+		}
+	} 
+ ```   
 ### 5. System screens:
     demonstrate major GUI screens of the system and a prototype of one
     functionality of your own choice.
