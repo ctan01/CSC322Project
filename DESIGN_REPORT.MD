@@ -17,24 +17,35 @@ https://docs.google.com/document/d/1mg6cAZ5uQf2P2sezdsFmTxK0sVSXGgF_z8rX4OM0uTI/
       3 or more use cases: draw the Petri-nets instead of class diagrams
 #### DIAGRAMS:
 #### A. Logging In (PETRI NET):
+> When a user clicks the log in button, they are prompted with a pop-up window to enter their
+> user name and password, if the login is successful, they are logged into their account and brought to the home page
+> if it is not correct, it will prompt the user with an error message and an option to try again or reset their password. 
+> the user will be redirected to the log in window again, or if they click to reset their password, will be redirected to reset their password
 ![](logInClassDiagram.jpg)
 #### B. Logging Out:
+> When a user clicks the log out button, they are locked out.
 ![](logOutClassDiagram.jpg)
 #### C. Accept Invitation to Join Group:
+
 ![](AcceptInvitationClassDiagram.jpg)
 #### D. Create Group:
 ![](CreateGroupClassDiagram.jpg)
 #### E. Forgot Password:
+> Any user can click on the forget password link available on the log in page or after they fail to log in successfully. A change password request is sent and the user must enter their email. If their email entered does not maatch the email in the database, an error message is sent to the user, otherwise, the user's password will be sent to their email.
 ![](ForgotPasswordClassDiagram.jpg)
 #### F. Edit Profile:
+> When a user presses the edit profile page, the edit GUI is opened and the user can edit their profile information.
 ![](EditProfileClassDiagram.jpg)
 #### G. Accept Invitation:
+> When clicked, the response of accepted is inputted and sent to be inserted into the database thaat the user has accepted to join the group. The user is added to the database table of the users that are members of the group.
 ![](AcceptInvitationClassDiagram.jpg)
 #### H. Accept All Invitations:
 ![](AccepteAllInviteClassDigram.png)
 #### I. Decline Invitation:
+> When this button is clicked, the decline input is sent to the page and inserted into the database that the user declined to join the group
 ![](DeclineInvitationClassDiagram.png)
 #### J. Decline All Invitations:
+> When clicked, the decline input is inputted as the response to all invitations present in the user's inbox.
 ![](DeclineAllInvitationsClassDiagrram.png)
 #### K. Register to Become an Ordinary User:
 ![](RegisterClassDiagram.png)
@@ -67,9 +78,9 @@ https://docs.google.com/document/d/1mg6cAZ5uQf2P2sezdsFmTxK0sVSXGgF_z8rX4OM0uTI/
       o for EVERY method use pseudo-code to delineate the input/output and
       o main functionalities
 ##### A. jump_Homepage1():
->Pre-Conditions: User must click the HomePage1 Button
->if Button is clicked, then jumpHomepage1_Button == true
->Post-Conditions: Current window will be closed from view and Homepage1 will be opened.
+> Pre-Conditions: User must click the HomePage1 Button
+> if Button is clicked, then jumpHomepage1_Button == true
+> Post-Conditions: Current window will be closed from view and Homepage1 will be opened.
 Pseudocode:
 ```
 	void jump_Homepage1() {
@@ -245,6 +256,7 @@ Pseudocode:
 		current_Window.close();
 		GroupPage.open();
 	}
+```
 #### M. DeleteComment():
 > Pre Conditions: User is viewing database.comment[k]; User must click the DeleteComment_Button 
 > If Button is clicked, then DeleteComment_Button == true
