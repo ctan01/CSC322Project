@@ -26,7 +26,10 @@ https://docs.google.com/document/d/1mg6cAZ5uQf2P2sezdsFmTxK0sVSXGgF_z8rX4OM0uTI/
 > When a user clicks the log out button, they are locked out.
 ![](logOutClassDiagram.jpg)
 #### C. Invite to Join Group:
+> On the group page, a user can select to send an invitation to another user to join the group page. If the user selected is already in the group, they will get a notification that they cannot select the user as they are already in the group.
 #### D. Create Group:
+> OUs, SUs, and VIPs can start a group
+> There must be at least three members selected to join/ invite for the group to be requested to be created. Only when there are at least three acceptance responses will the group and its group page be created.
 ![](CreateGroupClassDiagram.jpg)
 #### E. Forgot Password:
 > Any user can click on the forget password link available on the log in page or after they fail to log in successfully. A change password request is sent and the user must enter their email. If their email entered does not maatch the email in the database, an error message is sent to the user, otherwise, the user's password will be sent to their email.
@@ -35,9 +38,10 @@ https://docs.google.com/document/d/1mg6cAZ5uQf2P2sezdsFmTxK0sVSXGgF_z8rX4OM0uTI/
 > When a user presses the edit profile page, the edit GUI is opened and the user can edit their profile information.
 ![](EditProfileClassDiagram.jpg)
 #### G. Accept Invitation:
-> When clicked, the response of accepted is inputted and sent to be inserted into the database thaat the user has accepted to join the group. The user is added to the database table of the users that are members of the group.
+> When clicked, the response of accepted is inputted and sent to be inserted into the database that the user has accepted to join the group. The user is added to the database table of the users that are members of the group.
 ![](AcceptInvitationClassDiagram.jpg)
 #### H. Accept All Invitations:
+> All responses to all invitations present in user's inbox will be recorded as "accepted" and will be inserted into the database.
 ![](AccepteAllInviteClassDigram.png)
 #### I. Decline Invitation:
 > When this button is clicked, the decline input is sent to the page and inserted into the database that the user declined to join the group
@@ -46,8 +50,10 @@ https://docs.google.com/document/d/1mg6cAZ5uQf2P2sezdsFmTxK0sVSXGgF_z8rX4OM0uTI/
 > When clicked, the decline input is inputted as the response to all invitations present in the user's inbox.
 ![](DeclineAllInvitationsClassDiagrram.png)
 #### K. Register to Become an Ordinary User:
+> User will be prompted to fill out form requesting basic personal information, interests, skills, and reference to be approved.Responses will be Inserted in corresponding table in the database.
 ![](RegisterClassDiagram.png)
 #### L. Post to Group Page (PETRI NET):
+> User will be able to click the create post button in which they will be prompted with a text box and insert their text. Then, the input will be read. If there is a taboo word, the amount of taboo words will be counted and the taboo word will be censored before posted the input onto the group page as a new post. According to the amount of taboo words, there will be a corresponding point deduction from the users reputation score. The current score will be retrieved, the point deduction will be deducted, then the new reputation score will be inputted into the user's data.
 ![](PosttoGroupPageClassDiagram.png)
 #### M. Set Up Vote:
 > Set up vote. The Vote can issue to a warning to a group member or praise a group member. If 80% of the users vote to do so, the group member will get a notification.
@@ -56,6 +62,7 @@ https://docs.google.com/document/d/1mg6cAZ5uQf2P2sezdsFmTxK0sVSXGgF_z8rX4OM0uTI/
 > Request to create a poll to vote on meet-up time.
 ![](RequestMeetUpTimeClassDiagram.png)
 #### O. Vote for Democratic SU:
+> Periodically, VIPS will get a notification in their inbox that will prompt a pop-up window for the VIP to vote for a democratic SU. The winner will get a notification.
 ![](VoteforDemocraticSUClassDiagram.png)
 #### P. Vote to Close Group (PETRI NET):
 > If 80% of the Members that vote, vote to close the group, the group will close.
@@ -67,10 +74,13 @@ https://docs.google.com/document/d/1mg6cAZ5uQf2P2sezdsFmTxK0sVSXGgF_z8rX4OM0uTI/
 > And Upon opening the notification, a pop up window for member evaluation opens.
 ![](EvaluateGroupMembersClassDiagram.png)
 #### R. Send Complaint:
+> OUs can send compaints to SUs to either report system malfunction or bad behavior of users. They click a button to complain to SU and the complaint info will be inputted into the database. Then the SU will be notified of the complaint.
 ![](SendComplaintClassDiagram.png)
 #### S. Send Compliment:
+> OUs can send compliments of other OUs to SUs who will increase the reputation score of the complimented OU. OUs do this through the inbox page as the previous one and will be inserted into the database. Then SU will be notified.
 ![](SendComplimentClassDiagram.png)
 #### T. Leave Project Group:
+> At any time, a user can click this button on the group page and leave the project group. They will be prompted to confirm they do want to leave. Then their input will be recorded and they will be removed from the members list of the groups table in the database.
       
 ### 3. E-R diagram for the entire system attributes and key for each class should be provided
 ![](erdiagram.png)
@@ -400,10 +410,20 @@ Pseudocode
 	} 
  ```   
 ### 5. System screens:
-    demonstrate major GUI screens of the system and a prototype of one
-    functionality of your own choice.
+> demonstrate major GUI screens of the system and a prototype of one
+> functionality of your own choice.
+> Codes for each found in this repo. Codes with prefix "OLD" are from the old code in Tkinter. We are now using PyQt5.
+#### Home Page
+#### Login Page
+#### Profile Page
+#### Registration Page
+#### Group Page
+
 ### 6. Minutes of group meetings and possible concerns of team work
+> Our team had 5 group meeting sessions adding up to a total of 7hrs and 22mins of group working together. 
 
 ### 7. Address of the git repo (github, gitlab, bitbucket, etc) of your 
     team's work so far - put all materials including this report there
     Git repo and such is all here.
+> Google Docs of Report In case Missing Sections:
+https://docs.google.com/document/d/1mg6cAZ5uQf2P2sezdsFmTxK0sVSXGgF_z8rX4OM0uTI/edit?usp=sharing
