@@ -27,6 +27,7 @@ https://docs.google.com/document/d/1mg6cAZ5uQf2P2sezdsFmTxK0sVSXGgF_z8rX4OM0uTI/
 ![](logOutClassDiagram.jpg)
 #### C. Invite to Join Group:
 > On the group page, a user can select to send an invitation to another user to join the group page. If the user selected is already in the group, they will get a notification that they cannot select the user as they are already in the group.
+![](invitetojoinclassdiagram.jpg)
 #### D. Create Group:
 > OUs, SUs, and VIPs can start a group
 > There must be at least three members selected to join/ invite for the group to be requested to be created. Only when there are at least three acceptance responses will the group and its group page be created.
@@ -81,7 +82,8 @@ https://docs.google.com/document/d/1mg6cAZ5uQf2P2sezdsFmTxK0sVSXGgF_z8rX4OM0uTI/
 ![](SendComplimentClassDiagram.png)
 #### T. Leave Project Group:
 > At any time, a user can click this button on the group page and leave the project group. They will be prompted to confirm they do want to leave. Then their input will be recorded and they will be removed from the members list of the groups table in the database.
-      
+![](leavegroupclassdiaam.jpg)     
+
 ### 3. E-R diagram for the entire system attributes and key for each class should be provided
 ![](erdiagram.png)
 
