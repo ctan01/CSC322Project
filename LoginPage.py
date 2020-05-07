@@ -1,20 +1,18 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'LoginPage.ui'
-#
-# Created by: PyQt5 UI code generator 5.13.2
-#
-# WARNING! All changes made in this file will be lost!
-
-
 from PyQt5 import QtCore, QtGui, QtWidgets
+from HomePage2 import Ui_HomePage2
 
+class Ui_loginPage(object):
+    def openHomePage2(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_HomePage2()
+        self.ui.setupUi(self.window)
+        LoginPage.close()
+        self.window.show()
 
-class Ui_Login(object):
-    def setupUi(self, Login):
-        Login.setObjectName("Login")
-        Login.resize(432, 200)
-        self.centralwidget = QtWidgets.QWidget(Login)
+    def setupUi(self, loginPage):
+        loginPage.setObjectName("LoginPage")
+        loginPage.resize(446, 193)
+        self.centralwidget = QtWidgets.QWidget(loginPage)
         self.centralwidget.setObjectName("centralwidget")
         self.label_username = QtWidgets.QLabel(self.centralwidget)
         self.label_username.setGeometry(QtCore.QRect(20, 30, 91, 16))
@@ -38,39 +36,38 @@ class Ui_Login(object):
         self.pushButton_login = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_login.setGeometry(QtCore.QRect(100, 110, 101, 41))
         self.pushButton_login.setObjectName("pushButton_login")
+
+        self.pushButton_login.clicked.connect(self.openHomePage2) # connect the button to home page 2
+
         self.pushButton_forgotPassowrd = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_forgotPassowrd.setGeometry(QtCore.QRect(220, 110, 121, 41))
         self.pushButton_forgotPassowrd.setObjectName("pushButton_forgotPassowrd")
-        Login.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(Login)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 432, 21))
+        loginPage.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(loginPage)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 446, 21))
         self.menubar.setObjectName("menubar")
-        self.menuback = QtWidgets.QMenu(self.menubar)
-        self.menuback.setObjectName("menuback")
-        Login.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(Login)
+        loginPage.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(loginPage)
         self.statusbar.setObjectName("statusbar")
-        Login.setStatusBar(self.statusbar)
-        self.menubar.addAction(self.menuback.menuAction())
+        loginPage.setStatusBar(self.statusbar)
 
-        self.retranslateUi(Login)
-        QtCore.QMetaObject.connectSlotsByName(Login)
+        self.retranslateUi(loginPage)
+        QtCore.QMetaObject.connectSlotsByName(loginPage)
 
-    def retranslateUi(self, Login):
+    def retranslateUi(self, LoginPage):
         _translate = QtCore.QCoreApplication.translate
-        Login.setWindowTitle(_translate("Login", "MainWindow"))
-        self.label_username.setText(_translate("Login", "Username"))
-        self.label_password.setText(_translate("Login", "Password"))
-        self.pushButton_login.setText(_translate("Login", "Log in"))
-        self.pushButton_forgotPassowrd.setText(_translate("Login", "Forgot Password"))
-        self.menuback.setTitle(_translate("Login", "back"))
+        LoginPage.setWindowTitle(_translate("LoginPage", "MainWindow"))
+        self.label_username.setText(_translate("LoginPage", "Username"))
+        self.label_password.setText(_translate("LoginPage", "Password"))
+        self.pushButton_login.setText(_translate("LoginPage", "Log in"))
+        self.pushButton_forgotPassowrd.setText(_translate("LoginPage", "Forgot Password"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    Login = QtWidgets.QMainWindow()
-    ui = Ui_Login()
-    ui.setupUi(Login)
-    Login.show()
+    LoginPage = QtWidgets.QMainWindow()
+    ui = Ui_loginPage()
+    ui.setupUi(LoginPage)
+    LoginPage.show()
     sys.exit(app.exec_())
