@@ -12,14 +12,9 @@ class Ui_GroupPage(object):
         self.ui.setupUi(self.window)
         self.window.show()
 
-    def openInboxWindow(self):
-
-    def openSearchWindow(self):
-    
-    def openUsersGroups(self):
-
-    
-
+   # def openInboxWindow(self):
+    # def openSearchWindow(self):
+    # def openUsersGroups(self):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1234, 846)
