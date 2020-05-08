@@ -1,16 +1,25 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'MainGroupPage.ui'
-#
-# Created by: PyQt5 UI code generator 5.13.2
-#
-# WARNING! All changes made in this file will be lost!
-
-
 from PyQt5 import QtCore, QtGui, QtWidgets
+from LoginPage import Ui_loginPage
+from RegistrationPage import Ui_registrationPage
+from UsersGroups.py import
 
 
-class Ui_MainWindow(object):
+
+class Ui_GroupPage(object):
+    def openLoginWindow(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_loginPage()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openInboxWindow(self):
+
+    def openSearchWindow(self):
+    
+    def openUsersGroups(self):
+
+    
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1234, 846)
@@ -175,7 +184,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
+    ui = Ui_GroupPage()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
