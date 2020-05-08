@@ -1,7 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from LoginPage import Ui_loginPage
 from RegistrationPage import Ui_registrationPage
-from UsersGroups.py import
 
 
 
