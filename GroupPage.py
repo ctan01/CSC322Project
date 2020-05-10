@@ -11,9 +11,10 @@ class Ui_GroupPage(object):
         self.ui.setupUi(self.window)
         self.window.show()
 
-   # def openInboxWindow(self):
+    # def openInboxWindow(self):
     # def openSearchWindow(self):
     # def openUsersGroups(self):
+    # def
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1234, 846)
@@ -22,6 +23,7 @@ class Ui_GroupPage(object):
         self.NavigationSideBar = QtWidgets.QGroupBox(self.centralwidget)
         self.NavigationSideBar.setGeometry(QtCore.QRect(760, 0, 451, 61))
         self.NavigationSideBar.setObjectName("NavigationSideBar")
+        
         self.InboxButton = QtWidgets.QPushButton(self.NavigationSideBar)
         self.InboxButton.setGeometry(QtCore.QRect(120, 20, 101, 28))
         self.InboxButton.setObjectName("InboxButton")
@@ -74,6 +76,7 @@ class Ui_GroupPage(object):
         self.pushButton = QtWidgets.QPushButton(self.GroupPost)
         self.pushButton.setGeometry(QtCore.QRect(590, 180, 93, 28))
         self.pushButton.setObjectName("pushButton")
+
         self.VoteWarning = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)
         self.VoteWarning.setGeometry(QtCore.QRect(10, 340, 701, 91))
         self.VoteWarning.setObjectName("VoteWarning")
@@ -86,20 +89,26 @@ class Ui_GroupPage(object):
         self.SubmitVote_2 = QtWidgets.QPushButton(self.VoteWarning)
         self.SubmitVote_2.setGeometry(QtCore.QRect(590, 60, 93, 28))
         self.SubmitVote_2.setObjectName("SubmitVote_2")
+
         self.verticalScrollBar = QtWidgets.QScrollBar(self.scrollAreaWidgetContents)
         self.verticalScrollBar.setGeometry(QtCore.QRect(730, 0, 16, 160))
         self.verticalScrollBar.setOrientation(QtCore.Qt.Vertical)
         self.verticalScrollBar.setObjectName("verticalScrollBar")
+
         self.Dashboard.setWidget(self.scrollAreaWidgetContents)
+
         self.GroupCommands = QtWidgets.QGroupBox(self.centralwidget)
         self.GroupCommands.setGeometry(QtCore.QRect(990, 70, 221, 271))
         self.GroupCommands.setObjectName("GroupCommands")
+
         self.Leave_Group_2 = QtWidgets.QPushButton(self.GroupCommands)
         self.Leave_Group_2.setGeometry(QtCore.QRect(0, 240, 221, 28))
         self.Leave_Group_2.setObjectName("Leave_Group_2")
+
         self.CreatePost = QtWidgets.QPushButton(self.GroupCommands)
         self.CreatePost.setGeometry(QtCore.QRect(0, 20, 221, 28))
         self.CreatePost.setObjectName("CreatePost")
+
         self.CreateMeetUpPoll = QtWidgets.QPushButton(self.GroupCommands)
         self.CreateMeetUpPoll.setGeometry(QtCore.QRect(0, 50, 221, 28))
         self.CreateMeetUpPoll.setObjectName("CreateMeetUpPoll")
@@ -109,6 +118,7 @@ class Ui_GroupPage(object):
         self.CreateMemberPoll_2 = QtWidgets.QPushButton(self.GroupCommands)
         self.CreateMemberPoll_2.setGeometry(QtCore.QRect(0, 110, 221, 28))
         self.CreateMemberPoll_2.setObjectName("CreateMemberPoll_2")
+
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox.setGeometry(QtCore.QRect(10, 70, 211, 271))
         self.groupBox.setObjectName("groupBox")
@@ -143,7 +153,7 @@ class Ui_GroupPage(object):
         self.InboxButton.setText(_translate("MainWindow", "Inbox"))
         self.ProfileButton.setText(_translate("MainWindow", "Profile"))
         self.LogOUt.setText(_translate("MainWindow", "LogOut"))
-        self.GroupsButton.setText(_translate("MainWindow", "Groups"))
+        self.GroupsButton.setText(_translate("MainWindow", "Home"))
         self.MeetUpPoll.setTitle(_translate("MainWindow", "Poll"))
         self.Choice1.setText(_translate("MainWindow", "Tuesday 2pm"))
         self.SubmitVote.setText(_translate("MainWindow", "Submit"))
