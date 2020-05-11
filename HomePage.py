@@ -1,8 +1,11 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from LoginPage import Ui_loginPage
 from RegistrationPage import Ui_registrationPage
+import pandas as pd
 
 
+
+# HomePage
 class Ui_HomePage(object):
     def openLoginWindow(self):
         self.window = QtWidgets.QMainWindow()
@@ -374,3 +377,6 @@ if __name__ == "__main__":
     ui.setupUi(HomePage)
     HomePage.show()
     sys.exit(app.exec_())
+
+
+# end of HomePage

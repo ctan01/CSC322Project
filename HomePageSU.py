@@ -1,6 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+import pandas as pd
 
-
+# HomePageSU
 class Ui_HomePageSU(object):
     def setupUi(self, HomePageSU):
         HomePageSU.setObjectName("HomePageSU")

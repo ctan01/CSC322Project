@@ -1,6 +1,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from ProfilePage import Ui_profilePage
+import pandas as pd
 
+# HomePage2
 class Ui_HomePage2(object):
     def logout(self):
         HomePage2.close()
@@ -8,20 +10,6 @@ class Ui_HomePage2(object):
     def openProfileWindow(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_profilePage()
-        self.ui.setupUi(self.window)
-        self.window.show()
-
-    def openInboxPage(self):               
-        from InboxPage import Ui_InboxPage
-        self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_InboxPage()
-        self.ui.setupUi(self.window)
-        self.window.show()
-
-    def openGroupsPage(self):
-        from UsersGroups import Ui_UsersGroupsPage
-        self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_UsersGroupsPage()
         self.ui.setupUi(self.window)
         self.window.show()
 
@@ -45,18 +33,12 @@ class Ui_HomePage2(object):
         font.setFamily("Arial")
         self.pushButton_Groups.setFont(font)
         self.pushButton_Groups.setObjectName("pushButton_Groups")
-        self.pushButton_Groups.clicked.connect(self.openGroupsPage)
-        self.pushButton_Groups.clicked.connect(HomePage2.close)
-        
         self.pushButton_Inbox = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_Inbox.setGeometry(QtCore.QRect(700, 20, 81, 31))
         font = QtGui.QFont()
         font.setFamily("Arial")
         self.pushButton_Inbox.setFont(font)
         self.pushButton_Inbox.setObjectName("pushButton_Inbox")
-        self.pushButton_Inbox.clicked.connect(self.openInboxPage)
-        self.pushButton_Inbox.clicked.connect(HomePage2.close)
-
         self.pushButton_Profile = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_Profile.setGeometry(QtCore.QRect(610, 20, 81, 31))
 
@@ -325,62 +307,63 @@ class Ui_HomePage2(object):
         self.pushButton_Profile.setText(_translate("HomePage2", "Profile"))
         self.label_AppName.setText(_translate("HomePage2", "TeamUp"))
         self.pushButton_Search.setText(_translate("HomePage2", "Search"))
-        self.label_User3ProjectDescription.setText(_translate("HomePage2", "Project Description: After school tutoring \n"
-"                                 Outdoor cleanup project\n"
-"       "))
+        self.label_User3ProjectDescription.setText(
+            _translate("HomePage2", "Project Description: After school tutoring \n"
+                                    "                                 Outdoor cleanup project\n"
+                                    "       "))
         self.label_User1Stat.setText(_translate("HomePage2", "User Status: SU"))
         self.label_User2ID.setText(_translate("HomePage2", "User ID: U016"))
         self.label_TopUsers.setText(_translate("HomePage2", "Top Users:"))
         self.label_TopProjects.setText(_translate("HomePage2", "Top Projects:"))
         self.label_User1Name.setText(_translate("HomePage2", "Name: Wilma Mckenzie"))
         self.label_Project2Descrip.setText(_translate("HomePage2", "Project Description: Cleaning parks and \n"
-"                                nature reserves in the\n"
-"                                  neighborhood.  \n"
-" "))
+                                                                   "                                nature reserves in the\n"
+                                                                   "                                  neighborhood.  \n"
+                                                                   " "))
         self.label_User1ID.setText(_translate("HomePage2", "User ID: U005"))
         self.label_Project2Member.setText(_translate("HomePage2", "Team Members: Stan Crossley, \n"
-"                            Mercedes Cortes,\n"
-"                           Wilma Mckenzie, \n"
-"                           Nyah Villanueva  \n"
-""))
+                                                                  "                            Mercedes Cortes,\n"
+                                                                  "                           Wilma Mckenzie, \n"
+                                                                  "                           Nyah Villanueva  \n"
+                                                                  ""))
         self.label_Project1Title.setText(_translate("HomePage2", "Project Title: Pop up library"))
         self.label_User3Score.setText(_translate("HomePage2", "Reputation Score: 16"))
         self.label_User2Stat.setText(_translate("HomePage2", "User Status: VIP"))
         self.label_User3ID.setText(_translate("HomePage2", "User ID: U067"))
         self.label_User2ProjectDescription.setText(_translate("HomePage2", "Project Description: Book and toy drive \n"
-"                                 Outdoor cleanup project\n"
-"                                 Document life stories  \n"
-" "))
+                                                                           "                                 Outdoor cleanup project\n"
+                                                                           "                                 Document life stories  \n"
+                                                                           " "))
         self.label_user1Score.setText(_translate("HomePage2", "Reputation Score: 49"))
         self.label_Project2Title.setText(_translate("HomePage2", "Project Title: Outdoor cleanup project"))
         self.label_User3Stat.setText(_translate("HomePage2", "User Status: OU"))
         self.label_User2Name.setText(_translate("HomePage2", "Name: Nyah Villanueva"))
         self.label_Project1Member.setText(_translate("HomePage2", "Team Members: Rhyley Gamble, \n"
-"                           Wilma Mckenzie,\n"
-"                           Rabia Rossi, \n"
-"                           Olive Sanderson  \n"
-""))
+                                                                  "                           Wilma Mckenzie,\n"
+                                                                  "                           Rabia Rossi, \n"
+                                                                  "                           Olive Sanderson  \n"
+                                                                  ""))
         self.label_Project3Member.setText(_translate("HomePage2", "Team Members: Waqas Stuart, \n"
-"                           Tiya Adams,\n"
-"                           Rabia Rossi, \n"
-"                           Nyag Villanueva  \n"
-""))
+                                                                  "                           Tiya Adams,\n"
+                                                                  "                           Rabia Rossi, \n"
+                                                                  "                           Nyag Villanueva  \n"
+                                                                  ""))
         self.label_Project3Descrip.setText(_translate("HomePage2", "Project Description: Collect donations for \n"
-"                                local schools and\n"
-"                                  community centers.  \n"
-" "))
+                                                                   "                                local schools and\n"
+                                                                   "                                  community centers.  \n"
+                                                                   " "))
         self.label_Project3ID.setText(_translate("HomePage2", "Project ID: P007"))
         self.label_User2Score.setText(_translate("HomePage2", "Reputation Score: 31"))
         self.label_Project1ID.setText(_translate("HomePage2", "Project ID: P001"))
         self.label_Project3Title.setText(_translate("HomePage2", "Project Title: Book and toy drive"))
         self.label_User1ProjectDescription.setText(_translate("HomePage2", "Project Description: Pop-up library \n"
-"                                 Outdoor cleanup project\n"
-"                                 Document life stories  \n"
-" "))
+                                                                           "                                 Outdoor cleanup project\n"
+                                                                           "                                 Document life stories  \n"
+                                                                           " "))
         self.label_Project1Descrip.setText(_translate("HomePage2", "Project Description: Build a pop-up library \n"
-"                                and invite the community\n"
-"                                  to donate and take books.  \n"
-" "))
+                                                                   "                                and invite the community\n"
+                                                                   "                                  to donate and take books.  \n"
+                                                                   " "))
         self.label_User3Name.setText(_translate("HomePage2", "Name: Stan Crossley"))
         self.label_Project2ID.setText(_translate("HomePage2", "Project ID: P004"))
         self.actionProfile.setText(_translate("HomePage2", "Profile"))
@@ -390,6 +373,7 @@ class Ui_HomePage2(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     HomePage2 = QtWidgets.QMainWindow()
     ui = Ui_HomePage2()

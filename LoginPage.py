@@ -1,12 +1,29 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+import pandas as pd
+from PyQt5.QtWidgets import QMessageBox
+from PyQt5.QtWidgets import QLineEdit
 from HomePage2 import Ui_HomePage2
 
+
+# LoginPage
+
+
 class Ui_loginPage(object):
+    def login(self):
+        df = pd.read_csv("UserData.csv")
+        for x in range(31):
+            if self.lineEdit_username.text() == df['username'[x]] and self.lineEdit_password.text() == df['password'[x]]:
+                self.openHomePage2()
+
+            else:
+                msg = QMessageBox()
+                msg.setText('Incorrect Password')
+                msg.exec_()
+
     def openHomePage2(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_HomePage2()
         self.ui.setupUi(self.window)
-        LoginPage.close()
         self.window.show()
 
     def setupUi(self, loginPage):
@@ -27,17 +44,18 @@ class Ui_loginPage(object):
         font.setFamily("Arial")
         self.label_password.setFont(font)
         self.label_password.setObjectName("label_password")
-        self.textEdit_username = QtWidgets.QTextEdit(self.centralwidget)
-        self.textEdit_username.setGeometry(QtCore.QRect(90, 20, 301, 31))
-        self.textEdit_username.setObjectName("textEdit_username")
-        self.textEdit_password = QtWidgets.QTextEdit(self.centralwidget)
-        self.textEdit_password.setGeometry(QtCore.QRect(90, 60, 301, 31))
-        self.textEdit_password.setObjectName("textEdit_password")
+        self.lineEdit_username = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_username.setGeometry(QtCore.QRect(90, 20, 301, 31))
+        self.lineEdit_username.setObjectName("lineEdit_username")
+        self.lineEdit_password = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_password.setGeometry(QtCore.QRect(90, 60, 301, 31))
+        self.lineEdit_password.setObjectName("lineEdit_password")
         self.pushButton_login = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_login.setGeometry(QtCore.QRect(100, 110, 101, 41))
         self.pushButton_login.setObjectName("pushButton_login")
 
-        self.pushButton_login.clicked.connect(self.openHomePage2) # connect the button to home page 2
+        self.pushButton_login.clicked.connect(self.login)  # connect the button to home page 2
+        self.pushButton_login.clicked.connect(loginPage.close)
 
         self.pushButton_forgotPassowrd = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_forgotPassowrd.setGeometry(QtCore.QRect(220, 110, 121, 41))
@@ -65,9 +83,16 @@ class Ui_loginPage(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     LoginPage = QtWidgets.QMainWindow()
     ui = Ui_loginPage()
     ui.setupUi(LoginPage)
     LoginPage.show()
     sys.exit(app.exec_())
+
+
+
+ # df.iloc[x,1]
+    # df.loc[df['username'] == "userInput"]
+    # df = df.drop(row = ['userID'])
