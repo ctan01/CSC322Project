@@ -5,10 +5,23 @@ class Ui_HomePage2(object):
     def logout(self):
         HomePage2.close()
 
-
     def openProfileWindow(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_profilePage()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openInboxPage(self):               
+        from InboxPage import Ui_InboxPage
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_InboxPage()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openGroupsPage(self):
+        from UsersGroups import Ui_UsersGroupsPage
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_UsersGroupsPage()
         self.ui.setupUi(self.window)
         self.window.show()
 
@@ -32,12 +45,18 @@ class Ui_HomePage2(object):
         font.setFamily("Arial")
         self.pushButton_Groups.setFont(font)
         self.pushButton_Groups.setObjectName("pushButton_Groups")
+        self.pushButton_Groups.clicked.connect(self.openGroupsPage)
+        self.pushButton_Groups.clicked.connect(HomePage2.close)
+        
         self.pushButton_Inbox = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_Inbox.setGeometry(QtCore.QRect(700, 20, 81, 31))
         font = QtGui.QFont()
         font.setFamily("Arial")
         self.pushButton_Inbox.setFont(font)
         self.pushButton_Inbox.setObjectName("pushButton_Inbox")
+        self.pushButton_Inbox.clicked.connect(self.openInboxPage)
+        self.pushButton_Inbox.clicked.connect(HomePage2.close)
+
         self.pushButton_Profile = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_Profile.setGeometry(QtCore.QRect(610, 20, 81, 31))
 

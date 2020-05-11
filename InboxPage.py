@@ -1,55 +1,38 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from LoginPage import Ui_loginPage
-from RegistrationPage import Ui_registrationPage
-from LeaveGroupConfirmation import Ui_LeaveGroup
-from CreateMeetUpPoll import Ui_MeetUpPoll
-from CreateMemberPoll import Ui_MemberPoll
-from CreatePost import Ui_CreatePost
-from ProfilePage import Ui_profilePage
-from UsersGroups import Ui_UsersGroupsPage
-from SearchPage import Ui_SearchPage
-from HomePage2 import Ui_HomePage2
 
 
 class Ui_InboxPage(object):
-        def openInboxPage(self):                # USERID PARAMETERS
-                self.window = QtWidgets.QMainWindow()
-                self.ui = Ui_InboxPage()
+        def openGroupsPage(self):
+                from UsersGroups import Ui_UsersGroupsPage
+                self.window = QtWidgets.QMainWindow() # USERID PARAMETERS
+                self.ui = Ui_UsersGroupsPage()
                 self.ui.setupUi(self.window)
                 self.window.show()
 
         def openProfilePage(self):              # USERID PARAMETERS
+                from ProfilePage import Ui_profilePage
                 self.window = QtWidgets.QMainWindow()
                 self.ui = Ui_profilePage()
                 self.ui.setupUi(self.window)
                 self.window.show()
 
 
-        def openCreatePostPage(self):           # GROUPID PARAMETERS    
-                self.window = QtWidgets.QMainWindow()
-                self.ui = Ui_CreatePost()
-                self.ui.setupUi(self.window)
-                self.window.show()
-
-        def openCreateMeetUpPoll(self):         # POP UP WINDOW 
-                self.window = QtWidgets.QMainWindow()
-                self.ui = Ui_MeetUpPoll()
-                self.ui.setupUi(self.window)
-                self.window.show()
-
         def openSearchWindow(self):             # Might have to carry other parameters, such as input of search
+                from SearchPage import Ui_SearchPage
                 self.window = QtWidgets.QMainWindow()
                 self.ui = Ui_SearchPage()
                 self.ui.setupUi(self.window)
                 self.window.show()
 
         def openUsersGroups(self):              # USER ID PARAMETERS
+                from UsersGroups import Ui_UsersGroupsPage
                 self.window = QtWidgets.QMainWindow()
                 self.ui = Ui_UsersGroupsPage()
                 self.ui.setupUi(self.window)
                 self.window.show()
 
         def openHomePage(self):
+                from HomePage2 import Ui_HomePage2
                 self.window = QtWidgets.QMainWindow()
                 self.ui = Ui_HomePage2()
                 self.ui.setupUi(self.window)
@@ -65,20 +48,31 @@ class Ui_InboxPage(object):
                 self.NavigationSideBar.setGeometry(QtCore.QRect(590, 0, 451, 61))
                 self.NavigationSideBar.setObjectName("NavigationSideBar")
 
-                self.HomeButton = QtWidgets.QPushButton(self.NavigationSideBar)
+                self.HomeButton = QtWidgets.QPushButton(self.NavigationSideBar)         # LINKED
                 self.HomeButton.setGeometry(QtCore.QRect(120, 20, 101, 28))
                 self.HomeButton.setObjectName("HomeButton")
+                self.HomeButton.clicked.connect(self.openHomePage)
+                self.HomeButton.clicked.connect(InboxPage.close)
+
                 
-                self.ProfileButton = QtWidgets.QPushButton(self.NavigationSideBar)
+                self.ProfileButton = QtWidgets.QPushButton(self.NavigationSideBar)      # LINKED
                 self.ProfileButton.setGeometry(QtCore.QRect(10, 20, 101, 28))
                 self.ProfileButton.setObjectName("ProfileButton")
-                self.LogOUt = QtWidgets.QPushButton(self.NavigationSideBar)
+                self.ProfileButton.setObjectName("ProfileButton")
+                self.ProfileButton.clicked.connect(self.openProfilePage)
+
+                self.LogOUt = QtWidgets.QPushButton(self.NavigationSideBar)             # LINKED
                 self.LogOUt.setGeometry(QtCore.QRect(340, 20, 101, 28))
                 self.LogOUt.setObjectName("LogOUt")
-                self.GroupsButton = QtWidgets.QPushButton(self.NavigationSideBar)
+                self.LogOUt.setObjectName("LogOUt")
+                self.LogOUt.clicked.connect(InboxPage.close)
+
+                self.GroupsButton = QtWidgets.QPushButton(self.NavigationSideBar)        #LINKED
                 self.GroupsButton.setGeometry(QtCore.QRect(230, 20, 101, 28))
                 self.GroupsButton.setObjectName("GroupsButton")
-                self.groupBox_2 = QtWidgets.QGroupBox(self.InboxDashboard)
+                self.GroupsButton.clicked.connect(self.openGroupsPage)
+
+                self.groupBox_2 = QtWidgets.QGroupBox(self.InboxDashboard)              
                 self.groupBox_2.setGeometry(QtCore.QRect(10, 0, 211, 61))
                 self.groupBox_2.setObjectName("groupBox_2")
                 self.textEdit = QtWidgets.QTextEdit(self.groupBox_2)

@@ -1,55 +1,50 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from LoginPage import Ui_loginPage
-from RegistrationPage import Ui_registrationPage
-from LeaveGroupConfirmation import Ui_LeaveGroup
-from InboxPage import Ui_InboxPage
-from CreateMeetUpPoll import Ui_MeetUpPoll
-from CreateMemberPoll import Ui_MemberPoll
-from CreatePost import Ui_CreatePost
-from ProfilePage import Ui_profilePage
-from UsersGroups import Ui_UsersGroupsPage
-from SearchPage import Ui_SearchPage
-from HomePage2 import Ui_HomePage2
 
 class Ui_GroupPage(object):
     def openInboxPage(self):                # USERID PARAMETERS
+        from InboxPage import Ui_InboxPage
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_InboxPage()
         self.ui.setupUi(self.window)
         self.window.show()
 
     def openProfilePage(self):              # USERID PARAMETERS
+        from ProfilePage import Ui_profilePage
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_profilePage()
         self.ui.setupUi(self.window)
         self.window.show()
 
-
     def openCreatePostPage(self):           # GROUPID PARAMETERS    
+        from CreatePost import Ui_CreatePost
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_CreatePost()
         self.ui.setupUi(self.window)
         self.window.show()
 
     def openCreateMeetUpPoll(self):         # POP UP WINDOW 
+        from CreateMeetUpPoll import Ui_MeetUpPoll
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_MeetUpPoll()
         self.ui.setupUi(self.window)
         self.window.show()
 
     def openSearchWindow(self):             # Might have to carry other parameters, such as input of search
+        from SearchPage import Ui_SearchPage
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_SearchPage()
         self.ui.setupUi(self.window)
         self.window.show()
 
     def openUsersGroups(self):              # USER ID PARAMETERS
+        from UsersGroups import Ui_UsersGroupsPage
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_UsersGroupsPage()
         self.ui.setupUi(self.window)
         self.window.show()
 
     def openHomePage(self):
+        from HomePage2 import Ui_HomePage2
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_HomePage2()
         self.ui.setupUi(self.window)
