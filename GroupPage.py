@@ -1,24 +1,64 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from LoginPage import Ui_loginPage
 from RegistrationPage import Ui_registrationPage
-
-
+from LeaveGroupConfirmation import Ui_LeaveGroup
+from InboxPage import Ui_InboxPage
+from CreateMeetUpPoll import Ui_MeetUpPoll
+from CreateMemberPoll import Ui_MemberPoll
+from CreatePost import Ui_CreatePost
+from ProfilePage import Ui_profilePage
+from UsersGroups import Ui_UsersGroupsPage
+from SearchPage import Ui_SearchPage
+from HomePage2 import Ui_HomePage2
 
 class Ui_GroupPage(object):
-    def openLoginWindow(self):
+    def openInboxPage(self):                # USERID PARAMETERS
         self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_loginPage()
+        self.ui = Ui_InboxPage()
         self.ui.setupUi(self.window)
         self.window.show()
 
-    # def openInboxWindow(self):
-    # def openSearchWindow(self):
-    # def openUsersGroups(self):
-    # def
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1234, 846)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+    def openProfilePage(self):              # USERID PARAMETERS
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_profilePage()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+
+    def openCreatePostPage(self):           # GROUPID PARAMETERS    
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_CreatePost()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openCreateMeetUpPoll(self):         # POP UP WINDOW 
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_MeetUpPoll()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openSearchWindow(self):             # Might have to carry other parameters, such as input of search
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_SearchPage()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openUsersGroups(self):              # USER ID PARAMETERS
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_UsersGroupsPage()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openHomePage(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_HomePage2()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def setupUi(self, GroupPage):
+        GroupPage.setObjectName("GroupPage")
+        GroupPage.resize(1234, 846)
+        self.centralwidget = QtWidgets.QWidget(GroupPage)
         self.centralwidget.setObjectName("centralwidget")
         self.NavigationSideBar = QtWidgets.QGroupBox(self.centralwidget)
         self.NavigationSideBar.setGeometry(QtCore.QRect(760, 0, 451, 61))
@@ -26,20 +66,34 @@ class Ui_GroupPage(object):
         
         self.InboxButton = QtWidgets.QPushButton(self.NavigationSideBar)
         self.InboxButton.setGeometry(QtCore.QRect(120, 20, 101, 28))
-        self.InboxButton.setObjectName("InboxButton")
-        self.ProfileButton = QtWidgets.QPushButton(self.NavigationSideBar)
+        self.InboxButton.setObjectName("InboxButton")   
+        self.InboxButton.clicked.connect(self.openInboxPage)                # LINKED
+        self.InboxButton.clicked.connect(GroupPage.close)
+
+
+        self.ProfileButton = QtWidgets.QPushButton(self.NavigationSideBar)  # LINKED
         self.ProfileButton.setGeometry(QtCore.QRect(10, 20, 101, 28))
         self.ProfileButton.setObjectName("ProfileButton")
-        self.LogOUt = QtWidgets.QPushButton(self.NavigationSideBar)
+        self.ProfileButton.clicked.connect(self.openProfilePage)
+        
+
+        self.LogOUt = QtWidgets.QPushButton(self.NavigationSideBar)         # LINKED
         self.LogOUt.setGeometry(QtCore.QRect(340, 20, 101, 28))
         self.LogOUt.setObjectName("LogOUt")
-        self.GroupsButton = QtWidgets.QPushButton(self.NavigationSideBar)
-        self.GroupsButton.setGeometry(QtCore.QRect(230, 20, 101, 28))
-        self.GroupsButton.setObjectName("GroupsButton")
+        self.LogOUt.clicked.connect(GroupPage.close)
+
+
+        self.HomeButton = QtWidgets.QPushButton(self.NavigationSideBar)     # LINKED
+        self.HomeButton.setGeometry(QtCore.QRect(230, 20, 101, 28))
+        self.HomeButton.setObjectName("HomeButton")
+        self.HomeButton.clicked.connect(self.openHomePage)
+        self.HomeButton.clicked.connect(GroupPage.close)
+
         self.Dashboard = QtWidgets.QScrollArea(self.centralwidget)
         self.Dashboard.setGeometry(QtCore.QRect(230, 80, 751, 661))
         self.Dashboard.setWidgetResizable(True)
         self.Dashboard.setObjectName("Dashboard")
+
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
         self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 749, 659))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
@@ -52,6 +106,8 @@ class Ui_GroupPage(object):
         self.SubmitVote = QtWidgets.QPushButton(self.MeetUpPoll)
         self.SubmitVote.setGeometry(QtCore.QRect(590, 60, 93, 28))
         self.SubmitVote.setObjectName("SubmitVote")
+
+
         self.Choice2 = QtWidgets.QCheckBox(self.MeetUpPoll)
         self.Choice2.setGeometry(QtCore.QRect(10, 50, 101, 20))
         self.Choice2.setObjectName("Choice2")
@@ -64,15 +120,19 @@ class Ui_GroupPage(object):
         self.Choice5 = QtWidgets.QCheckBox(self.MeetUpPoll)
         self.Choice5.setGeometry(QtCore.QRect(320, 20, 101, 20))
         self.Choice5.setObjectName("Choice5")
+
         self.GroupPost = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)
         self.GroupPost.setGeometry(QtCore.QRect(10, 10, 701, 221))
         self.GroupPost.setObjectName("GroupPost")
+
         self.PostText = QtWidgets.QTextBrowser(self.GroupPost)
         self.PostText.setGeometry(QtCore.QRect(10, 20, 681, 111))
         self.PostText.setObjectName("PostText")
+
         self.textEdit_2 = QtWidgets.QTextEdit(self.GroupPost)
         self.textEdit_2.setGeometry(QtCore.QRect(10, 140, 681, 31))
         self.textEdit_2.setObjectName("textEdit_2")
+
         self.pushButton = QtWidgets.QPushButton(self.GroupPost)
         self.pushButton.setGeometry(QtCore.QRect(590, 180, 93, 28))
         self.pushButton.setObjectName("pushButton")
@@ -80,12 +140,14 @@ class Ui_GroupPage(object):
         self.VoteWarning = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)
         self.VoteWarning.setGeometry(QtCore.QRect(10, 340, 701, 91))
         self.VoteWarning.setObjectName("VoteWarning")
+
         self.YesBox = QtWidgets.QCheckBox(self.VoteWarning)
         self.YesBox.setGeometry(QtCore.QRect(10, 30, 81, 20))
         self.YesBox.setObjectName("YesBox")
         self.NoBox = QtWidgets.QCheckBox(self.VoteWarning)
         self.NoBox.setGeometry(QtCore.QRect(10, 60, 81, 20))
         self.NoBox.setObjectName("NoBox")
+
         self.SubmitVote_2 = QtWidgets.QPushButton(self.VoteWarning)
         self.SubmitVote_2.setGeometry(QtCore.QRect(590, 60, 93, 28))
         self.SubmitVote_2.setObjectName("SubmitVote_2")
@@ -105,19 +167,24 @@ class Ui_GroupPage(object):
         self.Leave_Group_2.setGeometry(QtCore.QRect(0, 240, 221, 28))
         self.Leave_Group_2.setObjectName("Leave_Group_2")
 
-        self.CreatePost = QtWidgets.QPushButton(self.GroupCommands)
+        self.CreatePost = QtWidgets.QPushButton(self.GroupCommands)     # POP UP
         self.CreatePost.setGeometry(QtCore.QRect(0, 20, 221, 28))
         self.CreatePost.setObjectName("CreatePost")
+        self.CreatePost.clicked.connect(self.openCreatePostPage)
 
         self.CreateMeetUpPoll = QtWidgets.QPushButton(self.GroupCommands)
         self.CreateMeetUpPoll.setGeometry(QtCore.QRect(0, 50, 221, 28))
         self.CreateMeetUpPoll.setObjectName("CreateMeetUpPoll")
+       # self.CreateMeetUpPoll.clicked.connect(self.openCreateMeetUpPoll) # BECAUSE ITS POP UP, LINKED DIFFRENTLY
+      
+
+
         self.CreateMemberPoll = QtWidgets.QPushButton(self.GroupCommands)
         self.CreateMemberPoll.setGeometry(QtCore.QRect(0, 80, 221, 28))
         self.CreateMemberPoll.setObjectName("CreateMemberPoll")
-        self.CreateMemberPoll_2 = QtWidgets.QPushButton(self.GroupCommands)
-        self.CreateMemberPoll_2.setGeometry(QtCore.QRect(0, 110, 221, 28))
-        self.CreateMemberPoll_2.setObjectName("CreateMemberPoll_2")
+        self.GroupInfo = QtWidgets.QPushButton(self.GroupCommands)
+        self.GroupInfo.setGeometry(QtCore.QRect(0, 110, 221, 28))
+        self.GroupInfo.setObjectName("GroupInfo")
 
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox.setGeometry(QtCore.QRect(10, 70, 211, 271))
@@ -134,61 +201,62 @@ class Ui_GroupPage(object):
         self.HomeButton_2 = QtWidgets.QPushButton(self.groupBox_2)
         self.HomeButton_2.setGeometry(QtCore.QRect(140, 20, 61, 31))
         self.HomeButton_2.setObjectName("HomeButton_2")
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        GroupPage.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(GroupPage)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1234, 26))
         self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        GroupPage.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(GroupPage)
         self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+        GroupPage.setStatusBar(self.statusbar)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(GroupPage)
+        QtCore.QMetaObject.connectSlotsByName(GroupPage)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, GroupPage):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.NavigationSideBar.setTitle(_translate("MainWindow", "Navigation"))
-        self.InboxButton.setText(_translate("MainWindow", "Inbox"))
-        self.ProfileButton.setText(_translate("MainWindow", "Profile"))
-        self.LogOUt.setText(_translate("MainWindow", "LogOut"))
-        self.GroupsButton.setText(_translate("MainWindow", "Home"))
-        self.MeetUpPoll.setTitle(_translate("MainWindow", "Poll"))
-        self.Choice1.setText(_translate("MainWindow", "Tuesday 2pm"))
-        self.SubmitVote.setText(_translate("MainWindow", "Submit"))
-        self.Choice2.setText(_translate("MainWindow", "Tuesday 7pm"))
-        self.Choice3.setText(_translate("MainWindow", "Thursday 1pm"))
-        self.Choice4.setText(_translate("MainWindow", "Saturday 3pm"))
-        self.Choice5.setText(_translate("MainWindow", "Sunday 2pm"))
-        self.GroupPost.setTitle(_translate("MainWindow", "Post"))
-        self.PostText.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        GroupPage.setWindowTitle(_translate("GroupPage", "GroupPage"))
+        self.NavigationSideBar.setTitle(_translate("GroupPage", "Navigation"))
+        self.InboxButton.setText(_translate("GroupPage", "Inbox"))
+        self.ProfileButton.setText(_translate("GroupPage", "Profile"))
+        self.LogOUt.setText(_translate("GroupPage", "LogOut"))
+        self.HomeButton.setText(_translate("GroupPage", "Home"))
+        self.MeetUpPoll.setTitle(_translate("GroupPage", "Poll"))
+        self.Choice1.setText(_translate("GroupPage", "Tuesday 2pm"))
+        self.SubmitVote.setText(_translate("GroupPage", "Submit"))
+        self.Choice2.setText(_translate("GroupPage", "Tuesday 7pm"))
+        self.Choice3.setText(_translate("GroupPage", "Thursday 1pm"))
+        self.Choice4.setText(_translate("GroupPage", "Saturday 3pm"))
+        self.Choice5.setText(_translate("GroupPage", "Sunday 2pm"))
+        self.GroupPost.setTitle(_translate("GroupPage", "Post"))
+        self.PostText.setHtml(_translate("GroupPage", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">This is a group post</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\';\"><br /></p></body></html>"))
-        self.pushButton.setText(_translate("MainWindow", "Comment"))
-        self.VoteWarning.setTitle(_translate("MainWindow", "Vote to Send Warning/Compliment to [USER NAME]"))
-        self.YesBox.setText(_translate("MainWindow", "Yes"))
-        self.NoBox.setText(_translate("MainWindow", "No"))
-        self.SubmitVote_2.setText(_translate("MainWindow", "Submit"))
-        self.GroupCommands.setTitle(_translate("MainWindow", "GroupBox"))
-        self.Leave_Group_2.setText(_translate("MainWindow", "Leave Group"))
-        self.CreatePost.setText(_translate("MainWindow", "Create Post"))
-        self.CreateMeetUpPoll.setText(_translate("MainWindow", "Create Meet Up Poll"))
-        self.CreateMemberPoll.setText(_translate("MainWindow", "Create Member Poll"))
-        self.CreateMemberPoll_2.setText(_translate("MainWindow", "Group Info"))
-        self.groupBox.setTitle(_translate("MainWindow", "Community Garden Notifications:"))
-        self.groupBox_2.setTitle(_translate("MainWindow", "Search"))
-        self.HomeButton_2.setText(_translate("MainWindow", "Search"))
+        
+        self.pushButton.setText(_translate("GroupPage", "Comment"))
+        self.VoteWarning.setTitle(_translate("GroupPage", "Vote to Send Warning/Compliment to [USER NAME]"))
+        self.YesBox.setText(_translate("GroupPage", "Yes"))
+        self.NoBox.setText(_translate("GroupPage", "No"))
+        self.SubmitVote_2.setText(_translate("GroupPage", "Submit"))
+        self.GroupCommands.setTitle(_translate("GroupPage", "GroupBox"))
+        self.Leave_Group_2.setText(_translate("GroupPage", "Leave Group"))
+        self.CreatePost.setText(_translate("GroupPage", "Create Post"))
+        self.CreateMeetUpPoll.setText(_translate("GroupPage", "Create Meet Up Poll"))
+        self.CreateMemberPoll.setText(_translate("GroupPage", "Create Member Poll"))
+        self.GroupInfo.setText(_translate("GroupPage", "Group Info"))
+        self.groupBox.setTitle(_translate("GroupPage", "Community Garden Notifications:"))
+        self.groupBox_2.setTitle(_translate("GroupPage", "Search"))
+        self.HomeButton_2.setText(_translate("GroupPage", "Search"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
+    GroupPage = QtWidgets.QMainWindow()
     ui = Ui_GroupPage()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    ui.setupUi(GroupPage)
+    GroupPage.show()
     sys.exit(app.exec_())
