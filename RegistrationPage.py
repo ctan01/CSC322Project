@@ -6,9 +6,6 @@ import pandas as pd
 class Ui_registrationPage(object):
     def submit(self):
         # record data in to db
-        # global skill1, skill2, skill3, skill4, skill5, skill6, skill7, skill8, skill9,
-        # skill10, skill11, interest1, interest2, interest3, interest4, interest5, interest6, interest8, interest7,
-        # interest9, interest10, interest11
         df = pd.read_csv('UserData.csv')
         if self.checkBox_interest1.isChecked():
             interest1 = self.checkBox_interest1.text()
