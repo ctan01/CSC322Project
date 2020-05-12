@@ -8,11 +8,25 @@ class Ui_MemberPoll(object):
     def submitMemberPoll(self):
         df = pd.read_csv('MemberPoll.csv')
         # MemberPollID,GroupID,AffectedMemberID,Type,Yes,No,Total
+        affectedMemberName = self.comboBox.currentText()
+        typepoll = self.comboBox_2.currentText()
+        dfnamecheck = pd.read_csv('UserData.csv')
+        fullname = affectedMemberName.split();
+        firstname = fullname[0]
+        for index, row in dfnamecheck.iterrows():
+            if row['First_Name'] == firstname:
+                affectedMemberID = row['UserID']
+        
+        dfgroup = pd.read_csv('GroupData.csv')
+        currentGroupRow = dfgroup[dfgroup['currentGroup'] ==  1]
+        currentGroupID = currentGroupRow['GroupID'][0]
+
+
         new_row = {'MemberPollID': (len(df.index)+1),
-            'GroupID' : -1, # UNKOWN FOR NOW (LINK WITH GROUP ID VALUE == 1)
-            'AffectedMemberID' : -1, # MATCH WITH FIRST NAME
-            'Type' : "FILL",
-            'Yes' : 0,
+            'GroupID' : currentGroupID, # UNKOWN FOR NOW (LINK WITH GROUP ID VALUE == 1)
+            'AffectedMemberID' : affectedMemberID, # MATCH WITH FIRST NAME
+            'Type' : typepoll,
+            'Yes' : 1,
             'No' : 0,
             'Total' : 0
         }

@@ -1,6 +1,18 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import pandas as pd
 
+class Post:
+    def __init__(self):
+        self.text = ""
+    
+
+class MeetupPost(Post):
+    def __init__(self):
+        self.time = 0
+
+    def draw(self):
+        pass
+
 class Ui_GroupPage(object):
     
     def openInboxPage(self):                # USERID PARAMETERS
@@ -132,19 +144,24 @@ class Ui_GroupPage(object):
 
         self.GroupPost = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)
         self.GroupPost.setGeometry(QtCore.QRect(10, 10, 701, 221))
-        self.GroupPost.setObjectName("GroupPost")                           
+        self.GroupPost.setObjectName("GroupPost")                        
 
         self.PostText = QtWidgets.QTextBrowser(self.GroupPost)
         self.PostText.setGeometry(QtCore.QRect(10, 20, 681, 111))
         self.PostText.setObjectName("PostText")
 
-        
         self.textEdit_2 = QtWidgets.QTextEdit(self.GroupPost)           # COMMENT BOX
         self.textEdit_2.setGeometry(QtCore.QRect(10, 140, 681, 31))
         self.textEdit_2.setObjectName("textEdit_2")
         self.pushButton = QtWidgets.QPushButton(self.GroupPost)         # READ COMMMENT INPUT
         self.pushButton.setGeometry(QtCore.QRect(590, 180, 93, 28))
         self.pushButton.setObjectName("pushButton")
+
+        #posts = list()
+
+        
+        #for p in posts:
+        #    p.draw()
 
         #self.VoteWarning = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)   # VOTE CLOSES AFTER 75% of USERS RESPOND
         #self.VoteWarning.setGeometry(QtCore.QRect(10, 340, 701, 91))
