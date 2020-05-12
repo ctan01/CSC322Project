@@ -15,19 +15,29 @@ class Ui_GroupPage(object):
         self.ui.setupUi(self.window)
         self.window.show()
 
-    def openCreatePostPage(self):           # GROUPID PARAMETERS    
-        from CreatePost import Ui_CreatePost
-        self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_CreatePost()
-        self.ui.setupUi(self.window)
-        self.window.show()
+    def openCreatePostPage(self):           # POP UP COMPLETE !! :)  
+        from CreatePost import Ui_CreatePost as Form
+        dialog = QtWidgets.QDialog()
+        dialog.ui = Form()
+        dialog.ui.setupUi(dialog)
+        dialog.exec_()
+        dialog.show()
 
-    def openCreateMeetUpPoll(self):         # POP UP WINDOW 
-        from CreateMeetUpPoll import Ui_MeetUpPoll
-        self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_MeetUpPoll()
-        self.ui.setupUi(self.window)
-        self.window.show()
+    def openCreateMeetUpPoll(self):         # POP UP WINDOW     
+        from CreateMeetUpPoll import Ui_MeetUpPoll as Form
+        dialog = QtWidgets.QDialog()
+        dialog.ui = Form()
+        dialog.ui.setupUi(dialog)
+        dialog.exec_()
+        dialog.show()
+
+    def openCreateMemberPoll(self):         # POP UP WINDOW
+        from CreateMemberPoll import Ui_MemberPoll as Form
+        dialog = QtWidgets.QDialog()
+        dialog.ui = Form()
+        dialog.ui.setupUi(dialog)
+        dialog.exec_()
+        dialog.show()
 
     def openSearchWindow(self):             # Might have to carry other parameters, such as input of search
         from SearchPage import Ui_SearchPage
@@ -92,13 +102,16 @@ class Ui_GroupPage(object):
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
         self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 749, 659))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
-        self.MeetUpPoll = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)
+
+        self.MeetUpPoll = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)        # MEET UP POLL CLOSES AFTER 75% of users respond
         self.MeetUpPoll.setGeometry(QtCore.QRect(10, 240, 701, 91))
         self.MeetUpPoll.setObjectName("MeetUpPoll")
+
         self.Choice1 = QtWidgets.QCheckBox(self.MeetUpPoll)
         self.Choice1.setGeometry(QtCore.QRect(10, 20, 101, 20))
         self.Choice1.setObjectName("Choice1")
-        self.SubmitVote = QtWidgets.QPushButton(self.MeetUpPoll)
+
+        self.SubmitVote = QtWidgets.QPushButton(self.MeetUpPoll)        # READ INPUT INTO FILE  VOTE CLOSES AFTER 75% OF USERS RESPOND
         self.SubmitVote.setGeometry(QtCore.QRect(590, 60, 93, 28))
         self.SubmitVote.setObjectName("SubmitVote")
 
@@ -118,21 +131,21 @@ class Ui_GroupPage(object):
 
         self.GroupPost = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)
         self.GroupPost.setGeometry(QtCore.QRect(10, 10, 701, 221))
-        self.GroupPost.setObjectName("GroupPost")
+        self.GroupPost.setObjectName("GroupPost")                           
 
         self.PostText = QtWidgets.QTextBrowser(self.GroupPost)
         self.PostText.setGeometry(QtCore.QRect(10, 20, 681, 111))
         self.PostText.setObjectName("PostText")
 
-        self.textEdit_2 = QtWidgets.QTextEdit(self.GroupPost)
+        self.textEdit_2 = QtWidgets.QTextEdit(self.GroupPost)           # COMMENT BOX
         self.textEdit_2.setGeometry(QtCore.QRect(10, 140, 681, 31))
         self.textEdit_2.setObjectName("textEdit_2")
 
-        self.pushButton = QtWidgets.QPushButton(self.GroupPost)
+        self.pushButton = QtWidgets.QPushButton(self.GroupPost)         # READ COMMMENT INPUT
         self.pushButton.setGeometry(QtCore.QRect(590, 180, 93, 28))
         self.pushButton.setObjectName("pushButton")
 
-        self.VoteWarning = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)
+        self.VoteWarning = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)   # VOTE CLOSES AFTER 75% of USERS RESPOND
         self.VoteWarning.setGeometry(QtCore.QRect(10, 340, 701, 91))
         self.VoteWarning.setObjectName("VoteWarning")
 
@@ -143,7 +156,7 @@ class Ui_GroupPage(object):
         self.NoBox.setGeometry(QtCore.QRect(10, 60, 81, 20))
         self.NoBox.setObjectName("NoBox")
 
-        self.SubmitVote_2 = QtWidgets.QPushButton(self.VoteWarning)
+        self.SubmitVote_2 = QtWidgets.QPushButton(self.VoteWarning)         # TAKE INPUT
         self.SubmitVote_2.setGeometry(QtCore.QRect(590, 60, 93, 28))
         self.SubmitVote_2.setObjectName("SubmitVote_2")
 
@@ -161,22 +174,23 @@ class Ui_GroupPage(object):
         self.Leave_Group_2 = QtWidgets.QPushButton(self.GroupCommands)
         self.Leave_Group_2.setGeometry(QtCore.QRect(0, 240, 221, 28))
         self.Leave_Group_2.setObjectName("Leave_Group_2")
+        # open leave group confirmation
 
         self.CreatePost = QtWidgets.QPushButton(self.GroupCommands)     # POP UP
         self.CreatePost.setGeometry(QtCore.QRect(0, 20, 221, 28))
         self.CreatePost.setObjectName("CreatePost")
         self.CreatePost.clicked.connect(self.openCreatePostPage)
 
-        self.CreateMeetUpPoll = QtWidgets.QPushButton(self.GroupCommands)
+        self.CreateMeetUpPoll = QtWidgets.QPushButton(self.GroupCommands) # POP UP
         self.CreateMeetUpPoll.setGeometry(QtCore.QRect(0, 50, 221, 28))
         self.CreateMeetUpPoll.setObjectName("CreateMeetUpPoll")
-       # self.CreateMeetUpPoll.clicked.connect(self.openCreateMeetUpPoll) # BECAUSE ITS POP UP, LINKED DIFFRENTLY
-      
+        self.CreateMeetUpPoll.clicked.connect(self.openCreateMeetUpPoll)
 
-
-        self.CreateMemberPoll = QtWidgets.QPushButton(self.GroupCommands)
+        self.CreateMemberPoll = QtWidgets.QPushButton(self.GroupCommands)   # POP UP
         self.CreateMemberPoll.setGeometry(QtCore.QRect(0, 80, 221, 28))
         self.CreateMemberPoll.setObjectName("CreateMemberPoll")
+        self.CreateMemberPoll.clicked.connect(self.openCreateMemberPoll)
+
         self.GroupInfo = QtWidgets.QPushButton(self.GroupCommands)
         self.GroupInfo.setGeometry(QtCore.QRect(0, 110, 221, 28))
         self.GroupInfo.setObjectName("GroupInfo")
@@ -184,6 +198,7 @@ class Ui_GroupPage(object):
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox.setGeometry(QtCore.QRect(10, 70, 211, 271))
         self.groupBox.setObjectName("groupBox")
+
         self.GroupNotificationsList = QtWidgets.QListView(self.groupBox)
         self.GroupNotificationsList.setGeometry(QtCore.QRect(10, 20, 191, 241))
         self.GroupNotificationsList.setObjectName("GroupNotificationsList")
@@ -193,9 +208,11 @@ class Ui_GroupPage(object):
         self.textEdit = QtWidgets.QTextEdit(self.groupBox_2)
         self.textEdit.setGeometry(QtCore.QRect(10, 20, 121, 31))
         self.textEdit.setObjectName("textEdit")
+
         self.HomeButton_2 = QtWidgets.QPushButton(self.groupBox_2)
         self.HomeButton_2.setGeometry(QtCore.QRect(140, 20, 61, 31))
         self.HomeButton_2.setObjectName("HomeButton_2")
+
         GroupPage.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(GroupPage)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1234, 26))
