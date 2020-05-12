@@ -1,15 +1,15 @@
 GroupID,GroupName,Description,Post0,Post1,Post2,Post3,Member0,Member1,Member2,Member3,Member4,Member5,Member6,Member7, currentGroup
-1,Community Garden,Help with maintenance of the Community Garden,,,,,1,,,,,,,,0
-2,Pop Up Library,,,,,,1,,,,,,,,0
-3,Book and Toy Drive,,,,,,1,,,,,,,,0
-4,Outdoor Cleanup Project,,,,,,1,,,,,,,,0
-5,Coding Camp,Volunteer at Coding Camp program to help create an interest in coding for kids,,,,,,,,,,,,,0
-6,Soup Kitchen,Help at the Local Soup Kitchen as food servers and clean up,,,,,,,,,,,,,0
-7,Chemistry Camp,Volunteer as Camp Leaders to help lead camp workshops to get kids interested in Chemistry,,,,,,,,,,,,,0
-8,Meals on Wheels,Help deliver Meals on Wheels meals to people unable to travel for and/or afford groceries or cook themselves meals,,,,,,,,,,,,,0
-9,Farmers Market,Help set up and clean up stands for weekly farmers market,,,,,,,,,,,,,0
-10,Tutoring,Help tutor kids after school,,,,,,,,,,,,,0
-11,Roadside Cleanup,cleaning up trash on roads,,,,,,,,,,,,,0
-12,Animal Rescue, Help at local animal shelter,,,,,1,,,,,,,,0
-13,Blood Drive,Group trying to set up local blood drive with local hospitals,,,,,,,,,,,,,0
-14,Book Club, Volunteer page to coordinate book readers for children's book club at local library,,,,,,,,,,,,,0
+1,Community Garden,Help with maintenance of the Community Garden,,,,,1,3,5,13,14,,,,0
+2,Pop Up Library,,,,,,1,2,3,5,8,10,15,18,0
+3,Book and Toy Drive,,,,,,1,2,3,9,18,20,,,0
+4,Outdoor Cleanup Project,,,,,,1,6,8,9,,,,,0
+5,Coding Camp,Volunteer at Coding Camp program to help create an interest in coding for kids,,,,,3,,,,,,,,0
+6,Soup Kitchen,Help at the Local Soup Kitchen as food servers and clean up,,,,,3,7,11,12,19,,,,0
+7,Chemistry Camp,Volunteer as Camp Leaders to help lead camp workshops to get kids interested in Chemistry,,,,,4,6,7,11,12,,,,0
+8,Meals on Wheels,Help deliver Meals on Wheels meals to people unable to travel for and/or afford groceries or cook themselves meals,,,,,4,5,6,7,8,9,10,15,0
+9,Farmers Market,Help set up and clean up stands for weekly farmers market,,,,,4,6,7,8,10,11,14,19,0
+10,Tutoring,Help tutor kids after school,,,,,4,5,9,10,13,17,,,0
+11,Roadside Cleanup,cleaning up trash on roads,,,,,11,12,,,,,,,0
+12,Animal Rescue, Help at local animal shelter,,,,,1,11,14,15,16,19,20,,0
+13,Blood Drive,Group trying to set up local blood drive with local hospitals,,,,,7,12,13,14,16,19,20,,0
+14,Book Club, Volunteer page to coordinate book readers for children's book club at local library,,,,,4,5,6,8,9,10,18,,0
