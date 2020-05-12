@@ -3,7 +3,7 @@ GroupID,GroupName,Description,Post0,Post1,Post2,Post3,Member0,Member1,Member2,Me
 2,Pop Up Library,,,,,,1,2,3,5,8,10,15,18,0
 3,Book and Toy Drive,,,,,,1,2,3,9,18,20,,,0
 4,Outdoor Cleanup Project,,,,,,1,6,8,9,,,,,0
-5,Coding Camp,Volunteer at Coding Camp program to help create an interest in coding for kids,,,,,3,,,,,,,,0
+5,Coding Camp,Volunteer at Coding Camp program to help create an interest in coding for kids,,,,,3,2,18,19,,,,,0
 6,Soup Kitchen,Help at the Local Soup Kitchen as food servers and clean up,,,,,3,7,11,12,19,,,,0
 7,Chemistry Camp,Volunteer as Camp Leaders to help lead camp workshops to get kids interested in Chemistry,,,,,4,6,7,11,12,,,,0
 8,Meals on Wheels,Help deliver Meals on Wheels meals to people unable to travel for and/or afford groceries or cook themselves meals,,,,,4,5,6,7,8,9,10,15,0
