@@ -10,7 +10,7 @@ class Ui_CreatePost(object):
         # part that will check which groupID currentGroup has value 1
 
         # PostID, GroupID, PostContents, Comment0, Comment1, Comment2,Comment3
-        new_row = {'PostID': len(df.index),
+        new_row = {'PostID': (len(df.index)+1),
             'GroupID' : 'UNK',
             'PostContents': self.lineEdit_Postcontents.text(),
             'Comment0': None,
