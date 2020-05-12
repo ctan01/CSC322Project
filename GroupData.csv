@@ -1,16 +1,16 @@
-GroupID,GroupName,Description,Posts,Comments,Member0,Member1,Member2,Member3,Member4,Member5,Member6,Member7
-1,Community Garden,Help with maintenance of the Community Garden,,,,,,,,,,
-2,Pop Up Library,,,,,,,,,,,
-3,Book and Toy Drive,,,,,,,,,,,
-4,Outdoor Cleanup Project,,,,,,,,,,,
-5,Coding Camp,Volunteer at Coding Camp program to help create an interest in coding for kids,,,,,,,,,,
-6,Soup Kitchen,Help at the Local Soup Kitchen as food servers and clean up,,,,,,,,,,
-7,Chemistry Camp,Volunteer as Camp Leaders to help lead camp workshops to get kids interested in Chemistry,,,,,,,,,,
-8,Meals on Wheels,Help deliver Meals on Wheels meals to people unable to travel for and/or afford groceries or cook themselves meals,,,,,,,,,,
-9,Farmers Market,Help set up and clean up stands for weekly farmers market,,,,,,,,,,
-10,Tutoring,Help tutor kids after school,,,,,,,,,,
-11,Roadside Cleanup,cleaning up trash on roads,,,,,,,,,,
-12,Animal Rescue, Help at local animal shelter,,,,,,,,,,
-13,Blood Drive,Group trying to set up local blood drive with local hospitals,,,,,,,,,,
-14,Book Club, Volunteer page to coordinate book readers for children's book club at local library,,,,,,,,,,
-15,,,,,,,,,,,,
+GroupID,GroupName,Description,Posts,Comments,Member0,Member1,Member2,Member3,Member4,Member5,Member6,Member7, currentGroup
+1,Community Garden,Help with maintenance of the Community Garden,,,,,,,,,,,0
+2,Pop Up Library,,,,,,,,,,,,0
+3,Book and Toy Drive,,,,,,,,,,,,0
+4,Outdoor Cleanup Project,,,,,,,,,,,,0
+5,Coding Camp,Volunteer at Coding Camp program to help create an interest in coding for kids,,,,,,,,,,,0
+6,Soup Kitchen,Help at the Local Soup Kitchen as food servers and clean up,,,,,,,,,,,0
+7,Chemistry Camp,Volunteer as Camp Leaders to help lead camp workshops to get kids interested in Chemistry,,,,,,,,,,,0
+8,Meals on Wheels,Help deliver Meals on Wheels meals to people unable to travel for and/or afford groceries or cook themselves meals,,,,,,,,,,,0
+9,Farmers Market,Help set up and clean up stands for weekly farmers market,,,,,,,,,,,0
+10,Tutoring,Help tutor kids after school,,,,,,,,,,,0
+11,Roadside Cleanup,cleaning up trash on roads,,,,,,,,,,,0
+12,Animal Rescue, Help at local animal shelter,,,,,,,,,,,0
+13,Blood Drive,Group trying to set up local blood drive with local hospitals,,,,,,,,,,,0
+14,Book Club, Volunteer page to coordinate book readers for children's book club at local library,,,,,,,,,,,0
+15,,,,,,,,,,,,,0
