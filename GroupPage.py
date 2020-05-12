@@ -3,10 +3,6 @@ import pandas as pd
 
 class Ui_GroupPage(object):
     
-    
-    #df = pd.read_csv("UserData.csv")
-
-    
     def openInboxPage(self):                # USERID PARAMETERS
         from InboxPage import Ui_InboxPage
         self.window = QtWidgets.QMainWindow()
@@ -66,6 +62,8 @@ class Ui_GroupPage(object):
         self.window.show()
 
     def setupUi(self, GroupPage):
+        df = pd.read_csv('UserData.csv')
+
         GroupPage.setObjectName("GroupPage")
         GroupPage.resize(1234, 846)
         self.centralwidget = QtWidgets.QWidget(GroupPage)
@@ -108,31 +106,31 @@ class Ui_GroupPage(object):
         self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 749, 659))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
 
-        self.MeetUpPoll = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)        # MEET UP POLL CLOSES AFTER 75% of users respond
-        self.MeetUpPoll.setGeometry(QtCore.QRect(10, 240, 701, 91))
-        self.MeetUpPoll.setObjectName("MeetUpPoll")
+        #self.MeetUpPoll = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)        # MEET UP POLL CLOSES AFTER 75% of users respond
+        #self.MeetUpPoll.setGeometry(QtCore.QRect(10, 240, 701, 91))
+        #self.MeetUpPoll.setObjectName("MeetUpPoll")
 
-        self.Choice1 = QtWidgets.QCheckBox(self.MeetUpPoll)
-        self.Choice1.setGeometry(QtCore.QRect(10, 20, 101, 20))
-        self.Choice1.setObjectName("Choice1")
+        #self.Choice1 = QtWidgets.QCheckBox(self.MeetUpPoll)
+        #self.Choice1.setGeometry(QtCore.QRect(10, 20, 101, 20))
+        #self.Choice1.setObjectName("Choice1")
 
-        self.SubmitVote = QtWidgets.QPushButton(self.MeetUpPoll)        # READ INPUT INTO FILE  VOTE CLOSES AFTER 75% OF USERS RESPOND
-        self.SubmitVote.setGeometry(QtCore.QRect(590, 60, 93, 28))
-        self.SubmitVote.setObjectName("SubmitVote")
+        #self.SubmitVote = QtWidgets.QPushButton(self.MeetUpPoll)        # READ INPUT INTO FILE  VOTE CLOSES AFTER 75% OF USERS RESPOND
+        #self.SubmitVote.setGeometry(QtCore.QRect(590, 60, 93, 28))
+        #self.SubmitVote.setObjectName("SubmitVote")
 
 
-        self.Choice2 = QtWidgets.QCheckBox(self.MeetUpPoll)
-        self.Choice2.setGeometry(QtCore.QRect(10, 50, 101, 20))
-        self.Choice2.setObjectName("Choice2")
-        self.Choice3 = QtWidgets.QCheckBox(self.MeetUpPoll)
-        self.Choice3.setGeometry(QtCore.QRect(160, 20, 131, 20))
-        self.Choice3.setObjectName("Choice3")
-        self.Choice4 = QtWidgets.QCheckBox(self.MeetUpPoll)
-        self.Choice4.setGeometry(QtCore.QRect(160, 50, 131, 20))
-        self.Choice4.setObjectName("Choice4")
-        self.Choice5 = QtWidgets.QCheckBox(self.MeetUpPoll)
-        self.Choice5.setGeometry(QtCore.QRect(320, 20, 101, 20))
-        self.Choice5.setObjectName("Choice5")
+        #self.Choice2 = QtWidgets.QCheckBox(self.MeetUpPoll)
+        #self.Choice2.setGeometry(QtCore.QRect(10, 50, 101, 20))
+        #self.Choice2.setObjectName("Choice2")
+        #self.Choice3 = QtWidgets.QCheckBox(self.MeetUpPoll)
+        #self.Choice3.setGeometry(QtCore.QRect(160, 20, 131, 20))
+        #self.Choice3.setObjectName("Choice3")
+        #self.Choice4 = QtWidgets.QCheckBox(self.MeetUpPoll)
+        #self.Choice4.setGeometry(QtCore.QRect(160, 50, 131, 20))
+        #self.Choice4.setObjectName("Choice4")
+        #self.Choice5 = QtWidgets.QCheckBox(self.MeetUpPoll)
+        #self.Choice5.setGeometry(QtCore.QRect(320, 20, 101, 20))
+        #self.Choice5.setObjectName("Choice5")
 
         self.GroupPost = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)
         self.GroupPost.setGeometry(QtCore.QRect(10, 10, 701, 221))
@@ -150,20 +148,20 @@ class Ui_GroupPage(object):
         self.pushButton.setGeometry(QtCore.QRect(590, 180, 93, 28))
         self.pushButton.setObjectName("pushButton")
 
-        self.VoteWarning = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)   # VOTE CLOSES AFTER 75% of USERS RESPOND
-        self.VoteWarning.setGeometry(QtCore.QRect(10, 340, 701, 91))
-        self.VoteWarning.setObjectName("VoteWarning")
+        #self.VoteWarning = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)   # VOTE CLOSES AFTER 75% of USERS RESPOND
+        #self.VoteWarning.setGeometry(QtCore.QRect(10, 340, 701, 91))
+        #self.VoteWarning.setObjectName("VoteWarning")
 
-        self.YesBox = QtWidgets.QCheckBox(self.VoteWarning)
-        self.YesBox.setGeometry(QtCore.QRect(10, 30, 81, 20))
-        self.YesBox.setObjectName("YesBox")
-        self.NoBox = QtWidgets.QCheckBox(self.VoteWarning)
-        self.NoBox.setGeometry(QtCore.QRect(10, 60, 81, 20))
-        self.NoBox.setObjectName("NoBox")
+        #self.YesBox = QtWidgets.QCheckBox(self.VoteWarning)
+        #self.YesBox.setGeometry(QtCore.QRect(10, 30, 81, 20))
+        #self.YesBox.setObjectName("YesBox")
+        #self.NoBox = QtWidgets.QCheckBox(self.VoteWarning)
+        #self.NoBox.setGeometry(QtCore.QRect(10, 60, 81, 20))
+        #self.NoBox.setObjectName("NoBox")
 
-        self.SubmitVote_2 = QtWidgets.QPushButton(self.VoteWarning)         # TAKE INPUT
-        self.SubmitVote_2.setGeometry(QtCore.QRect(590, 60, 93, 28))
-        self.SubmitVote_2.setObjectName("SubmitVote_2")
+        #self.SubmitVote_2 = QtWidgets.QPushButton(self.VoteWarning)         # TAKE INPUT
+        #self.SubmitVote_2.setGeometry(QtCore.QRect(590, 60, 93, 28))
+        #self.SubmitVote_2.setObjectName("SubmitVote_2")
 
         self.verticalScrollBar = QtWidgets.QScrollBar(self.scrollAreaWidgetContents)
         self.verticalScrollBar.setGeometry(QtCore.QRect(730, 0, 16, 160))
@@ -238,26 +236,48 @@ class Ui_GroupPage(object):
         self.ProfileButton.setText(_translate("GroupPage", "Profile"))
         self.LogOUt.setText(_translate("GroupPage", "LogOut"))
         self.HomeButton.setText(_translate("GroupPage", "Home"))
-        self.MeetUpPoll.setTitle(_translate("GroupPage", "Poll"))
-        self.Choice1.setText(_translate("GroupPage", "Tuesday 2pm"))
-        self.SubmitVote.setText(_translate("GroupPage", "Submit"))
-        self.Choice2.setText(_translate("GroupPage", "Tuesday 7pm"))
-        self.Choice3.setText(_translate("GroupPage", "Thursday 1pm"))
-        self.Choice4.setText(_translate("GroupPage", "Saturday 3pm"))
-        self.Choice5.setText(_translate("GroupPage", "Sunday 2pm"))
+        #self.MeetUpPoll.setTitle(_translate("GroupPage", "Poll"))
+        #self.Choice1.setText(_translate("GroupPage", "Tuesday 2pm"))
+        #self.SubmitVote.setText(_translate("GroupPage", "Submit"))
+        #self.Choice2.setText(_translate("GroupPage", "Tuesday 7pm"))
+        #self.Choice3.setText(_translate("GroupPage", "Thursday 1pm"))
+        #self.Choice4.setText(_translate("GroupPage", "Saturday 3pm"))
+        #self.Choice5.setText(_translate("GroupPage", "Sunday 2pm"))
+
+        # HERE, POST CONTENTS WILL BE THE POSTCONTENTS OF POSTS.CSV FILE FOR POSTS WITH GROUPID == GROUP WITH CURRENTGROUP = 1
+        postcontents = "POST: "
+        # Comments
+        commentHeader = "COMMENTS: "
+        comment0 = " "
+        comment1 = " "
+        comment2 = " "
+        comment3 = " "
+
+        df = pd.read_csv('Posts.csv')
+        dfcheck = pd.read_csv('GroupData.csv')
+        currentGroupRow = dfcheck[dfcheck['currentGroup'] == 1]
+        currentGroupID = currentGroupRow['GroupID'][0]
+        for index, row in df.iterrows():
+            if row['GroupID'] == currentGroupID:
+                postcontents = postcontents + row['PostContents']
+                comment0 = comment0 + row['Comment0']
+                comment1 = comment1 + row['Comment1']
+                comment2 = comment2 + row['Comment2']
+                comment3 = comment3 + row['Comment3']
+
         self.GroupPost.setTitle(_translate("GroupPage", "Post"))
         self.PostText.setHtml(_translate("GroupPage", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">This is a group post</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">" + postcontents + "<br></br><br></br>" + comment0 + "<br></br>" + comment1 + "<br></br>" + comment2 + "<br></br>" + comment3 +"</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\';\"><br /></p></body></html>"))
         
         self.pushButton.setText(_translate("GroupPage", "Comment"))
-        self.VoteWarning.setTitle(_translate("GroupPage", "Vote to Send Warning/Compliment to [USER NAME]"))
-        self.YesBox.setText(_translate("GroupPage", "Yes"))
-        self.NoBox.setText(_translate("GroupPage", "No"))
-        self.SubmitVote_2.setText(_translate("GroupPage", "Submit"))
+        #self.VoteWarning.setTitle(_translate("GroupPage", "Vote to Send Warning/Compliment to [USER NAME]"))
+        #self.YesBox.setText(_translate("GroupPage", "Yes"))
+        #self.NoBox.setText(_translate("GroupPage", "No"))
+        #self.SubmitVote_2.setText(_translate("GroupPage", "Submit"))
         self.GroupCommands.setTitle(_translate("GroupPage", "GroupBox"))
         self.Leave_Group_2.setText(_translate("GroupPage", "Leave Group"))
         self.CreatePost.setText(_translate("GroupPage", "Create Post"))

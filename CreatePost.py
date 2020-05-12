@@ -13,12 +13,12 @@ class Ui_CreatePost(object):
 
         # PostID, GroupID, PostContents, Comment0, Comment1, Comment2,Comment3
         new_row = {'PostID': (len(df.index)+1),
-            'GroupID' : 'UNK',
+            'GroupID' : '-1',
             'PostContents': self.lineEdit_Postcontents.text(),
-            'Comment0': None,
-            'Comment1': None,
-            'Comment2': None,
-            'Comment3': None
+            'Comment0': " ",
+            'Comment1': " ",
+            'Comment2': " ",
+            'Comment3': " "
             }
         df = df.append(new_row, ignore_index=True)
         df.to_csv('Posts.csv', index= False)
