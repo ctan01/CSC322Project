@@ -22,12 +22,11 @@ class Ui_GroupPage(object):
         self.window.show()
 
     def openCreatePostPage(self):           # POP UP COMPLETE !! :)  
-        from CreatePost import Ui_CreatePost as Form
-        dialog = QtWidgets.QDialog()
-        dialog.ui = Form()
-        dialog.ui.setupUi(dialog)
-        dialog.exec_()
-        dialog.show()
+        from CreatePost import Ui_CreatePost
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_CreatePost()
+        self.ui.setupUi(self.window)
+        self.window.show()
 
     def openCreateMeetUpPoll(self):         # POP UP WINDOW     
         from CreateMeetUpPoll import Ui_MeetUpPoll as Form

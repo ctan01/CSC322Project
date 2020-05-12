@@ -7,7 +7,9 @@ class Ui_CreatePost(object):
     def publishPost(self):
         df = pd.read_csv('Posts.csv')
         
+        # TO DO
         # part that will check which groupID currentGroup has value 1
+        # to match post with groupID
 
         # PostID, GroupID, PostContents, Comment0, Comment1, Comment2,Comment3
         new_row = {'PostID': (len(df.index)+1),
