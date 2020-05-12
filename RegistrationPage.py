@@ -6,52 +6,121 @@ import pandas as pd
 class Ui_registrationPage(object):
     def submit(self):
         # record data in to db
+        # global skill1, skill2, skill3, skill4, skill5, skill6, skill7, skill8, skill9,
+        # skill10, skill11, interest1, interest2, interest3, interest4, interest5, interest6, interest8, interest7,
+        # interest9, interest10, interest11
         df = pd.read_csv('UserData.csv')
         if self.checkBox_interest1.isChecked():
             interest1 = self.checkBox_interest1.text()
+        else:
+            interest1 = None
+
         if self.checkBox_interest2.isChecked():
             interest2 = self.checkBox_interest2.text()
+        else:
+            interest2 = None
+
         if self.checkBox_interest3.isChecked():
             interest3 = self.checkBox_interest3.text()
+        else:
+            interest3 = None
+
         if self.checkBox_interest4.isChecked():
             interest4 = self.checkBox_interest4.text()
+        else:
+            interest4 = None
+
         if self.checkBox_interest5.isChecked():
             interest5 = self.checkBox_interest5.text()
+        else:
+            interest5 = None
+
         if self.checkBox_interest6.isChecked():
             interest6 = self.checkBox_interest6.text()
+        else:
+            interest6 = None
+
         if self.checkBox_interest7.isChecked():
             interest7 = self.checkBox_interest7.text()
+        else:
+            interest7 = None
+
         if self.checkBox_interest8.isChecked():
             interest8 = self.checkBox_interest8.text()
+        else:
+            interest8 = None
+
         if self.checkBox_interest9.isChecked():
             interest9 = self.checkBox_interest9.text()
+        else:
+            interest9 = None
+
         if self.checkBox_interest10.isChecked():
             interest10 = self.checkBox_interest10.text()
+        else:
+            interest10 = None
+
         if self.checkBox_interest11.isChecked():
             interest11 = self.checkBox_interest11.text()
+        else:
+            interest11 = None
+
         if self.checkBox_skill1.isChecked():
             skill1 = self.checkBox_skill1.text()
+        else:
+            skill1 = None
+
         if self.checkBox_skill2.isChecked():
             skill2 = self.checkBox_skill2.text()
+        else:
+            skill2 = None
+
         if self.checkBox_skill3.isChecked():
             skill3 = self.checkBox_skill3.text()
+        else:
+            skill3 = None
+
         if self.checkBox_skill4.isChecked():
             skill4 = self.checkBox_skill4.text()
+        else:
+            skill4 = None
+
         if self.checkBox_skill5.isChecked():
             skill5 = self.checkBox_skill5.text()
+        else:
+            skill5 = None
+
         if self.checkBox_skill6.isChecked():
             skill6 = self.checkBox_skill6.text()
+        else:
+            skill6 = None
+
         if self.checkBox_skill7.isChecked():
             skill7 = self.checkBox_skill7.text()
+        else:
+            skill7 = None
+
         if self.checkBox_skill8.isChecked():
             skill8 = self.checkBox_skill8.text()
+        else:
+            skill8 = None
+
         if self.checkBox_skill9.isChecked():
             skill9 = self.checkBox_skill9.text()
+        else:
+            skill9 = None
+
         if self.checkBox_skill10.isChecked():
             skill10 = self.checkBox_skill10.text()
+        else:
+            skill10 = None
+
         if self.checkBox_skill11.isChecked():
             skill11 = self.checkBox_skill11.text()
-            # print(skill11)
+        else:
+            skill11 = None
+
+
         new_row = {'UserID': len(df.index),
                    'First_Name': self.lineEdit_firstName.text(),
                    'Last_Name': self.lineEdit_lastName.text(),
@@ -81,10 +150,10 @@ class Ui_registrationPage(object):
                    'Interests8': interest8,
                    'Interests9': interest9,
                    'Interests10': interest10,
-                   'Interests11': interest11,
+                   'Interests11': interest11
                    }
         df = df.append(new_row, ignore_index=True)
-        df.to_csv('UserData.csv')
+        df.to_csv('UserData.csv', index=False)
 
         # pop up window
         msg = QMessageBox()

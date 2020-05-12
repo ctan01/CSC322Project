@@ -7,24 +7,25 @@ from HomePage2 import Ui_HomePage2
 
 # LoginPage
 
-
+# print(row['Username'], row['Password'])
 class Ui_loginPage(object):
     def login(self):
         df = pd.read_csv("UserData.csv")
-        for x in range(31):
-            if self.lineEdit_username.text() == df['username'[x]] and self.lineEdit_password.text() == df['password'[x]]:
-                self.openHomePage2()
+        msg = QMessageBox()
+        success = 0
+        for index, row in df.iterrows():
+            if self.lineEdit_username.text() == row['Username'] and self.lineEdit_password.text() == row['Password']:
+                print('Login success')
+                self.window = QtWidgets.QMainWindow()
+                self.ui = Ui_HomePage2()
+                self.ui.setupUi(self.window)
+                self.window.show()
+                success = 1
+        if success == 0:
+            msg.setText('Incorrect Password')
+            msg.exec_()
 
-            else:
-                msg = QMessageBox()
-                msg.setText('Incorrect Password')
-                msg.exec_()
 
-    def openHomePage2(self):
-        self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_HomePage2()
-        self.ui.setupUi(self.window)
-        self.window.show()
 
     def setupUi(self, loginPage):
         loginPage.setObjectName("LoginPage")
