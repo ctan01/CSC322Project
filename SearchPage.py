@@ -44,7 +44,7 @@ class Ui_SearchPage(object):
         self.textEdit.setObjectName("textEdit")
 
         self.HomeButton_2 = QtWidgets.QPushButton(self.groupBox_2)      # LINKED
-        self.HomeButton_2.setGeometry(QtCore.QRect(140, 20, 61, 31))
+        self.HomeButton_2.setGeometrfy(QtCore.QRect(140, 20, 61, 31))
         self.HomeButton_2.setObjectName("HomeButton_2")
         self.HomeButton_2.clicked.connect(self.openHomePage)
         self.HomeButton_2.clicked.connect(SearchPage.close)

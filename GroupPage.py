@@ -1,6 +1,12 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+import pandas as pd
 
 class Ui_GroupPage(object):
+    
+    
+    #df = pd.read_csv("UserData.csv")
+
+    
     def openInboxPage(self):                # USERID PARAMETERS
         from InboxPage import Ui_InboxPage
         self.window = QtWidgets.QMainWindow()

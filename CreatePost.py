@@ -1,36 +1,53 @@
-
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
+import pandas as pd
 
 
 class Ui_CreatePost(object):
-    def setupUi(self, Dialog):
-        Dialog.setObjectName("Dialog")
-        Dialog.resize(400, 281)
-        self.Publish = QtWidgets.QDialogButtonBox(Dialog)
-        self.Publish.setGeometry(QtCore.QRect(190, 240, 201, 32))
-        self.Publish.setOrientation(QtCore.Qt.Horizontal)
-        self.Publish.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
-        self.Publish.setObjectName("Publish")
-        self.plainTextEdit = QtWidgets.QPlainTextEdit(Dialog)
-        self.plainTextEdit.setGeometry(QtCore.QRect(10, 10, 381, 221))
-        self.plainTextEdit.setObjectName("plainTextEdit")
+    def publishPost(self):
+        df = pd.read_csv('Posts.csv')
 
-        self.retranslateUi(Dialog)
-        self.Publish.accepted.connect(Dialog.accept)
-        self.Publish.rejected.connect(Dialog.reject)
-        QtCore.QMetaObject.connectSlotsByName(Dialog)
+        msg = QMessageBox()
+        msg.setWindowTitle("Publish Post")
+        msg.setText("Post has been published!")
+        x = msg.exec_()
 
-    def retranslateUi(self, Dialog):
+    def setupUi(self, CreatePost):
+        CreatePost.setObjectName("CreatePost")
+        CreatePost.resize(320, 100)
+        self.centralwidget = QtWidgets.QWidget(CreatePost)
+        self.centralwidget.setObjectName("centralwidget")
+        
+
+        self.lineEdit_firstName = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_firstName.setGeometry(QtCore.QRect(10,10,300,30))
+        self.lineEdit_firstName.setObjectName("lineEdit_firstName")
+
+        self.PublishPostButton = QtWidgets.QPushButton(self.centralwidget)
+        self.PublishPostButton.setGeometry(QtCore.QRect(60, 50, 200, 25))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        self.PublishPostButton.setFont(font)
+        self.PublishPostButton.setObjectName("Publish")
+        self.PublishPostButton.clicked.connect(self.publishPost) # BEGIN TO PUBLISH POST
+        self.PublishPostButton.clicked.connect(CreatePost.close)
+
+        CreatePost.setCentralWidget(self.centralwidget) 
+
+        self.retranslateUi(CreatePost)
+        QtCore.QMetaObject.connectSlotsByName(CreatePost)
+
+    def retranslateUi(self, CreatePost):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.plainTextEdit.setPlainText(_translate("Dialog", "Write Post Here"))
+        CreatePost.setWindowTitle(_translate("CreatePost", "CreatePost"))
+        self.PublishPostButton.setText(_translate("CreatePost", "Publish"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    Dialog = QtWidgets.QDialog()
+    CreatePost = QtWidgets.QMainWindow()
     ui = Ui_CreatePost()
-    ui.setupUi(Dialog)
-    Dialog.show()
+    ui.setupUi(CreatePost)
+    CreatePost.show()
     sys.exit(app.exec_())
