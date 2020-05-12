@@ -25,20 +25,18 @@ class Ui_GroupPage(object):
         self.window.show()
 
     def openCreateMeetUpPoll(self):         # POP UP WINDOW     
-        from CreateMeetUpPoll import Ui_MeetUpPoll as Form
-        dialog = QtWidgets.QDialog()
-        dialog.ui = Form()
-        dialog.ui.setupUi(dialog)
-        dialog.exec_()
-        dialog.show()
+        from CreateMeetUpPoll import Ui_MeetUpPoll
+        self.window= QtWidgets.QMainWindow()
+        self.ui = Ui_MeetUpPoll()
+        self.ui.setupUi(self.window)
+        self.window.show()
 
     def openCreateMemberPoll(self):         # POP UP WINDOW
-        from CreateMemberPoll import Ui_MemberPoll as Form
-        dialog = QtWidgets.QDialog()
-        dialog.ui = Form()
-        dialog.ui.setupUi(dialog)
-        dialog.exec_()
-        dialog.show()
+        from CreateMemberPoll import Ui_MemberPoll
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_MemberPoll()
+        self.ui.setupUi(self.window)
+        self.window.show()
 
     def openSearchWindow(self):             # Might have to carry other parameters, such as input of search
         from SearchPage import Ui_SearchPage
@@ -140,10 +138,10 @@ class Ui_GroupPage(object):
         self.PostText.setGeometry(QtCore.QRect(10, 20, 681, 111))
         self.PostText.setObjectName("PostText")
 
+        
         self.textEdit_2 = QtWidgets.QTextEdit(self.GroupPost)           # COMMENT BOX
         self.textEdit_2.setGeometry(QtCore.QRect(10, 140, 681, 31))
         self.textEdit_2.setObjectName("textEdit_2")
-
         self.pushButton = QtWidgets.QPushButton(self.GroupPost)         # READ COMMMENT INPUT
         self.pushButton.setGeometry(QtCore.QRect(590, 180, 93, 28))
         self.pushButton.setObjectName("pushButton")
@@ -274,6 +272,7 @@ class Ui_GroupPage(object):
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\';\"><br /></p></body></html>"))
         
         self.pushButton.setText(_translate("GroupPage", "Comment"))
+
         #self.VoteWarning.setTitle(_translate("GroupPage", "Vote to Send Warning/Compliment to [USER NAME]"))
         #self.YesBox.setText(_translate("GroupPage", "Yes"))
         #self.NoBox.setText(_translate("GroupPage", "No"))
