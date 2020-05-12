@@ -1,2 +1,3 @@
-MemberPollID,GroupID,AffectedMemberID,Type,Yes,No,Total
-1,-1,-1,FILL,0,0,0
+PostID,GroupID,PostContents,Comment0,Comment1,Comment2,Comment3,Comment0.1,Comment1.1,Comment2.1,Comment3.1
+1,1, Testing Post Functionalities, Testing Comment Functionalities, Succussful Comment, , , , , , 
+2,2,Testing Post from Create Post Function, , , , , , , ,]

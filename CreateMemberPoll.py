@@ -17,7 +17,7 @@ class Ui_MemberPoll(object):
             'Total' : 0
         }
         df = df.append(new_row, ignore_index=True)
-        df.to_csv('Posts.csv', index = False)
+        df.to_csv('MemberPoll.csv', index = False)
 
         msg = QMessageBox()
         msg.setWindowTitle("Publish Poll")
