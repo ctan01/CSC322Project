@@ -1,1 +1,2 @@
-PostID, GroupID, PostContents, Comment0, Comment1, Comment2, Comment3
+PostID, GroupID, PostContents, Comment0, Comment1, Comment2, Comment3,Comment0,Comment1,Comment2,Comment3,GroupID,PostContents
+0,,,,,,,,,,,UNK,Hello Test Post
