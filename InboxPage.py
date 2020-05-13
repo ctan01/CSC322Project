@@ -88,6 +88,7 @@ class Ui_InboxPage(object):
                 currentUserRow = dfcheck[dfcheck['CurrentUser'] == 1]
                 currentUserID = currentUserRow['UserID'].iloc[0]
                 count = 0
+                print(currentUserID)
                 for index, row in df.iterrows():
                         if row['UserID'] == currentUserID:
                                 inboxContents[count] = row['GroupName']

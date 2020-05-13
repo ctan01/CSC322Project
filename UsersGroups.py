@@ -108,8 +108,20 @@ class Ui_UsersGroupsPage(object):
         df = pd.read_csv('GroupData.csv')
         #GroupID,GroupName,Description,Post0,Post1,Post2,Post3,Member0,Member1,Member2,Member3,Member4,Member5,Member6,Member7,currentGroup
         dfcheck = pd.read_csv('UserData.csv')
+        currentGroupID = df['GroupID']
+        #MemberPollID,GroupID,AffectedMemberID,Type,Yes,No,Total
+        MemberPolls = ["","",""]
+        df
+
+
+
+
+
         currentUserRow = dfcheck[dfcheck['CurrentUser'] == 1]
         currentUserID = currentUserRow['UserID'].iloc[0]
+
+
+
         groupName1 = currentUserRow['Group1'].iloc[0]
         groupName2 = currentUserRow['Group2'].iloc[0]
         groupName3 = currentUserRow['Group3'].iloc[0]
