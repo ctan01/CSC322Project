@@ -1,8 +1,44 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import pandas as pd
+from ProfilePage import Ui_profilePage
+
 
 # HomePageSU
 class Ui_HomePageSU(object):
+    def logout(self):
+        from HomePage import Ui_HomePage
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_HomePage()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openInboxPage(self):
+        from InboxPage import Ui_InboxPage
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_InboxPage()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openManagePage(self):
+        from systemmanagement1 import Ui_MainWindow
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openGroupPage(self):
+        from GroupPage import Ui_GroupPage
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_GroupPage()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openProfileWindow(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_profilePage()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
     def setupUi(self, HomePageSU):
         HomePageSU.setObjectName("HomePageSU")
         HomePageSU.resize(978, 709)
@@ -289,6 +325,15 @@ class Ui_HomePageSU(object):
 
         self.retranslateUi(HomePageSU)
         QtCore.QMetaObject.connectSlotsByName(HomePageSU)
+        self.pushButton_Logout.clicked.connect(self.logout)
+        self.pushButton_Logout.clicked.connect(HomePageSU.close)
+        self.pushButton_Groups.clicked.connect(self.openGroupPage)
+        self.pushButton_Groups.clicked.connect(HomePageSU.close)
+        self.pushButton_Inbox.clicked.connect(self.openInboxPage)
+        self.pushButton_Inbox.clicked.connect(HomePageSU.close)
+        self.pushButton_Profile.clicked.connect(self.openProfileWindow)
+        self.pushButton_SU.clicked.connect(self.openManagePage)
+        self.pushButton_SU.clicked.connect(HomePageSU.close)
 
     def retranslateUi(self, HomePageSU):
         _translate = QtCore.QCoreApplication.translate
