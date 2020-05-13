@@ -5,7 +5,23 @@ import pandas as pd
 class Ui_CreateGroupPage(object):
     def createGroup(self):
         msg = QMessageBox()
-        """df = pd.read_csv('GroupData.csv')
+        df = pd.read_csv('GroupData.csv')
+        groupID = (len(df.index) + 1)
+        print(groupID)
+        df.loc[groupID + 1, 'GroupID'] = groupID
+        df.loc[groupID + 1, 'GroupName'] = self.lineEdit_GroupName.text()
+        df.loc[groupID + 1, 'Description'] = self.lineEdit_GroupDescription.text()
+        df.loc[groupID + 1, 'Member0'] = self.comboBox_InviteMember1.currentText()
+        df.loc[groupID + 1, 'Member1'] = self.comboBox_InviteMember2.currentText()
+        df.loc[groupID + 1, 'Member2'] = self.comboBox_InviteMember3.currentText()
+        df.loc[groupID + 1, 'Member3'] = self.comboBox_InviteMember4.currentText()
+        df.loc[groupID + 1, 'Member4'] = self.comboBox_InviteMember5.currentText()
+        df.loc[groupID + 1, 'Member5'] = self.comboBox_InviteMember6.currentText()
+        df.loc[groupID + 1, 'Member6'] = self.comboBox_InviteMember7.currentText()
+        df.loc[groupID + 1, 'Member7'] = self.comboBox_InviteMember8.currentText()
+        df.loc[groupID + 1, 'CurrentGroup'] = 0
+        """print(self.lineEdit_GroupDescription.text())
+        print(self.comboBox_InviteMember1.currentText())
         new_row = {'GroupID': (len(df.index) + 1),
                    'GroupName': self.lineEdit_GroupName.text(),
                    'Description': self.lineEdit_GroupDescription.text(),
@@ -19,8 +35,9 @@ class Ui_CreateGroupPage(object):
                    'Member7': self.comboBox_InviteMember8.currenttext(),
                    'currentGroup': 0
                    }
-        df = df.append(new_row, ignore_index=True)
-        df.to_csv('GroupData.csv', index=False)"""
+        df = df.append(new_row, ignore_index=True)"""
+        # df.loc[1, 'GroupName'] = 3
+        df.to_csv('GroupData.csv', index=False)
 
         msg.setText('Group created and Invitation sent')
         msg.exec_()
