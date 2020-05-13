@@ -1,4 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+import pandas as pd
 
 
 class Ui_InboxPage(object):
@@ -188,45 +189,85 @@ class Ui_InboxPage(object):
                 self.GroupsButton.setText(_translate("InboxPage", "Groups"))
                 self.groupBox_2.setTitle(_translate("InboxPage", "Search"))
                 self.HomeButton_2.setText(_translate("InboxPage", "Search"))
-                self.textBrowser.setHtml(_translate("InboxPage", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-        "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-        "p, li { white-space: pre-wrap; }\n"
-        "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
-        "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Invitation to Join Beach Clean Up</span></p>\n"
-        "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\';\"><br /></p></body></html>"))
-                self.pushButton.setText(_translate("InboxPage", "Accept"))
-                self.Decline2.setText(_translate("InboxPage", "Decline"))
-                self.textBrowser_2.setHtml(_translate("InboxPage", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-        "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-        "p, li { white-space: pre-wrap; }\n"
-        "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
-        "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Invitation to Join Animal Shelter Volunteer Group</span></p></body></html>"))
-                self.Accept3.setText(_translate("InboxPage", "Accept"))
-                self.Decline3.setText(_translate("InboxPage", "Decline"))
 
-                self.textBrowser3.setHtml(_translate("InboxPage", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-        "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-        "p, li { white-space: pre-wrap; }\n"
-        "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
-        "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Invitation to Join Animal Shelter Volunteer Group</span></p></body></html>"))
-                self.pushButton43.setText(_translate("InboxPage", "Accept"))
-                self.Decline43.setText(_translate("InboxPage", "Decline"))
+                # FILLING INBOX INFO
 
-                self.textBrowser4.setHtml(_translate("InboxPage", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-        "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-        "p, li { white-space: pre-wrap; }\n"
-        "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
-        "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Invitation to Join Animal Shelter Volunteer Group</span></p></body></html>"))
-                self.pushButton4.setText(_translate("InboxPage", "Accept"))
-                self.Decline4.setText(_translate("InboxPage", "Decline"))
+                inboxContents = [" "," "," "," "," "]
 
-                self.textBrowser5.setHtml(_translate("InboxPage", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-        "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-        "p, li { white-space: pre-wrap; }\n"
-        "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
-        "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Invitation to Join Animal Shelter Volunteer Group</span></p></body></html>")) 
-                self.pushButton5.setText(_translate("InboxPage", "Accept"))
-                self.Decline5.setText(_translate("InboxPage", "Decline"))
+                InboxType = [0,0,0,0,0]
+
+                df = pd.read_csv('InboxMessages.csv')
+                #MessageID, UserID, Type, TypeID, GroupID, SubjectUserID
+                dfcheck = pd.read_csv('UserData.csv')
+                currentUserRow = dfcheck[dfcheck['CurrentUser'] == 1]
+                currentUserID = currentUserRow['UserID'].iloc[0]
+                count = 0
+                for index, row in df.iterrows():
+                        if row['UserID'] == currentUserID:
+                                inboxContents[count] = row['GroupName']
+                                InboxType[count] = row['Type']
+                                count = count + 1
+
+                # CLEAR EMPTY BOXES 
+                # MOVE TO BOTTOM
+                checkempty = [0,0,0,0,0]
+                if inboxContents[0] == " ":
+                        checkempty[0] = 1
+                if inboxContents[1] == " ":
+                        checkempty[1] = 1
+                if inboxContents[2] == " ":
+                        checkempty[2] = 1
+                if inboxContents[3] == " ":
+                        checkempty[3] = 1
+                if inboxContents[4] == " ":
+                        checkempty[4] = 1
+
+
+                if checkempty[0] == 0:
+                        self.textBrowser.setHtml(_translate("InboxPage", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+                "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                "p, li { white-space: pre-wrap; }\n"
+                "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
+                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Invitation to Join " + inboxContents[0] + " </span></p>\n"
+                "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\';\"><br /></p></body></html>"))
+                        self.pushButton.setText(_translate("InboxPage", "Accept"))
+                        self.Decline2.setText(_translate("InboxPage", "Decline"))
+                
+                if checkempty[1] == 0:
+                        self.textBrowser_2.setHtml(_translate("InboxPage", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+                "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                "p, li { white-space: pre-wrap; }\n"
+                "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
+                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Invitation to Join " + inboxContents[1] + "</span></p></body></html>"))
+                        self.Accept3.setText(_translate("InboxPage", "Accept"))
+                        self.Decline3.setText(_translate("InboxPage", "Decline"))
+
+                if checkempty[2] == 0:
+                        self.textBrowser3.setHtml(_translate("InboxPage", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+                "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                "p, li { white-space: pre-wrap; }\n"
+                "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
+                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Invitation to Join " + inboxContents[2] + "</span></p></body></html>"))
+                        self.pushButton43.setText(_translate("InboxPage", "Accept"))
+                        self.Decline43.setText(_translate("InboxPage", "Decline"))
+
+                if checkempty[3] == 0:
+                        self.textBrowser4.setHtml(_translate("InboxPage", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+                "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                "p, li { white-space: pre-wrap; }\n"
+                "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
+                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Invitation to Join " + inboxContents[3] + "</span></p></body></html>"))
+                        self.pushButton4.setText(_translate("InboxPage", "Accept"))
+                        self.Decline4.setText(_translate("InboxPage", "Decline"))
+
+                if checkempty[4] == 0:
+                        self.textBrowser5.setHtml(_translate("InboxPage", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+                "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                "p, li { white-space: pre-wrap; }\n"
+                "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
+                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Invitation to Join " + inboxContents[4] + "</span></p></body></html>")) 
+                        self.pushButton5.setText(_translate("InboxPage", "Accept"))
+                        self.Decline5.setText(_translate("InboxPage", "Decline"))
 
                 self.AcceptALL.setText(_translate("InboxPage", "Accept All Invitations"))
                 self.DeclineALL.setText(_translate("InboxPage", "Decline All Invitations"))

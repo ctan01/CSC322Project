@@ -1,2 +1,7 @@
-MessageID, UserID, Type, TypeID, GroupID, SubjectUserID
-1, 1, Invitation, 1, 1,
+MessageID,UserID,Type,GroupName,SubjectUserID
+1,1,Invitation,Community Garden,-1
+2,1,Invitation,Animal Rescue,-1
+3,16,Invitation,Coding Camp,-1
+4,1,Invitation,Chemistry Camp,-1
+5,16,Invitation,Book Club,-1
+6,16,Invitation,Blood Drive,-1
