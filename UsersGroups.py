@@ -23,37 +23,37 @@ class Ui_UsersGroupsPage(object):
             if row['GroupName'] == groupName1:
                 currentGroupID = row['GroupID']
 
-        print(currentGroupID)
+        #print(currentGroupID)
         for index, row in df.iterrows():
-            print(row['currentGroup'])
+            #print(row['currentGroup'])
             if row['currentGroup'] == 1:
                 df.loc[int(index), 'currentGroup'] = 0
-                print(row['currentGroup'])
+               # print(row['currentGroup'])
                 
         for index, row in df.iterrows():
-            print(row['GroupID'])
+            #print(row['GroupID'])
             if row['GroupID'] == currentGroupID:
-                print(row['GroupID'])
+                #print(row['GroupID'])
                 df.loc[int(index), 'currentGroup'] = 1
-                print(row['currentGroup'])
+                #print(row['currentGroup'])
                 
         
 
-    def openInboxPage(self):                # USERID PARAMETERS
+    def openInboxPage(self):                
         from InboxPage import Ui_InboxPage
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_InboxPage()
         self.ui.setupUi(self.window)
         self.window.show()
 
-    def openProfilePage(self):              # USERID PARAMETERS
+    def openProfilePage(self):            
         from ProfilePage import Ui_profilePage
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_profilePage()
         self.ui.setupUi(self.window)
         self.window.show()
 
-    def openCreatePostPage(self):           # GROUPID PARAMETERS    
+    def openCreatePostPage(self):               
         from CreatePost import Ui_CreatePost
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_CreatePost()
@@ -67,14 +67,14 @@ class Ui_UsersGroupsPage(object):
         self.ui.setupUi(self.window)
         self.window.show()
 
-    def openSearchWindow(self):             # Might have to carry other parameters, such as input of search
+    def openSearchWindow(self):             
         from SearchPage import Ui_SearchPage
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_SearchPage()
         self.ui.setupUi(self.window)
         self.window.show()
 
-    def openUsersGroups(self):              # USER ID PARAMETERS
+    def openUsersGroups(self):             
         from UsersGroups import Ui_UsersGroupsPage
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_UsersGroupsPage()
