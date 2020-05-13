@@ -252,7 +252,6 @@ class Ui_UsersGroupsPage(object):
         self.ProfileButton.setGeometry(QtCore.QRect(450, 20, 101, 28))
         self.ProfileButton.setObjectName("ProfileButton")
         self.ProfileButton.clicked.connect(self.openProfilePage)
-        self.ProfileButton.clicked.connect(UsersGroups.close)
 
         self.LogOUt = QtWidgets.QPushButton(self.NavigationSideBar)
         self.LogOUt.setGeometry(QtCore.QRect(340, 20, 101, 28))
