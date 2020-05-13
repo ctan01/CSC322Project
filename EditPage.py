@@ -27,6 +27,13 @@ class Ui_MainWindow(object):
         msg.setText("change has been submitted!")
         x = msg.exec_()
 
+    def openPrevPage(self):
+        from systemmanagement1 import Ui_MainWindow
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
     def setupUi(self, registrationPage):
         registrationPage.setObjectName("registrationPage")
         registrationPage.resize(465, 799)
@@ -101,7 +108,8 @@ class Ui_MainWindow(object):
         self.statusbar = QtWidgets.QStatusBar(registrationPage)
         self.statusbar.setObjectName("statusbar")
         registrationPage.setStatusBar(self.statusbar)
-
+        self.pushButton_submit.clicked.connect(self.openPrevPage)
+        self.pushButton_submit.clicked.connect(registrationPage.close)
         self.retranslateUi(registrationPage)
         QtCore.QMetaObject.connectSlotsByName(registrationPage)
 
@@ -121,7 +129,7 @@ if __name__ == "__main__":
 
     app = QtWidgets.QApplication(sys.argv)
     registrationPage = QtWidgets.QMainWindow()
-    ui = Ui_registrationPage()
+    ui = Ui_MainWindow()
     ui.setupUi(registrationPage)
     registrationPage.show()
     sys.exit(app.exec_())
