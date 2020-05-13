@@ -1,5 +1,5 @@
 GroupID,GroupName,Description,Post0,Post1,Post2,Post3,Member0,Member1,Member2,Member3,Member4,Member5,Member6,Member7,currentGroup
-1,Community Garden,Help with maintenance of the Community Garden, , , , ,Meriselle Ruotolo,Yaocheng Wu,Gleo Saavedra,Mikaela Magtira,Christine Lin, , , ,0
+1,Community Garden,Help with maintenance of the Community Garden, , , , ,Meriselle Ruotolo,Yaocheng Wu,Gleo Saavedra,Mikaela Magtira,Christine Lin, , , ,1
 2,Pop Up Library,Collect and Donate Books and Help Build a Pop Up Library , , , , ,Meriselle Ruotolo,Nadine Lustre,Yaocheng Wu,Gleo Saavedra,Joel Francisco,Ana Luocai,Salma Mones,Bruce Villaroman,0
 3,Book and Toy Drive,Help Collect Books and Toys to donate to Orphanages , , , , ,Meriselle Ruotolo,Nadine Lustre,Yaocheng Wu,Powell Yap,Bruce Villaroman,Chengliang Tan, , ,0
 4,Outdoor Cleanup Project,Clean Up Various Areas in the Town , , , , ,Meriselle Ruotolo,Diane Lucagan,Joel Francisco,Powell Yap, , , , ,0
@@ -9,7 +9,7 @@ GroupID,GroupName,Description,Post0,Post1,Post2,Post3,Member0,Member1,Member2,Me
 8,Meals on Wheels,Help deliver Meals on Wheels meals to people unable to travel for and/or afford groceries or cook themselves meals,,,,,Julia Dacanay,Gleo Saavedra,Diane Lucagan,Lynjean Quilang,Joel Francisco,Powell Yap,Ana Luocai,Salma Mones,0
 9,Farmers Market,Help set up and clean up stands for weekly farmers market, , , , ,Julia Dacanay,Diane Lucagan,Lynjean Quilang,Joel Francisco,Ana Luocai,Natalie Badillo,Christine Lin,Elizabeth Cheang,0
 10,Tutoring,Help tutor kids after school, , , , ,Julia Dacanay,Gleo Saavedra,Powell Yap,Ana Luocai,Mikaela Magtira,Kathryn Bernardo,YongSu Lee,,0
-11,Roadside Cleanup,cleaning up trash on roads, , , , ,Natalie Badillo,Sophia Quach,James Huang, , , , , ,1
+11,Roadside Cleanup,cleaning up trash on roads, , , , ,Natalie Badillo,Sophia Quach,James Huang, , , , , ,0
 12,Animal Rescue, Help at local animal shelter, , , , ,Meriselle Ruotolo,Natalie Badillo,Christine Lin,Salma Mones,James Huang,Elizabeth Cheang,Chengliang Tan,Kathryn Bernardo,0
 13,Blood Drive,Group trying to set up local blood drive with local hospitals, , , , ,Lynjean Quilang,Sophia Quach,Mikaela Magtira,Christine Lin,Kathryn Bernardo,Elizabeth Cheang,Chengliang Tan, ,0
 14,Book Club, Volunteer page to coordinate book readers for children's book club at local library, , , , ,Julia Dacanay,Gleo Saavedra,Diane Lucagan,Joel Francisco,Powell Yap,Ana Luocai,Bruce Villaroman, ,0

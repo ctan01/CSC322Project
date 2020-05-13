@@ -151,21 +151,72 @@ class Ui_GroupPage(object):
         #self.Choice5.setGeometry(QtCore.QRect(320, 20, 101, 20))
         #self.Choice5.setObjectName("Choice5")
 
+        # GROUP POSTS
+
         self.GroupPost = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)
-        self.GroupPost.setGeometry(QtCore.QRect(10, 10, 701, 221))
+        self.GroupPost.setGeometry(QtCore.QRect(10, 10, 701, 175))
         self.GroupPost.setObjectName("GroupPost")                        
 
         self.PostText = QtWidgets.QTextBrowser(self.GroupPost)
-        self.PostText.setGeometry(QtCore.QRect(10, 20, 681, 111))
+        self.PostText.setGeometry(QtCore.QRect(10, 20, 681, 80))
         self.PostText.setObjectName("PostText")
 
-
-        self.textEdit_2 = QtWidgets.QTextEdit(self.GroupPost)           # COMMENT BOX
-        self.textEdit_2.setGeometry(QtCore.QRect(10, 140, 681, 31))
-        self.textEdit_2.setObjectName("textEdit_2")
+        self.textEdit = QtWidgets.QTextEdit(self.GroupPost)           # ADD COMMENT BOX
+        self.textEdit.setGeometry(QtCore.QRect(10, 105, 681, 31))
+        self.textEdit.setObjectName("textEdit")
         self.pushButton = QtWidgets.QPushButton(self.GroupPost)         # READ COMMMENT INPUT
-        self.pushButton.setGeometry(QtCore.QRect(590, 180, 93, 28))
+        self.pushButton.setGeometry(QtCore.QRect(590, 140, 93, 28))
         self.pushButton.setObjectName("pushButton")
+
+        # GROUP POST TWO
+        self.GroupPost2 = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)
+        self.GroupPost2.setGeometry(QtCore.QRect(10, 200, 701, 175))
+        self.GroupPost2.setObjectName("GroupPost2")                        
+
+        self.PostText2 = QtWidgets.QTextBrowser(self.GroupPost2)
+        self.PostText2.setGeometry(QtCore.QRect(10, 20, 681, 80))
+        self.PostText2.setObjectName("PostText2")
+
+        self.textEdit2 = QtWidgets.QTextEdit(self.GroupPost2)           # ADD COMMENT BOX
+        self.textEdit2.setGeometry(QtCore.QRect(10, 105, 681, 31))
+        self.textEdit2.setObjectName("textEdit2")
+        self.pushButton2 = QtWidgets.QPushButton(self.GroupPost2)         # READ COMMMENT INPUT
+        self.pushButton2.setGeometry(QtCore.QRect(590, 140, 93, 28))
+        self.pushButton2.setObjectName("pushButton2")
+
+        # GROUP POST THREE
+        self.GroupPost3 = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)
+        self.GroupPost3.setGeometry(QtCore.QRect(10, 390, 701, 175))
+        self.GroupPost3.setObjectName("GroupPost3")                        
+
+        self.PostText3 = QtWidgets.QTextBrowser(self.GroupPost3)
+        self.PostText3.setGeometry(QtCore.QRect(10, 20, 681, 80))
+        self.PostText3.setObjectName("PostText3")
+
+        self.textEdit3 = QtWidgets.QTextEdit(self.GroupPost3)           # ADD COMMENT BOX
+        self.textEdit3.setGeometry(QtCore.QRect(10, 105, 681, 31))
+        self.textEdit3.setObjectName("textEdit3")
+        self.pushButton3 = QtWidgets.QPushButton(self.GroupPost3)         # READ COMMMENT INPUT
+        self.pushButton3.setGeometry(QtCore.QRect(590, 140, 93, 28))
+        self.pushButton3.setObjectName("pushButton3")
+
+        # GROUP POST FOUR
+        self.GroupPost4 = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)
+        self.GroupPost4.setGeometry(QtCore.QRect(10, 570, 701, 175))
+        self.GroupPost4.setObjectName("GroupPost4")                        
+
+        self.PostText4 = QtWidgets.QTextBrowser(self.GroupPost4)
+        self.PostText4.setGeometry(QtCore.QRect(10, 20, 681, 80))
+        self.PostText4.setObjectName("PostText4")
+
+        self.textEdit4 = QtWidgets.QTextEdit(self.GroupPost4)           # ADD COMMENT BOX
+        self.textEdit4.setGeometry(QtCore.QRect(10, 105, 681, 31))
+        self.textEdit4.setObjectName("textEdit4")
+        self.pushButton4 = QtWidgets.QPushButton(self.GroupPost4)         # READ COMMMENT INPUT
+        self.pushButton4.setGeometry(QtCore.QRect(590, 140, 93, 28))
+        self.pushButton4.setObjectName("pushButton4")
+
+
 
         #posts = list()
 
