@@ -77,7 +77,7 @@ class Ui_InboxPage(object):
 
                 inboxContents = [" "," "," "," "," "]
 
-                InboxType = [0,0,0,0,0]
+                InboxType = ["","","","",""]
 
                 df = pd.read_csv('InboxMessages.csv')
                 #MessageID, UserID, Type, TypeID, GroupID, SubjectUserID
@@ -89,6 +89,7 @@ class Ui_InboxPage(object):
                         if row['UserID'] == currentUserID:
                                 inboxContents[count] = row['GroupName']
                                 InboxType[count] = row['Type']
+                                print(InboxType[count])
                                 count = count + 1
 
                 # CLEAR EMPTY BOXES 
@@ -130,12 +131,13 @@ class Ui_InboxPage(object):
                         self.textBrowser = QtWidgets.QTextBrowser(self.InvitationMessage)
                         self.textBrowser.setGeometry(QtCore.QRect(10, 10, 991, 51))
                         self.textBrowser.setObjectName("textBrowser")
-                        self.pushButton = QtWidgets.QPushButton(self.InvitationMessage)
-                        self.pushButton.setGeometry(QtCore.QRect(10, 70, 93, 28))
-                        self.pushButton.setObjectName("pushButton")
-                        self.Decline2 = QtWidgets.QPushButton(self.InvitationMessage)
-                        self.Decline2.setGeometry(QtCore.QRect(110, 70, 93, 28))
-                        self.Decline2.setObjectName("Decline2")
+                        if InboxType[0] == "Invitation":
+                                self.pushButton = QtWidgets.QPushButton(self.InvitationMessage)
+                                self.pushButton.setGeometry(QtCore.QRect(10, 70, 93, 28))
+                                self.pushButton.setObjectName("pushButton")
+                                self.Decline2 = QtWidgets.QPushButton(self.InvitationMessage)
+                                self.Decline2.setGeometry(QtCore.QRect(110, 70, 93, 28))
+                                self.Decline2.setObjectName("Decline2")
 
                 if checkempty[1] == 0:
                         self.InvitationMessage_2 = QtWidgets.QWidget(self.InboxDashboard)
@@ -144,12 +146,13 @@ class Ui_InboxPage(object):
                         self.textBrowser_2 = QtWidgets.QTextBrowser(self.InvitationMessage_2)
                         self.textBrowser_2.setGeometry(QtCore.QRect(10, 10, 991, 51))
                         self.textBrowser_2.setObjectName("textBrowser_2")
-                        self.Accept3 = QtWidgets.QPushButton(self.InvitationMessage_2)
-                        self.Accept3.setGeometry(QtCore.QRect(10, 70, 93, 28))
-                        self.Accept3.setObjectName("Accept3")
-                        self.Decline3 = QtWidgets.QPushButton(self.InvitationMessage_2)
-                        self.Decline3.setGeometry(QtCore.QRect(110, 70, 93, 28))
-                        self.Decline3.setObjectName("Decline3")
+                        if InboxType[1] == "Invitation":
+                                self.Accept3 = QtWidgets.QPushButton(self.InvitationMessage_2)
+                                self.Accept3.setGeometry(QtCore.QRect(10, 70, 93, 28))
+                                self.Accept3.setObjectName("Accept3")
+                                self.Decline3 = QtWidgets.QPushButton(self.InvitationMessage_2)
+                                self.Decline3.setGeometry(QtCore.QRect(110, 70, 93, 28))
+                                self.Decline3.setObjectName("Decline3")
 
                 if checkempty[2] == 0:
                         self.InvitationMessage3 = QtWidgets.QWidget(self.InboxDashboard)
@@ -158,12 +161,13 @@ class Ui_InboxPage(object):
                         self.textBrowser3 = QtWidgets.QTextBrowser(self.InvitationMessage3)
                         self.textBrowser3.setGeometry(QtCore.QRect(10, 10, 991, 51))
                         self.textBrowser3.setObjectName("textBrowser3")
-                        self.pushButton43 = QtWidgets.QPushButton(self.InvitationMessage3)
-                        self.pushButton43.setGeometry(QtCore.QRect(10, 70, 93, 28))
-                        self.pushButton43.setObjectName("pushButton43")
-                        self.Decline43 = QtWidgets.QPushButton(self.InvitationMessage3)
-                        self.Decline43.setGeometry(QtCore.QRect(110, 70, 93, 28))
-                        self.Decline43.setObjectName("Decline43")
+                        if InboxType[2] == "Invitation":
+                                self.pushButton43 = QtWidgets.QPushButton(self.InvitationMessage3)
+                                self.pushButton43.setGeometry(QtCore.QRect(10, 70, 93, 28))
+                                self.pushButton43.setObjectName("pushButton43")
+                                self.Decline43 = QtWidgets.QPushButton(self.InvitationMessage3)
+                                self.Decline43.setGeometry(QtCore.QRect(110, 70, 93, 28))
+                                self.Decline43.setObjectName("Decline43")
 
                 if checkempty[3] == 0:
                         self.InvitationMessage4 = QtWidgets.QWidget(self.InboxDashboard)
@@ -172,12 +176,13 @@ class Ui_InboxPage(object):
                         self.textBrowser4 = QtWidgets.QTextBrowser(self.InvitationMessage4)
                         self.textBrowser4.setGeometry(QtCore.QRect(10, 10, 991, 51))
                         self.textBrowser4.setObjectName("textBrowser4")
-                        self.pushButton4 = QtWidgets.QPushButton(self.InvitationMessage4)
-                        self.pushButton4.setGeometry(QtCore.QRect(10, 70, 93, 28))
-                        self.pushButton4.setObjectName("pushButton4")
-                        self.Decline4 = QtWidgets.QPushButton(self.InvitationMessage4)
-                        self.Decline4.setGeometry(QtCore.QRect(110, 70, 93, 28))
-                        self.Decline4.setObjectName("Decline4")
+                        if InboxType[3] == "Invitation":
+                                self.pushButton4 = QtWidgets.QPushButton(self.InvitationMessage4)
+                                self.pushButton4.setGeometry(QtCore.QRect(10, 70, 93, 28))
+                                self.pushButton4.setObjectName("pushButton4")
+                                self.Decline4 = QtWidgets.QPushButton(self.InvitationMessage4)
+                                self.Decline4.setGeometry(QtCore.QRect(110, 70, 93, 28))
+                                self.Decline4.setObjectName("Decline4")
 
                 if checkempty[4] == 0:
                         self.InvitationMessage5 = QtWidgets.QWidget(self.InboxDashboard)
@@ -186,12 +191,13 @@ class Ui_InboxPage(object):
                         self.textBrowser5 = QtWidgets.QTextBrowser(self.InvitationMessage5)
                         self.textBrowser5.setGeometry(QtCore.QRect(10, 10, 991, 51))
                         self.textBrowser5.setObjectName("textBrowser5")
-                        self.pushButton5 = QtWidgets.QPushButton(self.InvitationMessage5)
-                        self.pushButton5.setGeometry(QtCore.QRect(10, 70, 93, 28))
-                        self.pushButton5.setObjectName("pushButton5")
-                        self.Decline5 = QtWidgets.QPushButton(self.InvitationMessage5)
-                        self.Decline5.setGeometry(QtCore.QRect(110, 70, 93, 28))
-                        self.Decline5.setObjectName("Decline5")
+                        if InboxType[4] == "Invitation":
+                                self.pushButton5 = QtWidgets.QPushButton(self.InvitationMessage5)
+                                self.pushButton5.setGeometry(QtCore.QRect(10, 70, 93, 28))
+                                self.pushButton5.setObjectName("pushButton5")
+                                self.Decline5 = QtWidgets.QPushButton(self.InvitationMessage5)
+                                self.Decline5.setGeometry(QtCore.QRect(110, 70, 93, 28))
+                                self.Decline5.setObjectName("Decline5")
 
 
 
@@ -229,7 +235,7 @@ class Ui_InboxPage(object):
 
                 inboxContents = [" "," "," "," "," "]
 
-                InboxType = [0,0,0,0,0]
+                InboxType = ["","","","",""]
 
                 df = pd.read_csv('InboxMessages.csv')
                 #MessageID, UserID, Type, TypeID, GroupID, SubjectUserID
@@ -257,52 +263,67 @@ class Ui_InboxPage(object):
                 if inboxContents[4] == " ":
                         checkempty[4] = 1
 
+                MessagePrefix = ["","","","",""]
+                print(InboxType[0])
+                for i in range(len(InboxType)):
+                        if InboxType[i] == "Invitation":
+                                MessagePrefix[i] = "You have an Invitation to Join "
+                        if InboxType[i] == "Warning":
+                                MessagePrefix[i] = "You've received a Warning from "
+                        if InboxType[i] == "Compliment":
+                                MessagePrefix[i] = "You've received a Compliment from "
+
 
                 if checkempty[0] == 0:
                         self.textBrowser.setHtml(_translate("InboxPage", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
                 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                 "p, li { white-space: pre-wrap; }\n"
                 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
-                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Invitation to Join " + inboxContents[0] + " </span></p>\n"
+                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">" + MessagePrefix[0] + " " + inboxContents[0] + " </span></p>\n"
                 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\';\"><br /></p></body></html>"))
-                        self.pushButton.setText(_translate("InboxPage", "Accept"))
-                        self.Decline2.setText(_translate("InboxPage", "Decline"))
+                        if InboxType[0] == "Invitation":
+                                self.pushButton.setText(_translate("InboxPage", "Accept"))
+                                self.Decline2.setText(_translate("InboxPage", "Decline"))
                 
                 if checkempty[1] == 0:
                         self.textBrowser_2.setHtml(_translate("InboxPage", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
                 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                 "p, li { white-space: pre-wrap; }\n"
                 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
-                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Invitation to Join " + inboxContents[1] + "</span></p></body></html>"))
-                        self.Accept3.setText(_translate("InboxPage", "Accept"))
-                        self.Decline3.setText(_translate("InboxPage", "Decline"))
+                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">" + MessagePrefix[1] + " " + inboxContents[1] + "</span></p></body></html>"))
+                        if InboxType[1] == "Invitation":       
+                                self.Accept3.setText(_translate("InboxPage", "Accept"))
+                                self.Decline3.setText(_translate("InboxPage", "Decline"))
 
                 if checkempty[2] == 0:
                         self.textBrowser3.setHtml(_translate("InboxPage", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
                 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                 "p, li { white-space: pre-wrap; }\n"
                 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
-                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Invitation to Join " + inboxContents[2] + "</span></p></body></html>"))
-                        self.pushButton43.setText(_translate("InboxPage", "Accept"))
-                        self.Decline43.setText(_translate("InboxPage", "Decline"))
+                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\"> " + MessagePrefix[2] + " " + inboxContents[2] + "</span></p></body></html>"))
+                        if InboxType[2] == "Invitation":
+                                self.pushButton43.setText(_translate("InboxPage", "Accept"))
+                                self.Decline43.setText(_translate("InboxPage", "Decline"))
 
                 if checkempty[3] == 0:
                         self.textBrowser4.setHtml(_translate("InboxPage", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
                 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                 "p, li { white-space: pre-wrap; }\n"
                 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
-                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Invitation to Join " + inboxContents[3] + "</span></p></body></html>"))
-                        self.pushButton4.setText(_translate("InboxPage", "Accept"))
-                        self.Decline4.setText(_translate("InboxPage", "Decline"))
+                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">" + MessagePrefix[3] + " " + inboxContents[3] + "</span></p></body></html>"))
+                        if InboxType[3] == "Invitation":
+                                self.pushButton4.setText(_translate("InboxPage", "Accept"))
+                                self.Decline4.setText(_translate("InboxPage", "Decline"))
 
                 if checkempty[4] == 0:
                         self.textBrowser5.setHtml(_translate("InboxPage", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
                 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                 "p, li { white-space: pre-wrap; }\n"
                 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
-                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Invitation to Join " + inboxContents[4] + "</span></p></body></html>")) 
-                        self.pushButton5.setText(_translate("InboxPage", "Accept"))
-                        self.Decline5.setText(_translate("InboxPage", "Decline"))
+                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">" + MessagePrefix[4] + " " + inboxContents[4] + "</span></p></body></html>")) 
+                        if InboxType[4] == "Invitation":
+                                self.pushButton5.setText(_translate("InboxPage", "Accept"))
+                                self.Decline5.setText(_translate("InboxPage", "Decline"))
 
                 self.AcceptALL.setText(_translate("InboxPage", "Accept All Invitations"))
                 self.DeclineALL.setText(_translate("InboxPage", "Decline All Invitations"))

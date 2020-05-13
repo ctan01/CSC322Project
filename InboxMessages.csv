@@ -5,3 +5,4 @@ MessageID,UserID,Type,GroupName,SubjectUserID
 4,1,Invitation,Chemistry Camp,-1
 5,16,Invitation,Book Club,-1
 6,16,Invitation,Blood Drive,-1
+7,16,Warning,Animal Rescue,-1
