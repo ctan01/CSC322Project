@@ -321,36 +321,75 @@ class Ui_GroupPage(object):
         #self.Choice5.setText(_translate("GroupPage", "Sunday 2pm"))
 
         # HERE, POST CONTENTS WILL BE THE POSTCONTENTS OF POSTS.CSV FILE FOR POSTS WITH GROUPID == GROUP WITH CURRENTGROUP = 1
-        postcontents = "POST: "
+        postcontents = ["", "", "", ""]
         # Comments
         commentHeader = "COMMENTS: "
-        comment0 = " "
-        comment1 = " "
-        comment2 = " "
-        comment3 = " "
+        comment0 = [" ", " ", " ", " "]
+        comment1 = [" ", " ", " ", " "]
+        comment2 = [" ", " ", " ", " "]
+        comment3 = [" ", " ", " ", " "]
 
         df = pd.read_csv('Posts.csv')
         dfcheck = pd.read_csv('GroupData.csv')
         currentGroupRow = dfcheck[dfcheck['currentGroup'] == 1]
         currentGroupID = currentGroupRow['GroupID'].iloc[0]
         print(currentGroupID)
+        indexcount = 0
         for index, row in df.iterrows():
             if row['GroupID'] == currentGroupID:
-                postcontents = postcontents + row['PostContents']
-                comment0 = comment0 + row['Comment0']
-                comment1 = comment1 + row['Comment1']
-                comment2 = comment2 + row['Comment2']
-                comment3 = comment3 + row['Comment3']
+                print(row['PostContents'])
+                print(postcontents[indexcount])
+                postcontents[indexcount] = str(row['PostContents'])
+                comment0[indexcount] = row['Comment0']
+                comment1[indexcount] = row['Comment1']
+                comment2[indexcount] = row['Comment2']
+                comment3[indexcount] = row['Comment3']
+                indexcount = indexcount + 1
 
+        # POST ONE
         self.GroupPost.setTitle(_translate("GroupPage", "Post"))
         self.PostText.setHtml(_translate("GroupPage", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">" + postcontents + "<br></br><br></br>" + comment0 + "<br></br>" + comment1 + "<br></br>" + comment2 + "<br></br>" + comment3 +"</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">" + str(postcontents[0]) + "<br></br><br></br>" + str(comment0[0]) + "<br></br>" + str(comment1[0]) + "<br></br>" + str(comment2[0]) + "<br></br>" + str(comment3[0]) +"</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\';\"><br /></p></body></html>"))
         
         self.pushButton.setText(_translate("GroupPage", "Comment"))
+
+        # POST TWO
+        self.GroupPost2.setTitle(_translate("GroupPage", "Post"))
+        self.PostText2.setHtml(_translate("GroupPage", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">" + postcontents[1] + "<br></br><br></br>" + comment0[1] + "<br></br>" + comment1[1] + "<br></br>" + comment2[1] + "<br></br>" + comment3[1] +"</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\';\"><br /></p></body></html>"))
+        
+        self.pushButton2.setText(_translate("GroupPage", "Comment"))
+
+        # POST THREE
+        self.GroupPost3.setTitle(_translate("GroupPage", "Post"))
+        self.PostText3.setHtml(_translate("GroupPage", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">" + postcontents[2] + "<br></br><br></br>" + comment0[2] + "<br></br>" + comment1[2] + "<br></br>" + comment2[2] + "<br></br>" + comment3[2] +"</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\';\"><br /></p></body></html>"))
+        
+        self.pushButton3.setText(_translate("GroupPage", "Comment"))
+
+        # POST FOUR
+        self.GroupPost4.setTitle(_translate("GroupPage", "Post"))
+        self.PostText4.setHtml(_translate("GroupPage", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">" + postcontents[3] + "<br></br><br></br>" + comment0[3] + "<br></br>" + comment1[3] + "<br></br>" + comment2[3] + "<br></br>" + comment3[3] +"</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\';\"><br /></p></body></html>"))
+        
+        self.pushButton4.setText(_translate("GroupPage", "Comment"))
+
 
         #self.VoteWarning.setTitle(_translate("GroupPage", "Vote to Send Warning/Compliment to [USER NAME]"))
         #self.YesBox.setText(_translate("GroupPage", "Yes"))
