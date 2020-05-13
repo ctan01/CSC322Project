@@ -3,6 +3,7 @@ import pandas as pd
 from PyQt5.QtWidgets import QMessageBox
 from PyQt5.QtWidgets import QLineEdit
 from HomePage2 import Ui_HomePage2
+from HomePageSU import Ui_HomePageSU
 
 
 # LoginPage
@@ -16,16 +17,25 @@ class Ui_loginPage(object):
         for index, row in df.iterrows():
             if self.lineEdit_username.text() == row['Username'] and self.lineEdit_password.text() == row['Password']:
                 print('Login success')
-                self.window = QtWidgets.QMainWindow()
-                self.ui = Ui_HomePage2()
-                self.ui.setupUi(self.window)
-                self.window.show()
                 success = 1
+                print(row)
+                # CurretnUser = 1 means this user is currently logged in
+                # df = df.at[row, 'CurrentUser'] = 1
+                # if user is SU
+                if row['Status'] == 'SU':
+                    self.window = QtWidgets.QMainWindow()
+                    self.ui = Ui_HomePageSU()
+                    self.ui.setupUi(self.window)
+                    self.window.show()
+                # if user is OU or VIP
+                else:
+                    self.window = QtWidgets.QMainWindow()
+                    self.ui = Ui_HomePage2()
+                    self.ui.setupUi(self.window)
+                    self.window.show()
         if success == 0:
             msg.setText('Incorrect Password')
             msg.exec_()
-
-
 
     def setupUi(self, loginPage):
         loginPage.setObjectName("LoginPage")
@@ -92,8 +102,6 @@ if __name__ == "__main__":
     LoginPage.show()
     sys.exit(app.exec_())
 
-
-
- # df.iloc[x,1]
-    # df.loc[df['username'] == "userInput"]
-    # df = df.drop(row = ['userID'])
+# df.iloc[x,1]
+# df.loc[df['username'] == "userInput"]
+# df = df.drop(row = ['userID'])

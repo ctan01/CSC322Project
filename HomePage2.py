@@ -5,7 +5,11 @@ import pandas as pd
 # HomePage2
 class Ui_HomePage2(object):
     def logout(self):
+        df = pd.read_csv('UserData.csv')
+        for index, row in df.iterrows():
+            row['CurrentUser'] = 0
         HomePage2.close()
+
 
     def openProfileWindow(self):
         self.window = QtWidgets.QMainWindow()

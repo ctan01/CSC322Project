@@ -1,8 +1,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from LoginPage import Ui_loginPage
 from RegistrationPage import Ui_registrationPage
+from SearchPage import Ui_SearchPage
 import pandas as pd
-
 
 
 # HomePage
@@ -16,6 +16,29 @@ class Ui_HomePage(object):
     def openRegisWindow(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_registrationPage()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def search(self):
+        search_content = self.lineEdit_Search.text()
+        df_user_search_result = []
+        df_group_search_result = []
+        result_count = 0
+        df_user = pd.read_csv("UserData.csv")
+        df_group = pd.read_csv('GroupData.csv')
+        while result_count <= 2:
+            for index, row in df_user.iterrows():
+                if search_content == row['UserID'] or search_content == row['Username'] or \
+                        search_content == row['First_Name'] or search_content == row['Last_Name']:
+                    df_user_search_result.append(row)
+                    result_count = result_count + 1
+            for index, row in df_group.iterrows():
+                if search_content == row['GroupName'] or search_content == row['GroupID']:
+                    df_group_search_result.append(row)
+                    result_count = result_count + 1
+
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_SearchPage()
         self.ui.setupUi(self.window)
         self.window.show()
 
@@ -61,18 +84,22 @@ class Ui_HomePage(object):
         font.setFamily("Arial")
         self.pushButton_Login.setFont(font)
         self.pushButton_Login.setObjectName("pushButton_Login")
+
+        self.pushButton_Login.clicked.connect(self.openLoginWindow)  # link login button to login page
+
         self.pushButton_Search = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_Search.setGeometry(QtCore.QRect(200, 20, 51, 31))
-
-        self.pushButton_Login.clicked.connect(self.openLoginWindow)  # link home page and login page
-
         font = QtGui.QFont()
         font.setFamily("Arial")
         self.pushButton_Search.setFont(font)
         self.pushButton_Search.setObjectName("pushButton_Search")
-        self.textEdit_Search = QtWidgets.QTextEdit(self.centralwidget)
-        self.textEdit_Search.setGeometry(QtCore.QRect(10, 20, 181, 31))
-        self.textEdit_Search.setObjectName("textEdit_Search")
+
+        self.pushButton_Search.clicked.connect(self.search)  # link search button to search page
+
+        self.lineEdit_Search = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_Search.setGeometry(QtCore.QRect(10, 20, 181, 31))
+        self.lineEdit_Search.setObjectName("lineEdit_Search")
+
         self.label_Project1ID = QtWidgets.QLabel(self.centralwidget)
         self.label_Project1ID.setGeometry(QtCore.QRect(30, 130, 141, 16))
         font = QtGui.QFont()
@@ -377,6 +404,5 @@ if __name__ == "__main__":
     ui.setupUi(HomePage)
     HomePage.show()
     sys.exit(app.exec_())
-
 
 # end of HomePage

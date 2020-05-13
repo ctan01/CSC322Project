@@ -6,9 +6,6 @@ import pandas as pd
 class Ui_registrationPage(object):
     def submit(self):
         # record data in to db
-        # global skill1, skill2, skill3, skill4, skill5, skill6, skill7, skill8, skill9,
-        # skill10, skill11, interest1, interest2, interest3, interest4, interest5, interest6, interest8, interest7,
-        # interest9, interest10, interest11
         df = pd.read_csv('UserData.csv')
         if self.checkBox_interest1.isChecked():
             interest1 = self.checkBox_interest1.text()
@@ -120,7 +117,6 @@ class Ui_registrationPage(object):
         else:
             skill11 = None
 
-
         new_row = {'UserID': len(df.index),
                    'First_Name': self.lineEdit_firstName.text(),
                    'Last_Name': self.lineEdit_lastName.text(),
@@ -129,6 +125,8 @@ class Ui_registrationPage(object):
                    'Reference2': self.lineEdit_reference2.text(),
                    'Username': self.lineEdit_username.text(),
                    'Password': self.lineEdit_password.text(),
+                   'Status': "Visitors",
+                   'Reputation_Score': 10,
                    'Skills1': skill1,
                    'Skills2': skill2,
                    'Skills3': skill3,
@@ -150,7 +148,9 @@ class Ui_registrationPage(object):
                    'Interests8': interest8,
                    'Interests9': interest9,
                    'Interests10': interest10,
-                   'Interests11': interest11
+                   'Interests11': interest11,
+                   'CurrentUser': 0,
+                   'CurrentProfile': 0
                    }
         df = df.append(new_row, ignore_index=True)
         df.to_csv('UserData.csv', index=False)
@@ -376,18 +376,8 @@ class Ui_registrationPage(object):
         font.setFamily("Arial")
         self.checkBox_interest10.setFont(font)
         self.checkBox_interest10.setObjectName("checkBox_interest10")
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(80, 270, 271, 16))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        self.label.setFont(font)
-        self.label.setObjectName("label")
-        self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(80, 400, 271, 16))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        self.label_2.setFont(font)
-        self.label_2.setObjectName("label_2")
+
+        self.checkBox_interest1.checkStateSet()
         registrationPage.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(registrationPage)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 465, 21))
@@ -434,8 +424,6 @@ class Ui_registrationPage(object):
         self.checkBox_interest9.setText(_translate("registrationPage", "Kids"))
         self.checkBox_interest11.setText(_translate("registrationPage", "Public Welfare"))
         self.checkBox_interest10.setText(_translate("registrationPage", "Family Activities"))
-        self.label.setText(_translate("registrationPage", "Please choose at most 5 interests"))
-        self.label_2.setText(_translate("registrationPage", "Please choose at most 5 skill sets"))
 
 
 if __name__ == "__main__":

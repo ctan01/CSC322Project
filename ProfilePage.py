@@ -1,13 +1,11 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-import pandas as pd
 
 
-# ProfilePage
 class Ui_profilePage(object):
-    def setupUi(self, profilePage):
-        profilePage.setObjectName("ProfilePage")
-        profilePage.resize(402, 650)
-        self.centralwidget = QtWidgets.QWidget(profilePage)
+    def setupUi(self, ProfilePage):
+        ProfilePage.setObjectName("ProfilePage")
+        ProfilePage.resize(398, 531)
+        self.centralwidget = QtWidgets.QWidget(ProfilePage)
         self.centralwidget.setObjectName("centralwidget")
         self.label_Name = QtWidgets.QLabel(self.centralwidget)
         self.label_Name.setGeometry(QtCore.QRect(10, 80, 54, 12))
@@ -22,13 +20,13 @@ class Ui_profilePage(object):
         self.label_Email.setFont(font)
         self.label_Email.setObjectName("label_Email")
         self.label_Projects = QtWidgets.QLabel(self.centralwidget)
-        self.label_Projects.setGeometry(QtCore.QRect(10, 370, 54, 12))
+        self.label_Projects.setGeometry(QtCore.QRect(10, 280, 54, 12))
         font = QtGui.QFont()
         font.setFamily("Arial")
         self.label_Projects.setFont(font)
         self.label_Projects.setObjectName("label_Projects")
         self.label_Score = QtWidgets.QLabel(self.centralwidget)
-        self.label_Score.setGeometry(QtCore.QRect(10, 530, 54, 12))
+        self.label_Score.setGeometry(QtCore.QRect(10, 390, 54, 12))
         font = QtGui.QFont()
         font.setFamily("Arial")
         self.label_Score.setFont(font)
@@ -46,40 +44,22 @@ class Ui_profilePage(object):
         self.textBrowser_Email.setFont(font)
         self.textBrowser_Email.setObjectName("textBrowser_Email")
         self.textBrowser_Score = QtWidgets.QTextBrowser(self.centralwidget)
-        self.textBrowser_Score.setGeometry(QtCore.QRect(70, 520, 41, 31))
+        self.textBrowser_Score.setGeometry(QtCore.QRect(70, 380, 41, 31))
         self.textBrowser_Score.setObjectName("textBrowser_Score")
         self.label_Inerest = QtWidgets.QLabel(self.centralwidget)
-        self.label_Inerest.setGeometry(QtCore.QRect(10, 170, 81, 16))
+        self.label_Inerest.setGeometry(QtCore.QRect(10, 180, 81, 16))
         font = QtGui.QFont()
         font.setFamily("Arial")
         self.label_Inerest.setFont(font)
         self.label_Inerest.setObjectName("label_Inerest")
         self.label_SkillSets = QtWidgets.QLabel(self.centralwidget)
-        self.label_SkillSets.setGeometry(QtCore.QRect(10, 270, 111, 16))
+        self.label_SkillSets.setGeometry(QtCore.QRect(10, 230, 111, 16))
         font = QtGui.QFont()
         font.setFamily("Arial")
         self.label_SkillSets.setFont(font)
         self.label_SkillSets.setObjectName("label_SkillSets")
-        self.textBrowser_Projects = QtWidgets.QTextBrowser(self.centralwidget)
-        self.textBrowser_Projects.setGeometry(QtCore.QRect(70, 370, 291, 71))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        self.textBrowser_Projects.setFont(font)
-        self.textBrowser_Projects.setObjectName("textBrowser_Projects")
-        self.textBrowser_SkillSets = QtWidgets.QTextBrowser(self.centralwidget)
-        self.textBrowser_SkillSets.setGeometry(QtCore.QRect(70, 270, 291, 81))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        self.textBrowser_SkillSets.setFont(font)
-        self.textBrowser_SkillSets.setObjectName("textBrowser_SkillSets")
-        self.textBrowser_Inerest = QtWidgets.QTextBrowser(self.centralwidget)
-        self.textBrowser_Inerest.setGeometry(QtCore.QRect(70, 170, 291, 81))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        self.textBrowser_Inerest.setFont(font)
-        self.textBrowser_Inerest.setObjectName("textBrowser_Inerest")
         self.pushButton_Edit = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_Edit.setGeometry(QtCore.QRect(280, 570, 81, 31))
+        self.pushButton_Edit.setGeometry(QtCore.QRect(280, 430, 81, 31))
         font = QtGui.QFont()
         font.setFamily("Arial")
         self.pushButton_Edit.setFont(font)
@@ -97,28 +77,37 @@ class Ui_profilePage(object):
         self.textBrowse_UserID.setFont(font)
         self.textBrowse_UserID.setObjectName("textBrowse_UserID")
         self.label_Status = QtWidgets.QLabel(self.centralwidget)
-        self.label_Status.setGeometry(QtCore.QRect(10, 470, 54, 12))
+        self.label_Status.setGeometry(QtCore.QRect(10, 330, 54, 12))
         font = QtGui.QFont()
         font.setFamily("Arial")
         self.label_Status.setFont(font)
         self.label_Status.setObjectName("label_Status")
         self.textBrowser_Status = QtWidgets.QTextBrowser(self.centralwidget)
-        self.textBrowser_Status.setGeometry(QtCore.QRect(70, 460, 101, 31))
+        self.textBrowser_Status.setGeometry(QtCore.QRect(70, 320, 101, 31))
         font = QtGui.QFont()
         font.setFamily("Arial")
         self.textBrowser_Status.setFont(font)
         self.textBrowser_Status.setObjectName("textBrowser_Status")
-        profilePage.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(profilePage)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 402, 21))
+        self.comboBox_Interest = QtWidgets.QComboBox(self.centralwidget)
+        self.comboBox_Interest.setGeometry(QtCore.QRect(70, 170, 291, 31))
+        self.comboBox_Interest.setObjectName("comboBox_Interest")
+        self.comboBox_SkillSets = QtWidgets.QComboBox(self.centralwidget)
+        self.comboBox_SkillSets.setGeometry(QtCore.QRect(70, 220, 291, 31))
+        self.comboBox_SkillSets.setObjectName("comboBox_SkillSets")
+        self.comboBox_Projects = QtWidgets.QComboBox(self.centralwidget)
+        self.comboBox_Projects.setGeometry(QtCore.QRect(70, 270, 291, 31))
+        self.comboBox_Projects.setObjectName("comboBox_Projects")
+        ProfilePage.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(ProfilePage)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 398, 21))
         self.menubar.setObjectName("menubar")
-        profilePage.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(profilePage)
+        ProfilePage.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(ProfilePage)
         self.statusbar.setObjectName("statusbar")
-        profilePage.setStatusBar(self.statusbar)
+        ProfilePage.setStatusBar(self.statusbar)
 
-        self.retranslateUi(profilePage)
-        QtCore.QMetaObject.connectSlotsByName(profilePage)
+        self.retranslateUi(ProfilePage)
+        QtCore.QMetaObject.connectSlotsByName(ProfilePage)
 
     def retranslateUi(self, ProfilePage):
         _translate = QtCore.QCoreApplication.translate
@@ -132,39 +121,23 @@ class Ui_profilePage(object):
                                                 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                                 "p, li { white-space: pre-wrap; }\n"
                                                 "</style></head><body style=\" font-family:\'Arial\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-                                                "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'SimSun\';\"><br /></p></body></html>"))
+                                                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'SimSun\';\">example</span></p></body></html>"))
         self.textBrowser_Email.setHtml(_translate("ProfilePage",
                                                   "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
                                                   "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                                   "p, li { white-space: pre-wrap; }\n"
                                                   "</style></head><body style=\" font-family:\'Arial\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'SimSun\';\">example</span></p>\n"
                                                   "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'SimSun\';\"><br /></p></body></html>"))
         self.textBrowser_Score.setHtml(_translate("ProfilePage",
                                                   "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
                                                   "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                                   "p, li { white-space: pre-wrap; }\n"
                                                   "</style></head><body style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'SimSun\';\">example</span></p>\n"
                                                   "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'SimSun\';\"><br /></p></body></html>"))
         self.label_Inerest.setText(_translate("ProfilePage", "Interest:"))
         self.label_SkillSets.setText(_translate("ProfilePage", "Skill sets:"))
-        self.textBrowser_Projects.setHtml(_translate("ProfilePage",
-                                                     "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                                     "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                                     "p, li { white-space: pre-wrap; }\n"
-                                                     "</style></head><body style=\" font-family:\'Arial\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-                                                     "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'SimSun\';\"><br /></p></body></html>"))
-        self.textBrowser_SkillSets.setHtml(_translate("ProfilePage",
-                                                      "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                                      "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                                      "p, li { white-space: pre-wrap; }\n"
-                                                      "</style></head><body style=\" font-family:\'Arial\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-                                                      "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'SimSun\';\"><br /></p></body></html>"))
-        self.textBrowser_Inerest.setHtml(_translate("ProfilePage",
-                                                    "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                                    "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                                    "p, li { white-space: pre-wrap; }\n"
-                                                    "</style></head><body style=\" font-family:\'Arial\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-                                                    "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'SimSun\';\"><br /></p></body></html>"))
         self.pushButton_Edit.setText(_translate("ProfilePage", "Edit"))
         self.label_UserID.setText(_translate("ProfilePage", "User ID:"))
         self.textBrowse_UserID.setHtml(_translate("ProfilePage",
@@ -172,14 +145,14 @@ class Ui_profilePage(object):
                                                   "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                                   "p, li { white-space: pre-wrap; }\n"
                                                   "</style></head><body style=\" font-family:\'Arial\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-                                                  "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'SimSun\';\"><br /></p></body></html>"))
+                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'SimSun\';\">example</span></p></body></html>"))
         self.label_Status.setText(_translate("ProfilePage", "Status: "))
         self.textBrowser_Status.setHtml(_translate("ProfilePage",
                                                    "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
                                                    "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                                    "p, li { white-space: pre-wrap; }\n"
                                                    "</style></head><body style=\" font-family:\'Arial\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-                                                   "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'SimSun\';\"><br /></p></body></html>"))
+                                                   "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'SimSun\';\">example</span></p></body></html>"))
 
 
 if __name__ == "__main__":
