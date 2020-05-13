@@ -18,6 +18,26 @@ class Ui_HomePageSU(object):
         self.ui.setupUi(self.window)
         self.window.show()
 
+    def openInboxPage(self):
+        from InboxPage import Ui_InboxPage
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_InboxPage()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openManagePage(self):
+        from systemmanagement1 import Ui_MainWindow
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openGroupPage(self):
+        from GroupPage import Ui_GroupPage
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_GroupPage()
+        self.ui.setupUi(self.window)
+        self.window.show()
 
     def openProfileWindow(self):
         self.window = QtWidgets.QMainWindow()
@@ -59,8 +79,7 @@ class Ui_HomePageSU(object):
         self.pushButton_Logout.setFont(font)
         self.pushButton_Logout.setObjectName("pushButton_Logout")
 
-        self.pushButton_Logout.clicked.connect(self.logout)  # log out user
-        self.pushButton_Logout.clicked.connect(HomePageSU.close)
+
 
         self.pushButton_Groups = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_Groups.setGeometry(QtCore.QRect(790, 20, 81, 31))
@@ -316,6 +335,17 @@ class Ui_HomePageSU(object):
         self.actionGroups.setObjectName("actionGroups")
         self.actionSU_page = QtWidgets.QAction(HomePageSU)
         self.actionSU_page.setObjectName("actionSU_page")
+
+        self.pushButton_Logout.clicked.connect(self.logout)
+        self.pushButton_Logout.clicked.connect(HomePageSU.close)
+        self.pushButton_Groups.clicked.connect(self.openGroupPage)
+
+        self.pushButton_Inbox.clicked.connect(self.openInboxPage)
+
+        self.pushButton_Profile.clicked.connect(self.openProfileWindow)
+        self.pushButton_SU.clicked.connect(self.openManagePage)
+        self.pushButton_SU.clicked.connect(HomePageSU.close)
+
 
         self.retranslateUi(HomePageSU)
         QtCore.QMetaObject.connectSlotsByName(HomePageSU)
