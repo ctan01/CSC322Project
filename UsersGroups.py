@@ -3,6 +3,42 @@ import pandas as pd
 
 
 class Ui_UsersGroupsPage(object):
+    def openGroupPage(self):
+        from GroupPage import Ui_GroupPage
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_GroupPage()
+        self.ui.setupUi(self.window)
+        self.window.show()
+    
+
+    def setCurrentGroup1(self):
+        df = pd.read_csv('GroupData.csv')
+        #GroupID,GroupName,Description,Post0,Post1,Post2,Post3,Member0,Member1,Member2,Member3,Member4,Member5,Member6,Member7,currentGroup
+        dfcheck = pd.read_csv('UserData.csv')
+        currentUserRow = dfcheck[dfcheck['CurrentUser'] == 1]
+        currentUserID = currentUserRow['UserID'].iloc[0]
+        groupName1 = currentUserRow['Group1'].iloc[0]
+
+        for index, row in df.iterrows():
+            if row['GroupName'] == groupName1:
+                currentGroupID = row['GroupID']
+
+        print(currentGroupID)
+        for index, row in df.iterrows():
+            print(row['currentGroup'])
+            if row['currentGroup'] == 1:
+                df.loc[int(index), 'currentGroup'] = 0
+                print(row['currentGroup'])
+                
+        for index, row in df.iterrows():
+            print(row['GroupID'])
+            if row['GroupID'] == currentGroupID:
+                print(row['GroupID'])
+                df.loc[int(index), 'currentGroup'] = 1
+                print(row['currentGroup'])
+                
+        
+
     def openInboxPage(self):                # USERID PARAMETERS
         from InboxPage import Ui_InboxPage
         self.window = QtWidgets.QMainWindow()
@@ -116,6 +152,9 @@ class Ui_UsersGroupsPage(object):
             self.GroupButton1 = QtWidgets.QPushButton(self.Match1)
             self.GroupButton1.setGeometry(QtCore.QRect(560, 80, 201, 28))
             self.GroupButton1.setObjectName("pushButton")
+            self.GroupButton1.clicked.connect(self.setCurrentGroup1)
+            self.GroupButton1.clicked.connect(self.openGroupPage)
+            self.GroupButton1.clicked.connect(UsersGroups.close)
 
         if checkempty[1] == 0:
             self.Match1_2 = QtWidgets.QWidget(self.groupBox)
@@ -129,6 +168,8 @@ class Ui_UsersGroupsPage(object):
             self.GroupButton2 = QtWidgets.QPushButton(self.Match1_2)
             self.GroupButton2.setGeometry(QtCore.QRect(560, 80, 201, 28))
             self.GroupButton2.setObjectName("GroupButton2")
+            self.GroupButton2.clicked.connect(self.openGroupPage)
+            self.GroupButton2.clicked.connect(UsersGroups.close)
 
         if checkempty[2] == 0:
             self.Match1_3 = QtWidgets.QWidget(self.groupBox)
@@ -142,6 +183,8 @@ class Ui_UsersGroupsPage(object):
             self.GroupButton3 = QtWidgets.QPushButton(self.Match1_3)
             self.GroupButton3.setGeometry(QtCore.QRect(560, 80, 201, 28))
             self.GroupButton3.setObjectName("GroupButton3")
+            self.GroupButton3.clicked.connect(self.openGroupPage)
+            self.GroupButton3.clicked.connect(UsersGroups.close)
 
         if checkempty[3] == 0:
             self.Match1_4 = QtWidgets.QWidget(self.groupBox)
@@ -155,6 +198,9 @@ class Ui_UsersGroupsPage(object):
             self.GroupButton4 = QtWidgets.QPushButton(self.Match1_4)
             self.GroupButton4.setGeometry(QtCore.QRect(560, 80, 201, 28))
             self.GroupButton4.setObjectName("GroupButton4")
+            self.GroupButton4.clicked.connect(self.openGroupPage)
+            self.GroupButton4.clicked.connect(UsersGroups.close)
+
 
         if checkempty[4] == 0 :
             self.Match1_5 = QtWidgets.QWidget(self.groupBox)
@@ -168,6 +214,8 @@ class Ui_UsersGroupsPage(object):
             self.GroupButton5 = QtWidgets.QPushButton(self.Match1_5)
             self.GroupButton5.setGeometry(QtCore.QRect(560, 80, 201, 28))
             self.GroupButton5.setObjectName("GroupButton5")
+            self.GroupButton5.clicked.connect(self.openGroupPage)
+            self.GroupButton5.clicked.connect(UsersGroups.close)
 
 
         self.groupBox_2 = QtWidgets.QGroupBox(self.centralwidget)
@@ -285,6 +333,7 @@ class Ui_UsersGroupsPage(object):
         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">" + groupContents1[0] + "</span></p>\n"
         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">" + groupContents1[1] + "</span></p></body></html>"))
             self.GroupButton1.setText(_translate("UsersGroups", "Go to Group Page"))
+            # EDIT CURRENTGROUP = 1 FOR GROUP SELECTED
         
         if checkempty[1] == 0:
             self.textBrowser_2.setHtml(_translate("UsersGroups", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"

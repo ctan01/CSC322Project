@@ -1,7 +1,8 @@
 MemberPollID,GroupID,AffectedMemberID,Type,Yes,No,Total
-1,-1,-1,Vote to Kick Member Out,1,0,0
-2,-1,3,Vote to Send Compliment to Member,1,0,0
+1,4,-1,Vote to Kick Member Out,1,0,0
+2,5,3,Vote to Send Compliment to Member,1,0,0
 3,1,5,Vote to Send Compliment to Member,1,0,0
 4,1,14,Vote to Send Warning to Member,1,0,0
 5,1,13,Vote to Kick Member Out,1,0,0
 6,1,5,Vote to Kick Member Out,1,0,0
+7,11,3,Vote to Send Compliment to Member,1,0,0

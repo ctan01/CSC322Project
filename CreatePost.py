@@ -16,7 +16,8 @@ class Ui_CreatePost(object):
         df = pd.read_csv('Posts.csv')
         dfgroup = pd.read_csv('GroupData.csv')
         currentGroupRow = dfgroup[dfgroup['currentGroup'] ==  1]
-        currentGroupID = currentGroupRow['GroupID'][0]
+        currentGroupID = currentGroupRow['GroupID'].iloc[0]
+        print(currentGroupID)
 
         # PostID, GroupID, PostContents, Comment0, Comment1, Comment2,Comment3
         new_row = {'PostID': (len(df.index)+1),

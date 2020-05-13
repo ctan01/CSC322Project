@@ -281,7 +281,8 @@ class Ui_GroupPage(object):
         df = pd.read_csv('Posts.csv')
         dfcheck = pd.read_csv('GroupData.csv')
         currentGroupRow = dfcheck[dfcheck['currentGroup'] == 1]
-        currentGroupID = currentGroupRow['GroupID'][0]
+        currentGroupID = currentGroupRow['GroupID'].iloc[0]
+        print(currentGroupID)
         for index, row in df.iterrows():
             if row['GroupID'] == currentGroupID:
                 postcontents = postcontents + row['PostContents']

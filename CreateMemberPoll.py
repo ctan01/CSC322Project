@@ -19,7 +19,7 @@ class Ui_MemberPoll(object):
         
         dfgroup = pd.read_csv('GroupData.csv')
         currentGroupRow = dfgroup[dfgroup['currentGroup'] ==  1]
-        currentGroupID = currentGroupRow['GroupID'][0]
+        currentGroupID = currentGroupRow['GroupID'].iloc[0]
 
 
         new_row = {'MemberPollID': (len(df.index)+1),
