@@ -1,17 +1,17 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import pandas as pd
 
-class Post:
-    def __init__(self):
-        self.text = ""
+#class Post:
+#    def __init__(self):
+#        self.text = ""
     
 
-class MeetupPost(Post):
-    def __init__(self):
-        self.time = 0
+#class MeetupPost(Post):
+#    def __init__(self):
+#        self.time = 0
 
-    def draw(self):
-        pass
+#    def draw(self):
+#        pass
 
 class Ui_GroupPage(object):
     

@@ -6,14 +6,14 @@ import pandas as pd
 class Ui_CreatePost(object):
     def publishPost(self):
         df = pd.read_csv('Posts.csv')
-        
-        # TO DO
-        # part that will check which groupID currentGroup has value 1
-        # to match post with groupID
+        dfgroup = pd.read_csv('GroupData.csv')
+        currentGroupRow = dfgroup[dfgroup['currentGroup'] ==  1]
+        currentGroupID = currentGroupRow['GroupID'][0]
+        print(currentGroupID)
 
         # PostID, GroupID, PostContents, Comment0, Comment1, Comment2,Comment3
         new_row = {'PostID': (len(df.index)+1),
-            'GroupID' : '-1',
+            'GroupID' : currentGroupID,
             'PostContents': self.lineEdit_Postcontents.text(),
             'Comment0': " ",
             'Comment1': " ",
