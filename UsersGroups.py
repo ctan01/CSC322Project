@@ -79,7 +79,6 @@ class Ui_UsersGroupsPage(object):
         groupName3 = currentUserRow['Group3'].iloc[0]
         groupName4 = currentUserRow['Group4'].iloc[0]
         groupName5 = currentUserRow['Group5'].iloc[0]
-        print(groupName1)
         for index, row in df.iterrows():
             if row['GroupName']== groupName1:
                 groupContents1 = [row['GroupName'], row['Description']]
@@ -249,9 +248,6 @@ class Ui_UsersGroupsPage(object):
         groupName3 = currentUserRow['Group3'].iloc[0]
         groupName4 = currentUserRow['Group4'].iloc[0]
         groupName5 = currentUserRow['Group5'].iloc[0]
-        print(groupName3)
-        print(groupName4)
-        print(groupName5)
         for index, row in df.iterrows():
             if row['GroupName']== groupName1:
                 groupContents1 = [row['GroupName'], row['Description']]
@@ -264,7 +260,6 @@ class Ui_UsersGroupsPage(object):
             if row['GroupName'] == groupName5:
                 groupContents5 = [row['GroupName'], row['Description']]
         backup = "Join More Groups!"
-        print(groupContents5)
         # CLEAR EMPTY BOXES 
         # MOVE TO BOTTOM
         checkempty = [0,0,0,0,0]
