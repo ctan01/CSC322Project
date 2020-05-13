@@ -4,12 +4,19 @@ import pandas as pd
 
 
 class Ui_CreatePost(object):
+    def refreshGroupPage(self):
+        from GroupPage import Ui_GroupPage
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_GroupPage()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    
     def publishPost(self):
         df = pd.read_csv('Posts.csv')
         dfgroup = pd.read_csv('GroupData.csv')
         currentGroupRow = dfgroup[dfgroup['currentGroup'] ==  1]
         currentGroupID = currentGroupRow['GroupID'][0]
-        print(currentGroupID)
 
         # PostID, GroupID, PostContents, Comment0, Comment1, Comment2,Comment3
         new_row = {'PostID': (len(df.index)+1),
@@ -47,6 +54,7 @@ class Ui_CreatePost(object):
         self.PublishPostButton.setObjectName("Publish")
         self.PublishPostButton.clicked.connect(self.publishPost) # BEGIN TO PUBLISH POST
         self.PublishPostButton.clicked.connect(CreatePost.close)
+        self.PublishPostButton.clicked.connect(self.refreshGroupPage)
 
         CreatePost.setCentralWidget(self.centralwidget) 
 

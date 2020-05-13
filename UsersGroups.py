@@ -1,4 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+import pandas as pd
 
 
 class Ui_UsersGroupsPage(object):
@@ -62,40 +63,113 @@ class Ui_UsersGroupsPage(object):
         self.groupBox.setGeometry(QtCore.QRect(210, 70, 791, 651))
         self.groupBox.setObjectName("groupBox")
 
-        self.Match1 = QtWidgets.QWidget(self.groupBox)
-        self.Match1.setGeometry(QtCore.QRect(10, 20, 771, 121))
-        self.Match1.setObjectName("Match1")
-        self.textBrowser = QtWidgets.QTextBrowser(self.Match1)
-        self.textBrowser.setGeometry(QtCore.QRect(10, 10, 751, 61))
-        self.textBrowser.setObjectName("textBrowser")
+        groupContents1 = [" ", " "]
+        groupContents2 = [" ", " "]
+        groupContents3 = [" ", " "]
+        groupContents4 = [" ", " "]
+        groupContents5 = [" ", " "]
+        
+        df = pd.read_csv('GroupData.csv')
+        #GroupID,GroupName,Description,Post0,Post1,Post2,Post3,Member0,Member1,Member2,Member3,Member4,Member5,Member6,Member7,currentGroup
+        dfcheck = pd.read_csv('UserData.csv')
+        currentUserRow = dfcheck[dfcheck['CurrentUser'] == 1]
+        currentUserID = currentUserRow['UserID'].iloc[0]
+        groupName1 = currentUserRow['Group1'].iloc[0]
+        groupName2 = currentUserRow['Group2'].iloc[0]
+        groupName3 = currentUserRow['Group3'].iloc[0]
+        groupName4 = currentUserRow['Group4'].iloc[0]
+        groupName5 = currentUserRow['Group5'].iloc[0]
+        print(groupName1)
+        for index, row in df.iterrows():
+            if row['GroupName']== groupName1:
+                groupContents1 = [row['GroupName'], row['Description']]
+            if row['GroupName'] == groupName2:
+                groupContents2 = [row['GroupName'], row['Description']]
+            if row['GroupName'] == groupName3:
+                groupContents3 = [row['GroupName'], row['Description']]
+            if row['GroupName'] == groupName4:
+                groupContents4 = [row['GroupName'], row['Description']]
+            if row['GroupName'] == groupName5:
+                groupContents5 = [row['GroupName'], row['Description']] 
+        backup = "Join More Groups!"
+        # CLEAR EMPTY BOXES 
+        # MOVE TO BOTTOM
+        checkempty = [0,0,0,0,0]
+        if groupContents1[1] == " ":
+            checkempty[0] = 1
+        if groupContents2[1] == " ":
+            checkempty[1] = 1
+        if groupContents3[1] == " ":
+            checkempty[2] = 1
+        if groupContents4[1] == " ":
+            checkempty[3] = 1
+        if groupContents5[1] == " ":
+            checkempty[4] = 1
 
-        self.pushButton = QtWidgets.QPushButton(self.Match1)
-        self.pushButton.setGeometry(QtCore.QRect(560, 80, 201, 28))
-        self.pushButton.setObjectName("pushButton")
+        if checkempty[0] == 0:
+            self.Match1 = QtWidgets.QWidget(self.groupBox)
+            self.Match1.setGeometry(QtCore.QRect(10, 20, 771, 121))
+            self.Match1.setObjectName("Match1")
+            self.textBrowser = QtWidgets.QTextBrowser(self.Match1)
+            self.textBrowser.setGeometry(QtCore.QRect(10, 10, 751, 61))
+            self.textBrowser.setObjectName("textBrowser")
 
-        self.Match1_2 = QtWidgets.QWidget(self.groupBox)
-        self.Match1_2.setGeometry(QtCore.QRect(10, 150, 771, 121))
-        self.Match1_2.setObjectName("Match1_2")
+            self.GroupButton1 = QtWidgets.QPushButton(self.Match1)
+            self.GroupButton1.setGeometry(QtCore.QRect(560, 80, 201, 28))
+            self.GroupButton1.setObjectName("pushButton")
 
-        self.textBrowser_2 = QtWidgets.QTextBrowser(self.Match1_2)
-        self.textBrowser_2.setGeometry(QtCore.QRect(10, 10, 751, 61))
-        self.textBrowser_2.setObjectName("textBrowser_2")
+        if checkempty[1] == 0:
+            self.Match1_2 = QtWidgets.QWidget(self.groupBox)
+            self.Match1_2.setGeometry(QtCore.QRect(10, 150, 771, 121))
+            self.Match1_2.setObjectName("Match1_2")
 
-        self.pushButton_2 = QtWidgets.QPushButton(self.Match1_2)
-        self.pushButton_2.setGeometry(QtCore.QRect(560, 80, 201, 28))
-        self.pushButton_2.setObjectName("pushButton_2")
+            self.textBrowser_2 = QtWidgets.QTextBrowser(self.Match1_2)
+            self.textBrowser_2.setGeometry(QtCore.QRect(10, 10, 751, 61))
+            self.textBrowser_2.setObjectName("textBrowser_2")
 
-        self.Match1_3 = QtWidgets.QWidget(self.groupBox)
-        self.Match1_3.setGeometry(QtCore.QRect(10, 280, 771, 121))
-        self.Match1_3.setObjectName("Match1_3")
+            self.GroupButton2 = QtWidgets.QPushButton(self.Match1_2)
+            self.GroupButton2.setGeometry(QtCore.QRect(560, 80, 201, 28))
+            self.GroupButton2.setObjectName("GroupButton2")
 
-        self.textBrowser_3 = QtWidgets.QTextBrowser(self.Match1_3)
-        self.textBrowser_3.setGeometry(QtCore.QRect(10, 10, 751, 61))
-        self.textBrowser_3.setObjectName("textBrowser_3")
+        if checkempty[2] == 0:
+            self.Match1_3 = QtWidgets.QWidget(self.groupBox)
+            self.Match1_3.setGeometry(QtCore.QRect(10, 280, 771, 121))
+            self.Match1_3.setObjectName("Match1_3")
 
-        self.pushButton_3 = QtWidgets.QPushButton(self.Match1_3)
-        self.pushButton_3.setGeometry(QtCore.QRect(560, 80, 201, 28))
-        self.pushButton_3.setObjectName("pushButton_3")
+            self.textBrowser_3 = QtWidgets.QTextBrowser(self.Match1_3)
+            self.textBrowser_3.setGeometry(QtCore.QRect(10, 10, 751, 61))
+            self.textBrowser_3.setObjectName("textBrowser_3")
+
+            self.GroupButton3 = QtWidgets.QPushButton(self.Match1_3)
+            self.GroupButton3.setGeometry(QtCore.QRect(560, 80, 201, 28))
+            self.GroupButton3.setObjectName("GroupButton3")
+
+        if checkempty[3] == 0:
+            self.Match1_4 = QtWidgets.QWidget(self.groupBox)
+            self.Match1_4.setGeometry(QtCore.QRect(10, 410, 771, 121))
+            self.Match1_4.setObjectName("Match1_4")
+
+            self.textBrowser_4 = QtWidgets.QTextBrowser(self.Match1_4)
+            self.textBrowser_4.setGeometry(QtCore.QRect(10, 10, 751, 61))
+            self.textBrowser_4.setObjectName("textBrowser_4")
+
+            self.GroupButton4 = QtWidgets.QPushButton(self.Match1_4)
+            self.GroupButton4.setGeometry(QtCore.QRect(560, 80, 201, 28))
+            self.GroupButton4.setObjectName("GroupButton4")
+
+        if checkempty[4] == 0 :
+            self.Match1_5 = QtWidgets.QWidget(self.groupBox)
+            self.Match1_5.setGeometry(QtCore.QRect(10, 540, 771, 121))
+            self.Match1_5.setObjectName("Match1_5")
+
+            self.textBrowser_5 = QtWidgets.QTextBrowser(self.Match1_5)
+            self.textBrowser_5.setGeometry(QtCore.QRect(10, 10, 751, 61))
+            self.textBrowser_5.setObjectName("textBrowser_5")
+
+            self.GroupButton5 = QtWidgets.QPushButton(self.Match1_5)
+            self.GroupButton5.setGeometry(QtCore.QRect(560, 80, 201, 28))
+            self.GroupButton5.setObjectName("GroupButton5")
+
 
         self.groupBox_2 = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox_2.setGeometry(QtCore.QRect(0, 0, 211, 61))
@@ -104,6 +178,9 @@ class Ui_UsersGroupsPage(object):
         self.textEdit = QtWidgets.QTextEdit(self.groupBox_2)
         self.textEdit.setGeometry(QtCore.QRect(10, 20, 121, 31))
         self.textEdit.setObjectName("textEdit")
+
+
+        # NAVIGATION SECTION
 
         self.HomeButton_2 = QtWidgets.QPushButton(self.groupBox_2)
         self.HomeButton_2.setGeometry(QtCore.QRect(140, 20, 61, 31))
@@ -136,6 +213,7 @@ class Ui_UsersGroupsPage(object):
         self.InboxButton.clicked.connect(self.openInboxPage)
         self.InboxButton.clicked.connect(UsersGroups.close)
 
+        # MENU BAR
         UsersGroups.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(UsersGroups)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1233, 26))
@@ -152,33 +230,110 @@ class Ui_UsersGroupsPage(object):
         _translate = QtCore.QCoreApplication.translate
         UsersGroups.setWindowTitle(_translate("UsersGroups", "UsersGroups"))
         self.groupBox.setTitle(_translate("UsersGroups", "List of Groups"))
-        self.textBrowser.setHtml(_translate("UsersGroups", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Community Garden</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Description</span></p></body></html>"))
-        self.pushButton.setText(_translate("UsersGroups", "Go to Group Page"))
-        self.textBrowser_2.setHtml(_translate("UsersGroups", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Roadside Litter Pick Up</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Description</span></p></body></html>"))
-        self.pushButton_2.setText(_translate("UsersGroups", "Go to Group Page"))
-        self.textBrowser_3.setHtml(_translate("UsersGroups", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Beach Clean Up</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Description</span></p></body></html>"))
-        self.pushButton_3.setText(_translate("UsersGroups", "Go to Group Page"))
-        self.groupBox_2.setTitle(_translate("UsersGroups", "Search"))
+
+        # POPULATING THE GROUP BOXES 
+        groupContents1 = [" ", " "]
+        groupContents2 = [" ", " "]
+        groupContents3 = [" ", " "]
+        groupContents4 = [" ", " "]
+        groupContents5 = [" ", " "]
+
+        df = pd.read_csv('GroupData.csv')
+        #GroupID,GroupName,Description,Post0,Post1,Post2,Post3,Member0,Member1,Member2,Member3,Member4,Member5,Member6,Member7,currentGroup
+        dfcheck = pd.read_csv('UserData.csv')
+        currentUserRow = dfcheck[dfcheck['CurrentUser'] == 1]
+        currentUserID = currentUserRow['UserID'].iloc[0]
+        #print(currentUserID)
+        groupName1 = currentUserRow['Group1'].iloc[0]
+        groupName2 = currentUserRow['Group2'].iloc[0]
+        groupName3 = currentUserRow['Group3'].iloc[0]
+        groupName4 = currentUserRow['Group4'].iloc[0]
+        groupName5 = currentUserRow['Group5'].iloc[0]
+        print(groupName3)
+        print(groupName4)
+        print(groupName5)
+        for index, row in df.iterrows():
+            if row['GroupName']== groupName1:
+                groupContents1 = [row['GroupName'], row['Description']]
+            if row['GroupName'] == groupName2:
+                groupContents2 = [row['GroupName'], row['Description']]
+            if row['GroupName'] == groupName3:
+                groupContents3 = [row['GroupName'], row['Description']]
+            if row['GroupName'] == groupName4:
+                groupContents4 = [row['GroupName'], row['Description']]
+            if row['GroupName'] == groupName5:
+                groupContents5 = [row['GroupName'], row['Description']]
+        backup = "Join More Groups!"
+        print(groupContents5)
+        # CLEAR EMPTY BOXES 
+        # MOVE TO BOTTOM
+        checkempty = [0,0,0,0,0]
+        if groupContents1[1] == " ":
+            checkempty[0] = 1
+        if groupContents2[1] == " ":
+            checkempty[1] = 1
+        if groupContents3[1] == " ":
+            checkempty[2] = 1
+        if groupContents4[1] == " ":
+            checkempty[3] = 1
+        if groupContents5[1] == " ":
+            checkempty[4] = 1
+        
+
+
+
+        if checkempty[0] == 0:
+            self.textBrowser.setHtml(_translate("UsersGroups", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+        "p, li { white-space: pre-wrap; }\n"
+        "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
+        "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">" + groupContents1[0] + "</span></p>\n"
+        "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">" + groupContents1[1] + "</span></p></body></html>"))
+            self.GroupButton1.setText(_translate("UsersGroups", "Go to Group Page"))
+        
+        if checkempty[1] == 0:
+            self.textBrowser_2.setHtml(_translate("UsersGroups", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+    "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+    "p, li { white-space: pre-wrap; }\n"
+    "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
+    "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">" + groupContents2[0] + "</span></p>\n"
+    "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">" + groupContents2[1] + "</span></p></body></html>"))
+            self.GroupButton2.setText(_translate("UsersGroups", "Go to Group Page"))
+
+        if checkempty[2] == 0:
+            self.textBrowser_3.setHtml(_translate("UsersGroups", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+    "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+    "p, li { white-space: pre-wrap; }\n"
+    "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
+    "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">" + groupContents3[0] + "</span></p>\n"
+    "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">" + groupContents3[1] + "</span></p></body></html>"))
+            self.GroupButton3.setText(_translate("UsersGroups", "Go to Group Page"))
+
+        if checkempty[3] == 0:
+            self.textBrowser_4.setHtml(_translate("UsersGroups", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+    "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+    "p, li { white-space: pre-wrap; }\n"
+    "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
+    "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">" + groupContents4[0] + "</span></p>\n"
+    "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">" + groupContents4[1] + "</span></p></body></html>"))
+            self.GroupButton4.setText(_translate("UsersGroups", "Go to Group Page"))
+
+        if checkempty[4] == 0:
+            self.textBrowser_5.setHtml(_translate("UsersGroups", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+    "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+    "p, li { white-space: pre-wrap; }\n"
+    "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
+    "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">" + groupContents5[0] + "</span></p>\n"
+    "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">" + groupContents5[1] + "</span></p></body></html>"))
+            self.GroupButton5.setText(_translate("UsersGroups", "Go to Group Page"))
+
+
+        self.groupBox_2.setTitle(_translate("UsersGroups", "Search"))        
         self.textEdit.setHtml(_translate("UsersGroups", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Garden</span></p></body></html>"))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Search</span></p></body></html>"))
         self.HomeButton_2.setText(_translate("UsersGroups", "Search"))
         self.NavigationSideBar.setTitle(_translate("UsersGroups", "Navigation"))
         self.HomeButton.setText(_translate("UsersGroups", "Home"))

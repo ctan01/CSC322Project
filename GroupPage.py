@@ -13,7 +13,16 @@ import pandas as pd
 #    def draw(self):
 #        pass
 
+
 class Ui_GroupPage(object):
+    def refreshGroupPage(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_GroupPage()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def submitComment(self):
+        pass
     
     def openInboxPage(self):                # USERID PARAMETERS
         from InboxPage import Ui_InboxPage
@@ -149,6 +158,7 @@ class Ui_GroupPage(object):
         self.PostText = QtWidgets.QTextBrowser(self.GroupPost)
         self.PostText.setGeometry(QtCore.QRect(10, 20, 681, 111))
         self.PostText.setObjectName("PostText")
+
 
         self.textEdit_2 = QtWidgets.QTextEdit(self.GroupPost)           # COMMENT BOX
         self.textEdit_2.setGeometry(QtCore.QRect(10, 140, 681, 31))

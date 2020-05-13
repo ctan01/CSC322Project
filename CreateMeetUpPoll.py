@@ -2,6 +2,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_MeetUpPoll(object):
+    def submit(self):
+        pass
+
     def setupUi(self, CreateMeetUpPoll):
         CreateMeetUpPoll.setObjectName("CreateMeetUpPoll")
         CreateMeetUpPoll.resize(389, 343)

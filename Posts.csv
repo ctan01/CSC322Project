@@ -2,4 +2,6 @@ PostID,GroupID,PostContents,Comment0,Comment1,Comment2,Comment3
 1,1, Testing Post Functionalities, Testing Comment Functionalities, Succussful Comment, ,  
 2,2,Testing Post from Create Post Function, , , ,
 3,-1,Hello a post is being made, , , ,
-4,1,another check, , , , 
+4,8,another check, , , , 
+5,2,HELLO, , , , 
+6,5,Hello ch3ck psdsfsdnf, , , , 
