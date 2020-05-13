@@ -5,8 +5,8 @@ import pandas as pd
 class Ui_CreateGroupPage(object):
     def createGroup(self):
         msg = QMessageBox()
-        df = pd.read_csv('GroupData.csv')
-        new_row = {'GroupID': len(df.index) + 1,
+        """df = pd.read_csv('GroupData.csv')
+        new_row = {'GroupID': (len(df.index) + 1),
                    'GroupName': self.lineEdit_GroupName.text(),
                    'Description': self.lineEdit_GroupDescription.text(),
                    'Member0': self.comboBox_InviteMember1.currentText(),
@@ -20,7 +20,7 @@ class Ui_CreateGroupPage(object):
                    'currentGroup': 0
                    }
         df = df.append(new_row, ignore_index=True)
-        df.to_csv('GroupData.csv', index=False)
+        df.to_csv('GroupData.csv', index=False)"""
 
         msg.setText('Group created and Invitation sent')
         msg.exec_()
