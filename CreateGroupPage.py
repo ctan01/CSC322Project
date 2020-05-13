@@ -6,17 +6,17 @@ class Ui_CreateGroupPage(object):
     def createGroup(self):
         msg = QMessageBox()
         df = pd.read_csv('GroupData.csv')
-        new_row = {'GroupID': len(df.index),
+        new_row = {'GroupID': len(df.index) + 1,
                    'GroupName': self.lineEdit_GroupName.text(),
                    'Description': self.lineEdit_GroupDescription.text(),
-                   'Member0': self.comboBox_InviteMember1.text(),
-                   'Member1': self.comboBox_InviteMember2.text(),
-                   'Member2': self.comboBox_InviteMember3.text(),
-                   'Member3': self.comboBox_InviteMember4.text(),
-                   'Member4': self.comboBox_InviteMember5.text(),
-                   'Member5': self.comboBox_InviteMember6.text(),
-                   'Member6': self.comboBox_InviteMember7.text(),
-                   'Member7': self.comboBox_InviteMember8.text(),
+                   'Member0': self.comboBox_InviteMember1.currentText(),
+                   'Member1': self.comboBox_InviteMember2.currenttext(),
+                   'Member2': self.comboBox_InviteMember3.currenttext(),
+                   'Member3': self.comboBox_InviteMember4.currenttext(),
+                   'Member4': self.comboBox_InviteMember5.currenttext(),
+                   'Member5': self.comboBox_InviteMember6.currenttext(),
+                   'Member6': self.comboBox_InviteMember7.currenttext(),
+                   'Member7': self.comboBox_InviteMember8.currenttext(),
                    'currentGroup': 0
                    }
         df = df.append(new_row, ignore_index=True)

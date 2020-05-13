@@ -6,6 +6,13 @@ import pandas as pd
 class Ui_HomePageSU(object):
     def logout(self):
         from HomePage import Ui_HomePage
+        df = pd.read_csv('UserData.csv')
+        for index, row in df.iterrows():
+            if row['CurrentUser'] == 1:
+                row_num = df[df['CurrentUser'] == row['CurrentUser']].index[0]
+                df.loc[row_num, 'CurrentUser'] = 0
+                df.to_csv('UserData.csv', index=False)
+
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_HomePage()
         self.ui.setupUi(self.window)
@@ -71,6 +78,8 @@ class Ui_HomePageSU(object):
         font.setFamily("Arial")
         self.pushButton_Logout.setFont(font)
         self.pushButton_Logout.setObjectName("pushButton_Logout")
+
+
 
         self.pushButton_Groups = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_Groups.setGeometry(QtCore.QRect(790, 20, 81, 31))
@@ -327,8 +336,6 @@ class Ui_HomePageSU(object):
         self.actionSU_page = QtWidgets.QAction(HomePageSU)
         self.actionSU_page.setObjectName("actionSU_page")
 
-        self.retranslateUi(HomePageSU)
-        QtCore.QMetaObject.connectSlotsByName(HomePageSU)
         self.pushButton_Logout.clicked.connect(self.logout)
         self.pushButton_Logout.clicked.connect(HomePageSU.close)
         self.pushButton_Groups.clicked.connect(self.openGroupPage)
@@ -338,6 +345,10 @@ class Ui_HomePageSU(object):
         self.pushButton_Profile.clicked.connect(self.openProfileWindow)
         self.pushButton_SU.clicked.connect(self.openManagePage)
         self.pushButton_SU.clicked.connect(HomePageSU.close)
+
+
+        self.retranslateUi(HomePageSU)
+        QtCore.QMetaObject.connectSlotsByName(HomePageSU)
 
     def retranslateUi(self, HomePageSU):
         _translate = QtCore.QCoreApplication.translate
