@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
             df.loc[int(index), 'Email'] = self.lineEdit_email.text()
         if self.lineEdit_status.text() != "":
             df.loc[int(index), 'Status'] = self.lineEdit_status.text()
-        if self.lineEdit_email.text() != "":
+        if self.lineEdit_reputation.text() != "":
             df.loc[int(index), 'Reputation_Score'] = self.lineEdit_reputation.text()
         df.to_csv('UserData.csv', index=False)
 
