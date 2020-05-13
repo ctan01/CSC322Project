@@ -32,10 +32,10 @@ class Ui_HomePageSU(object):
         self.ui.setupUi(self.window)
         self.window.show()
 
-    def openGroupPage(self):
-        from GroupPage import Ui_GroupPage
+    def openUsersGroupsPage(self):
+        from UsersGroups import Ui_UsersGroupsPage
         self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_GroupPage()
+        self.ui = Ui_UsersGroupsPage()
         self.ui.setupUi(self.window)
         self.window.show()
 
@@ -338,7 +338,7 @@ class Ui_HomePageSU(object):
 
         self.pushButton_Logout.clicked.connect(self.logout)
         self.pushButton_Logout.clicked.connect(HomePageSU.close)
-        self.pushButton_Groups.clicked.connect(self.openGroupPage)
+        self.pushButton_Groups.clicked.connect(self.openUsersGroupsPage)
 
         self.pushButton_Inbox.clicked.connect(self.openInboxPage)
 
@@ -432,3 +432,4 @@ if __name__ == "__main__":
     ui.setupUi(HomePageSU)
     HomePageSU.show()
     sys.exit(app.exec_())
+
