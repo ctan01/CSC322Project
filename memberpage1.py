@@ -8,10 +8,60 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import pandas as pd
 from PyQt5.QtWidgets import QMessageBox
 
 
 class Ui_MainWindow(object):
+
+    df = pd.read_csv('UserData.csv')
+    username = df.at[0, 'temp']
+    index = df.at[1, 'temp']
+
+    def openInboxPage(self):
+        from InboxPage import Ui_InboxPage
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_InboxPage()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openGroupPage(self):
+        from GroupPage import Ui_GroupPage
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_GroupPage()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openPrevPage(self):
+        from systemmanagement1 import Ui_MainWindow
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openHomePageSU(self):
+        from HomePageSU import Ui_HomePageSU
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_HomePageSU()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def EditUser(self):
+        from EditPage import Ui_MainWindow
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def RemoveUser(self):
+        df = pd.read_csv('UserData.csv')
+        df = df.drop(df[df['Username'] == Ui_MainWindow.username].index[0])
+        df.to_csv('UserData.csv', index=False)
+        msg = QMessageBox()
+        msg.setWindowTitle("notice")
+        msg.setText("user has been removed")
+        x = msg.exec_()
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(818, 601)
@@ -65,6 +115,9 @@ class Ui_MainWindow(object):
         self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_3.setGeometry(QtCore.QRect(550, 500, 121, 41))
         self.pushButton_3.setObjectName("pushButton_3")
+
+        self.pushButton_3.clicked.connect(self.RemoveUser)
+
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setGeometry(QtCore.QRect(30, 50, 651, 511))
         self.frame.setFrameShape(QtWidgets.QFrame.Panel)
@@ -90,13 +143,12 @@ class Ui_MainWindow(object):
         self.label_3 = QtWidgets.QLabel(self.frame_2)
         self.label_3.setGeometry(QtCore.QRect(10, 0, 111, 20))
         self.label_3.setObjectName("label_3")
-        self.frame.raise_()
-        self.label.raise_()
+
         self.listWidget.raise_()
-        self.label_2.raise_()
+        self.pushButton.raise_()
         self.pushButton_2.raise_()
         self.pushButton_3.raise_()
-        self.frame_2.raise_()
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -105,20 +157,32 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        self.pushButton_2.clicked.connect(self.EditUser)
+        self.pushButton.clicked.connect(self.openPrevPage)
+        self.pushButton.clicked.connect(MainWindow.close)
+
+        self.pushButton_4.clicked.connect(self.openHomePageSU)
+        self.pushButton_4.clicked.connect(MainWindow.close)
+        self.pushButton_5.clicked.connect(self.openInboxPage)
+
+        self.pushButton_6.clicked.connect(self.openGroupPage)
+
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "                           Team-Up"))
         __sortingEnabled = self.listWidget.isSortingEnabled()
         self.listWidget.setSortingEnabled(False)
+        df = pd.read_csv('UserData.csv')
         item = self.listWidget.item(0)
-        item.setText(_translate("MainWindow", "member name"))
+        item.setText(_translate("MainWindow", "Username:   "+df.at[int(Ui_MainWindow.index), 'Username']))
         item = self.listWidget.item(1)
-        item.setText(_translate("MainWindow", "member groups"))
+        item.setText(_translate("MainWindow", "Firstname:   "+df.at[int(Ui_MainWindow.index), 'First_Name']))
         item = self.listWidget.item(2)
-        item.setText(_translate("MainWindow", "member status"))
+        item.setText(_translate("MainWindow", "Reputation score:"+"   "+str(df.at[int(Ui_MainWindow.index), 'Reputation_Score'])))
         item = self.listWidget.item(3)
-        item.setText(_translate("MainWindow", "member reputation score"))
+        item.setText(_translate("MainWindow", "Email:   "+df.at[int(Ui_MainWindow.index), 'Email']))
         self.listWidget.setSortingEnabled(__sortingEnabled)
         self.label_2.setText(_translate("MainWindow", "Member Information"))
         self.pushButton_2.setText(_translate("MainWindow", "change setting"))
@@ -128,36 +192,11 @@ class Ui_MainWindow(object):
         self.pushButton_5.setText(_translate("MainWindow", "inbox page"))
         self.pushButton_6.setText(_translate("MainWindow", "group page"))
         self.label_3.setText(_translate("MainWindow", "      Navigation"))
-        self.pushButton_2.clicked.connect(self.show_popup2)
-        self.pushButton_3.clicked.connect(self.show_popup)
-
-
-    def show_popup(self):
-        msg = QMessageBox()
-        msg.setWindowTitle("are you sure?")
-        msg.setText("the user will be removed from this app")
-        msg.setIcon(QMessageBox.Warning)
-        msg.setStandardButtons(QMessageBox.Cancel|QMessageBox.Ok)
-
-        msg.setDefaultButton(QMessageBox.Ok)
-
-        x = msg.exec_()
-
-
-    def show_popup2(self):
-        msg = QMessageBox()
-        msg.setWindowTitle("are you sure?")
-        msg.setText("the setting will be renewed")
-        msg.setIcon(QMessageBox.Warning)
-        msg.setStandardButtons(QMessageBox.Cancel | QMessageBox.Ok)
-        msg.setDefaultButton(QMessageBox.Ok)
-
-        x = msg.exec_()
-
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
