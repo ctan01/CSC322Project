@@ -1,16 +1,36 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'initialRepScore1.ui'
-#
-# Created by: PyQt5 UI code generator 5.13.2
-#
-# WARNING! All changes made in this file will be lost!
-
-
 from PyQt5 import QtCore, QtGui, QtWidgets
+import pandas as pd
+from PyQt5.QtWidgets import QMessageBox
 
 
 class Ui_reputationScore(object):
+
+    def pressConfirm(self):
+        score = str(self.comboBox.currentText())
+        df = pd.read_csv('UserData.csv')
+        index = int(df.at[0, 'temp'])
+        df.loc[index, 'Status'] = 'OU'
+        df.loc[index, 'Reputation_Score'] = score
+        df.to_csv('UserData.csv', index=False)
+        msg = QMessageBox()
+        msg.setWindowTitle("Change setting")
+        msg.setText("SUCCEED!")
+        x = msg.exec_()
+
+    def goManagePage(self):
+        from systemmanagement1 import Ui_MainWindow
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def goApplicationPage(self):
+        from applicationpage1 import Ui_MainWindow
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
     def setupUi(self, reputationScore):
         reputationScore.setObjectName("reputationScore")
         reputationScore.resize(449, 217)
@@ -51,6 +71,10 @@ class Ui_reputationScore(object):
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
+
+        self.pushButton_2.clicked.connect(self.goManagePage)
+        self.pushButton_2.clicked.connect(self.pressConfirm)
+        self.pushButton_2.clicked.connect(reputationScore.close)
         self.label = QtWidgets.QLabel(self.frame)
         self.label.setGeometry(QtCore.QRect(80, 25, 291, 41))
         self.label.setObjectName("label")
@@ -58,7 +82,8 @@ class Ui_reputationScore(object):
         self.statusbar = QtWidgets.QStatusBar(reputationScore)
         self.statusbar.setObjectName("statusbar")
         reputationScore.setStatusBar(self.statusbar)
-
+        self.pushButton.clicked.connect(self.goApplicationPage)
+        self.pushButton.clicked.connect(reputationScore.close)
         self.retranslateUi(reputationScore)
         QtCore.QMetaObject.connectSlotsByName(reputationScore)
 
