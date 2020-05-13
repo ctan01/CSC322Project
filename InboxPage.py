@@ -1,16 +1,19 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import pandas as pd
 
+## MEET UP POLL AND GROUP PAGE CLASSES LEFT
+## AND EDITING CSV
+
 
 class Ui_InboxPage(object):
         def openGroupsPage(self):
                 from UsersGroups import Ui_UsersGroupsPage
-                self.window = QtWidgets.QMainWindow() # USERID PARAMETERS
+                self.window = QtWidgets.QMainWindow() 
                 self.ui = Ui_UsersGroupsPage()
                 self.ui.setupUi(self.window)
                 self.window.show()
 
-        def openProfilePage(self):              # USERID PARAMETERS
+        def openProfilePage(self):             
                 from ProfilePage import Ui_profilePage
                 self.window = QtWidgets.QMainWindow()
                 self.ui = Ui_profilePage()
