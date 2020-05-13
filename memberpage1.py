@@ -14,10 +14,6 @@ from PyQt5.QtWidgets import QMessageBox
 
 class Ui_MainWindow(object):
 
-    df = pd.read_csv('UserData.csv')
-    username = df.at[0, 'temp']
-    index = df.at[1, 'temp']
-
     def openInboxPage(self):
         from InboxPage import Ui_InboxPage
         self.window = QtWidgets.QMainWindow()
@@ -55,7 +51,10 @@ class Ui_MainWindow(object):
 
     def RemoveUser(self):
         df = pd.read_csv('UserData.csv')
-        df = df.drop(df[df['Username'] == Ui_MainWindow.username].index[0])
+        username = df.at[0, 'temp']
+        index = df.at[1, 'temp']
+        df = pd.read_csv('UserData.csv')
+        df = df.drop(df[df['Username'] == username].index[0])
         df.to_csv('UserData.csv', index=False)
         msg = QMessageBox()
         msg.setWindowTitle("notice")
@@ -173,6 +172,9 @@ class Ui_MainWindow(object):
 
 
     def retranslateUi(self, MainWindow):
+        df = pd.read_csv('UserData.csv')
+        username = df.at[0, 'temp']
+        index = df.at[1, 'temp']
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "                           Team-Up"))
@@ -180,13 +182,13 @@ class Ui_MainWindow(object):
         self.listWidget.setSortingEnabled(False)
         df = pd.read_csv('UserData.csv')
         item = self.listWidget.item(0)
-        item.setText(_translate("MainWindow", "Username:   "+df.at[int(Ui_MainWindow.index), 'Username']))
+        item.setText(_translate("MainWindow", "Username:   "+df.at[int(index), 'Username']))
         item = self.listWidget.item(1)
-        item.setText(_translate("MainWindow", "Firstname:   "+df.at[int(Ui_MainWindow.index), 'First_Name']))
+        item.setText(_translate("MainWindow", "Firstname:   "+df.at[int(index), 'First_Name']))
         item = self.listWidget.item(2)
-        item.setText(_translate("MainWindow", "Reputation score:"+"   "+str(df.at[int(Ui_MainWindow.index), 'Reputation_Score'])))
+        item.setText(_translate("MainWindow", "Reputation score:"+"   "+str(df.at[int(index), 'Reputation_Score'])))
         item = self.listWidget.item(3)
-        item.setText(_translate("MainWindow", "Email:   "+df.at[int(Ui_MainWindow.index), 'Email']))
+        item.setText(_translate("MainWindow", "Email:   "+df.at[int(index), 'Email']))
         self.listWidget.setSortingEnabled(__sortingEnabled)
         self.label_2.setText(_translate("MainWindow", "Member Information"))
         self.pushButton_2.setText(_translate("MainWindow", "change setting"))
