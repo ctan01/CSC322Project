@@ -8,17 +8,72 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from HomePage2 import Ui_HomePage2
+import pandas as pd
+from PyQt5.QtWidgets import QMessageBox
+
 
 class Ui_MainWindow(object):
-    def openHomePage2(self):
+    username = None
+
+    def openPrevPage(self):
+        from systemmanagement1 import Ui_MainWindow
         self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_HomePage2()
+        self.ui = Ui_MainWindow()
         self.ui.setupUi(self.window)
-        LoginPage.close()
         self.window.show()
 
+    def openInboxPage(self):
+        from InboxPage import Ui_InboxPage
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_InboxPage()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openGroupPage(self):
+        from GroupPage import Ui_GroupPage
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_GroupPage()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openHomePageSU(self):
+        from HomePageSU import Ui_HomePageSU
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_HomePageSU()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def pressApprove(self):
+        from initialRepScore1 import Ui_reputationScore
+        Ui_MainWindow.username = str(self.comboBox.currentText())
+        df = pd.read_csv('UserData.csv')
+        username = Ui_MainWindow.username
+        rownum = df[df['Username'] == username].index[0]
+        df.loc[0, 'temp'] = rownum
+        df.to_csv('UserData.csv', index=False)
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_reputationScore()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def pressDecline(self):
+        df = pd.read_csv('UserData.csv')
+        Ui_MainWindow.username = str(self.comboBox.currentText())
+        username = Ui_MainWindow.username
+        rownum = df[df['Username'] == username].index[0]
+        df = df.drop(rownum)
+        df.to_csv('UserData.csv', index=False)
+        msg = QMessageBox()
+        msg.setWindowTitle("Change setting")
+        msg.setText("DECLINED!")
+        x = msg.exec_()
+
     def setupUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        df = pd.read_csv('UserData.csv')
+        count = df.shape[0]
+        #count = (df['Status'] == 'visitor').sum()
+
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(807, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -70,11 +125,34 @@ class Ui_MainWindow(object):
         self.comboBox = QtWidgets.QComboBox(self.centralwidget)
         self.comboBox.setGeometry(QtCore.QRect(150, 150, 321, 41))
         self.comboBox.setObjectName("comboBox")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
+        i = 0
+        while count != 0:
+            if df.at[i, 'Status'] == 'visitor':
+                self.comboBox.addItem(df.at[i, 'Username'])
+                count -= 1
+                i += 1
+            else:
+                count -= 1
+                i += 1
+
         MainWindow.setCentralWidget(self.centralwidget)
+
+        self.pushButton_2.clicked.connect(self.pressApprove)
+
+        self.pushButton_2.clicked.connect(MainWindow.close)
+
+        self.pushButton_3.clicked.connect(self.pressDecline)
+        self.pushButton_3.clicked.connect(self.openPrevPage)
+        self.pushButton_3.clicked.connect(MainWindow.close)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
+
+        self.pushButton_4.clicked.connect(self.openHomePageSU)
+        self.pushButton_4.clicked.connect(MainWindow.close)
+        self.pushButton_5.clicked.connect(self.openInboxPage)
+        self.pushButton_6.clicked.connect(self.openGroupPage)
+        self.pushButton.clicked.connect(self.openPrevPage)
+        self.pushButton.clicked.connect(MainWindow.close)
+
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
 
@@ -89,13 +167,10 @@ class Ui_MainWindow(object):
         self.label_2.setText(_translate("MainWindow", "applicant list"))
         self.pushButton_2.setText(_translate("MainWindow", "approve"))
         self.pushButton_3.setText(_translate("MainWindow", "decline"))
-        self.pushButton_4.setText(_translate("MainWindow", "home page"))
-        self.pushButton_4.clicked.connect(self.openHomePage2)  # connect the button to home page 2
+        self.pushButton_4.setText(_translate("MainWindow", "home page"))  # connect the button to home page 2
         self.pushButton_5.setText(_translate("MainWindow", "inbox page"))
         self.pushButton_6.setText(_translate("MainWindow", "group page"))
-        self.comboBox.setItemText(0, _translate("MainWindow", "applicatant1name+email"))
-        self.comboBox.setItemText(1, _translate("MainWindow", "applicatant2name+email"))
-        self.comboBox.setItemText(2, _translate("MainWindow", "......"))
+
 
 
 if __name__ == "__main__":
