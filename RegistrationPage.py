@@ -125,7 +125,7 @@ class Ui_registrationPage(object):
                    'Reference2': self.lineEdit_reference2.text(),
                    'Username': self.lineEdit_username.text(),
                    'Password': self.lineEdit_password.text(),
-                   'Status': "Visitors",
+                   'Status': "visitor",
                    'Reputation_Score': 10,
                    'Skills1': skill1,
                    'Skills2': skill2,
