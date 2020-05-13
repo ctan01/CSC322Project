@@ -26,7 +26,8 @@ class Ui_CreateGroupPage(object):
         msg.exec_()
 
     def setupUi(self, CreateGroupPage):
-        CreateGroupPage.setObjectName("CreateGroupPage")
+        df = pd.read_csv('UserData.csv')
+        count = df.shape[0]
         CreateGroupPage.resize(441, 776)
         self.centralwidget = QtWidgets.QWidget(CreateGroupPage)
         self.centralwidget.setObjectName("centralwidget")
@@ -168,6 +169,52 @@ class Ui_CreateGroupPage(object):
         self.statusbar.setObjectName("statusbar")
         CreateGroupPage.setStatusBar(self.statusbar)
 
+        while count != -1:
+            self.comboBox_InviteMember1.addItem("")
+            count -= 1
+
+        count = df.shape[0]
+
+        while count != -1:
+            self.comboBox_InviteMember2.addItem("")
+            count -= 1
+
+        count = df.shape[0]
+
+        while count != -1:
+            self.comboBox_InviteMember3.addItem("")
+            count -= 1
+
+        count = df.shape[0]
+
+        while count != -1:
+            self.comboBox_InviteMember4.addItem("")
+            count -= 1
+
+        count = df.shape[0]
+
+        while count != -1:
+            self.comboBox_InviteMember5.addItem("")
+            count -= 1
+
+        count = df.shape[0]
+
+        while count != -1:
+            self.comboBox_InviteMember6.addItem("")
+            count -= 1
+
+        count = df.shape[0]
+
+        while count != -1:
+            self.comboBox_InviteMember7.addItem("")
+            count -= 1
+
+        count = df.shape[0]
+
+        while count != -1:
+            self.comboBox_InviteMember8.addItem("")
+            count -= 1
+
         self.retranslateUi(CreateGroupPage)
         QtCore.QMetaObject.connectSlotsByName(CreateGroupPage)
 
@@ -182,9 +229,98 @@ class Ui_CreateGroupPage(object):
         self.label_GroupDescription.setText(_translate("CreateGroupPage", "Group Description:"))
         self.label_InviteMember1.setText(_translate("CreateGroupPage", "Invite Member 1:"))
         while combo_count != 0:
-            self.comboBox_InviteMember1.setItemText(i, _translate("MainWindow", df.at[i, 'Username']))
-            i += 1
-            combo_count -= 1
+            if i == 0:
+                i += 1
+                combo_count -= 1
+            else:
+                self.comboBox_InviteMember1.setItemText(i, _translate("MainWindow", df.at[i, 'Username']))
+                i += 1
+                combo_count -= 1
+
+        combo_count = df.shape[0]
+        i = 0
+
+        while combo_count != 0:
+            if i == 0:
+                i += 1
+                combo_count -= 1
+            else:
+                self.comboBox_InviteMember2.setItemText(i, _translate("MainWindow", df.at[i, 'Username']))
+                i += 1
+                combo_count -= 1
+
+        combo_count = df.shape[0]
+        i = 0
+
+        while combo_count != 0:
+            if i == 0:
+                i += 1
+                combo_count -= 1
+            else:
+                self.comboBox_InviteMember3.setItemText(i, _translate("MainWindow", df.at[i, 'Username']))
+                i += 1
+                combo_count -= 1
+
+        combo_count = df.shape[0]
+        i = 0
+
+        while combo_count != 0:
+            if i == 0:
+                i += 1
+                combo_count -= 1
+            else:
+                self.comboBox_InviteMember4.setItemText(i, _translate("MainWindow", df.at[i, 'Username']))
+                i += 1
+                combo_count -= 1
+
+        combo_count = df.shape[0]
+        i = 0
+
+        while combo_count != 0:
+            if i == 0:
+                i += 1
+                combo_count -= 1
+            else:
+                self.comboBox_InviteMember5.setItemText(i, _translate("MainWindow", df.at[i, 'Username']))
+                i += 1
+                combo_count -= 1
+
+        combo_count = df.shape[0]
+        i = 0
+
+        while combo_count != 0:
+            if i == 0:
+                i += 1
+                combo_count -= 1
+            else:
+                self.comboBox_InviteMember6.setItemText(i, _translate("MainWindow", df.at[i, 'Username']))
+                i += 1
+                combo_count -= 1
+
+        combo_count = df.shape[0]
+        i = 0
+
+        while combo_count != 0:
+            if i == 0:
+                i += 1
+                combo_count -= 1
+            else:
+                self.comboBox_InviteMember7.setItemText(i, _translate("MainWindow", df.at[i, 'Username']))
+                i += 1
+                combo_count -= 1
+
+        combo_count = df.shape[0]
+        i = 0
+
+        while combo_count != 0:
+            if i == 0:
+                i += 1
+                combo_count -= 1
+            else:
+                self.comboBox_InviteMember8.setItemText(i, _translate("MainWindow", df.at[i, 'Username']))
+                i += 1
+                combo_count -= 1
+
         self.label_InviteMember2.setText(_translate("CreateGroupPage", "Invite Member 2:"))
         self.label_InviteMember3.setText(_translate("CreateGroupPage", "Invite Member 3:"))
         self.label_InviteMember4.setText(_translate("CreateGroupPage", "Invite Member 4:"))
