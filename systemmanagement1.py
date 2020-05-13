@@ -12,6 +12,19 @@ import pandas as pd
 
 
 class Ui_MainWindow(object):
+    def openInboxPage(self):
+        from InboxPage import Ui_InboxPage
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_InboxPage()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openGroupPage(self):
+        from GroupPage import Ui_GroupPage
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_GroupPage()
+        self.ui.setupUi(self.window)
+        self.window.show()
 
     def findUser(self):
         df = pd.read_csv('UserData.csv')
@@ -113,10 +126,9 @@ class Ui_MainWindow(object):
         self.pushButton_2.setObjectName("pushButton_2")
 
         self.pushButton_3.clicked.connect(self.openMemberPage)
+        self.pushButton_3.clicked.connect(MainWindow.close)
 
-        self.pushButton_4 = QtWidgets.QPushButton(self.frame_3)
-        self.pushButton_4.setGeometry(QtCore.QRect(20, 50, 93, 28))
-        self.pushButton_4.setObjectName("pushButton_4")
+
         self.pushButton_5 = QtWidgets.QPushButton(self.frame_3)
         self.pushButton_5.setGeometry(QtCore.QRect(20, 100, 93, 28))
         self.pushButton_5.setObjectName("pushButton_5")
@@ -133,6 +145,12 @@ class Ui_MainWindow(object):
 
         self.pushButton_2.clicked.connect(self.openApplicationPage)
         self.pushButton_2.clicked.connect(MainWindow.close)
+
+        self.pushButton_6.clicked.connect(self.openGroupPage)
+        self.pushButton_6.clicked.connect(MainWindow.close)
+        self.pushButton_5.clicked.connect(self.openInboxPage)
+        self.pushButton_5.clicked.connect(MainWindow.close)
+
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -160,7 +178,7 @@ class Ui_MainWindow(object):
             count -= 1
 
 
-        self.pushButton_4.setText(_translate("MainWindow", "home page"))
+
         self.pushButton_5.setText(_translate("MainWindow", "inbox page"))
         self.pushButton_6.setText(_translate("MainWindow", "group page"))
         self.label_5.setText(_translate("MainWindow", "         Navigation"))
