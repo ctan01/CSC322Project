@@ -39,8 +39,6 @@ class Ui_MainWindow(object):
         self.ui.setupUi(self.window)
         self.window.show()
 
-
-
     def openHomePageSU(self):
         from HomePageSU import Ui_HomePageSU
         self.window = QtWidgets.QMainWindow()
@@ -163,7 +161,6 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         self.pushButton_2.clicked.connect(self.EditUser)
-        self.pushButton_2.clicked.connect(self.openPrevPage)
         self.pushButton_2.clicked.connect(MainWindow.close)
         self.pushButton.clicked.connect(self.openPrevPage)
         self.pushButton.clicked.connect(MainWindow.close)
