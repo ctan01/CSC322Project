@@ -80,6 +80,14 @@ class Ui_GroupPage(object):
         self.ui.setupUi(self.window)
         self.window.show()
 
+    def openLeaveGroupConfirmation(self):
+        from LeaveGroupConfirmation import Ui_LeaveGroup as Form
+        Dialog = QtWidgets.QDialog()
+        Dialog.ui = Form
+        Dialog.ui.setupUi(Dialog)
+        Dialog.exec_()
+        Dialog.show()
+
     def setupUi(self, GroupPage):
         df = pd.read_csv('UserData.csv')
 
@@ -290,6 +298,7 @@ class Ui_GroupPage(object):
         self.Leave_Group_2 = QtWidgets.QPushButton(self.GroupCommands)
         self.Leave_Group_2.setGeometry(QtCore.QRect(0, 240, 221, 28))
         self.Leave_Group_2.setObjectName("Leave_Group_2")
+        self.Leave_Group_2.clicked.connect(self.openLeaveGroupConfirmation)
         # open leave group confirmation
 
         self.CreatePost = QtWidgets.QPushButton(self.GroupCommands)     # POP UP
@@ -456,7 +465,7 @@ class Ui_GroupPage(object):
         self.CreateMeetUpPoll.setText(_translate("GroupPage", "Create Meet Up Poll"))
         self.CreateMemberPoll.setText(_translate("GroupPage", "Create Member Poll"))
         self.GroupInfo.setText(_translate("GroupPage", "Group Info"))
-        self.groupBox.setTitle(_translate("GroupPage", "Community Garden Notifications:"))
+        self.groupBox.setTitle(_translate("GroupPage", "Notifications:"))
         self.groupBox_2.setTitle(_translate("GroupPage", "Search"))
         self.HomeButton_2.setText(_translate("GroupPage", "Search"))
 

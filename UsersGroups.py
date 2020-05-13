@@ -108,20 +108,9 @@ class Ui_UsersGroupsPage(object):
         df = pd.read_csv('GroupData.csv')
         #GroupID,GroupName,Description,Post0,Post1,Post2,Post3,Member0,Member1,Member2,Member3,Member4,Member5,Member6,Member7,currentGroup
         dfcheck = pd.read_csv('UserData.csv')
-        currentGroupID = df['GroupID']
-        #MemberPollID,GroupID,AffectedMemberID,Type,Yes,No,Total
-        MemberPolls = ["","",""]
-        df
-
-
-
-
-
         currentUserRow = dfcheck[dfcheck['CurrentUser'] == 1]
         currentUserID = currentUserRow['UserID'].iloc[0]
-
-
-
+        print(currentUserID)
         groupName1 = currentUserRow['Group1'].iloc[0]
         groupName2 = currentUserRow['Group2'].iloc[0]
         groupName3 = currentUserRow['Group3'].iloc[0]
@@ -138,7 +127,6 @@ class Ui_UsersGroupsPage(object):
                 groupContents4 = [row['GroupName'], row['Description']]
             if row['GroupName'] == groupName5:
                 groupContents5 = [row['GroupName'], row['Description']] 
-        backup = "Join More Groups!"
         # CLEAR EMPTY BOXES 
         # MOVE TO BOTTOM
         checkempty = [0,0,0,0,0]
@@ -246,8 +234,13 @@ class Ui_UsersGroupsPage(object):
         self.HomeButton_2.setObjectName("HomeButton_2")
 
         self.NavigationSideBar = QtWidgets.QGroupBox(self.centralwidget)
-        self.NavigationSideBar.setGeometry(QtCore.QRect(770, 0, 451, 61))
+        self.NavigationSideBar.setGeometry(QtCore.QRect(550, 0, 570, 61))
         self.NavigationSideBar.setObjectName("NavigationSideBar")
+
+        self.CreateGroupButton = QtWidgets.QPushButton(self.NavigationSideBar)
+        self.CreateGroupButton.setGeometry(QtCore.QRect(10, 20, 101, 28))
+        self.CreateGroupButton.setObjectName("Create Group Button")
+
 
         self.HomeButton = QtWidgets.QPushButton(self.NavigationSideBar)
         self.HomeButton.setGeometry(QtCore.QRect(120, 20, 101, 28))
@@ -256,7 +249,7 @@ class Ui_UsersGroupsPage(object):
         self.HomeButton.clicked.connect(UsersGroups.close)
 
         self.ProfileButton = QtWidgets.QPushButton(self.NavigationSideBar)
-        self.ProfileButton.setGeometry(QtCore.QRect(10, 20, 101, 28))
+        self.ProfileButton.setGeometry(QtCore.QRect(450, 20, 101, 28))
         self.ProfileButton.setObjectName("ProfileButton")
         self.ProfileButton.clicked.connect(self.openProfilePage)
         self.ProfileButton.clicked.connect(UsersGroups.close)
@@ -391,6 +384,7 @@ class Ui_UsersGroupsPage(object):
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Search</span></p></body></html>"))
         self.HomeButton_2.setText(_translate("UsersGroups", "Search"))
+        self.CreateGroupButton.setText(_translate("UsersGroups", "New Group"))
         self.NavigationSideBar.setTitle(_translate("UsersGroups", "Navigation"))
         self.HomeButton.setText(_translate("UsersGroups", "Home"))
         self.ProfileButton.setText(_translate("UsersGroups", "Profile"))
@@ -406,3 +400,4 @@ if __name__ == "__main__":
     ui.setupUi(UsersGroups)
     UsersGroups.show()
     sys.exit(app.exec_())
+
