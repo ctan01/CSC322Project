@@ -87,6 +87,13 @@ class Ui_UsersGroupsPage(object):
         self.ui = Ui_HomePage2()
         self.ui.setupUi(self.window)
         self.window.show()
+        
+    def openCreateGroupPage(self):
+        from CreateGroupPage import Ui_CreateGroupPage
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_CreateGroupPage()
+        self.ui.setupUi(self.window)
+        self.window.show()
 
 
     def setupUi(self, UsersGroups):
@@ -240,6 +247,8 @@ class Ui_UsersGroupsPage(object):
         self.CreateGroupButton = QtWidgets.QPushButton(self.NavigationSideBar)
         self.CreateGroupButton.setGeometry(QtCore.QRect(10, 20, 101, 28))
         self.CreateGroupButton.setObjectName("Create Group Button")
+        
+        self.CreateGroupButton.clicked.connect(self.openCreateGroupPage)
 
 
         self.HomeButton = QtWidgets.QPushButton(self.NavigationSideBar)
