@@ -73,7 +73,40 @@ class Ui_InboxPage(object):
                 self.GroupsButton.setObjectName("GroupsButton")
                 self.GroupsButton.clicked.connect(self.openGroupsPage)
 
+                # FILLING INBOX INFO
+
+                inboxContents = [" "," "," "," "," "]
+
+                InboxType = [0,0,0,0,0]
+
+                df = pd.read_csv('InboxMessages.csv')
+                #MessageID, UserID, Type, TypeID, GroupID, SubjectUserID
+                dfcheck = pd.read_csv('UserData.csv')
+                currentUserRow = dfcheck[dfcheck['CurrentUser'] == 1]
+                currentUserID = currentUserRow['UserID'].iloc[0]
+                count = 0
+                for index, row in df.iterrows():
+                        if row['UserID'] == currentUserID:
+                                inboxContents[count] = row['GroupName']
+                                InboxType[count] = row['Type']
+                                count = count + 1
+
+                # CLEAR EMPTY BOXES 
+                # MOVE TO BOTTOM
+                checkempty = [0,0,0,0,0]
+                if inboxContents[0] == " ":
+                        checkempty[0] = 1
+                if inboxContents[1] == " ":
+                        checkempty[1] = 1
+                if inboxContents[2] == " ":
+                        checkempty[2] = 1
+                if inboxContents[3] == " ":
+                        checkempty[3] = 1
+                if inboxContents[4] == " ":
+                        checkempty[4] = 1
+
                 # MESSAGE BOXES
+
 
                 self.groupBox_2 = QtWidgets.QGroupBox(self.InboxDashboard)              
                 self.groupBox_2.setGeometry(QtCore.QRect(10, 0, 211, 61))
@@ -90,73 +123,75 @@ class Ui_InboxPage(object):
                 self.listWidget.setGeometry(QtCore.QRect(10, 70, 1031, 711))
                 self.listWidget.setObjectName("listWidget")
 
+                if checkempty[0] == 0:
+                        self.InvitationMessage = QtWidgets.QWidget(self.InboxDashboard)
+                        self.InvitationMessage.setGeometry(QtCore.QRect(20, 80, 1011, 101))
+                        self.InvitationMessage.setObjectName("InvitationMessage")
+                        self.textBrowser = QtWidgets.QTextBrowser(self.InvitationMessage)
+                        self.textBrowser.setGeometry(QtCore.QRect(10, 10, 991, 51))
+                        self.textBrowser.setObjectName("textBrowser")
+                        self.pushButton = QtWidgets.QPushButton(self.InvitationMessage)
+                        self.pushButton.setGeometry(QtCore.QRect(10, 70, 93, 28))
+                        self.pushButton.setObjectName("pushButton")
+                        self.Decline2 = QtWidgets.QPushButton(self.InvitationMessage)
+                        self.Decline2.setGeometry(QtCore.QRect(110, 70, 93, 28))
+                        self.Decline2.setObjectName("Decline2")
 
-                self.InvitationMessage = QtWidgets.QWidget(self.InboxDashboard)
-                self.InvitationMessage.setGeometry(QtCore.QRect(20, 80, 1011, 101))
-                self.InvitationMessage.setObjectName("InvitationMessage")
-                self.textBrowser = QtWidgets.QTextBrowser(self.InvitationMessage)
-                self.textBrowser.setGeometry(QtCore.QRect(10, 10, 991, 51))
-                self.textBrowser.setObjectName("textBrowser")
-                self.pushButton = QtWidgets.QPushButton(self.InvitationMessage)
-                self.pushButton.setGeometry(QtCore.QRect(10, 70, 93, 28))
-                self.pushButton.setObjectName("pushButton")
-                self.Decline2 = QtWidgets.QPushButton(self.InvitationMessage)
-                self.Decline2.setGeometry(QtCore.QRect(110, 70, 93, 28))
-                self.Decline2.setObjectName("Decline2")
+                if checkempty[1] == 0:
+                        self.InvitationMessage_2 = QtWidgets.QWidget(self.InboxDashboard)
+                        self.InvitationMessage_2.setGeometry(QtCore.QRect(20, 190, 1011, 101))
+                        self.InvitationMessage_2.setObjectName("InvitationMessage_2")
+                        self.textBrowser_2 = QtWidgets.QTextBrowser(self.InvitationMessage_2)
+                        self.textBrowser_2.setGeometry(QtCore.QRect(10, 10, 991, 51))
+                        self.textBrowser_2.setObjectName("textBrowser_2")
+                        self.Accept3 = QtWidgets.QPushButton(self.InvitationMessage_2)
+                        self.Accept3.setGeometry(QtCore.QRect(10, 70, 93, 28))
+                        self.Accept3.setObjectName("Accept3")
+                        self.Decline3 = QtWidgets.QPushButton(self.InvitationMessage_2)
+                        self.Decline3.setGeometry(QtCore.QRect(110, 70, 93, 28))
+                        self.Decline3.setObjectName("Decline3")
 
+                if checkempty[2] == 0:
+                        self.InvitationMessage3 = QtWidgets.QWidget(self.InboxDashboard)
+                        self.InvitationMessage3.setGeometry(QtCore.QRect(20, 300, 1011, 101))
+                        self.InvitationMessage3.setObjectName("InvitationMessage3")
+                        self.textBrowser3 = QtWidgets.QTextBrowser(self.InvitationMessage3)
+                        self.textBrowser3.setGeometry(QtCore.QRect(10, 10, 991, 51))
+                        self.textBrowser3.setObjectName("textBrowser3")
+                        self.pushButton43 = QtWidgets.QPushButton(self.InvitationMessage3)
+                        self.pushButton43.setGeometry(QtCore.QRect(10, 70, 93, 28))
+                        self.pushButton43.setObjectName("pushButton43")
+                        self.Decline43 = QtWidgets.QPushButton(self.InvitationMessage3)
+                        self.Decline43.setGeometry(QtCore.QRect(110, 70, 93, 28))
+                        self.Decline43.setObjectName("Decline43")
 
-                self.InvitationMessage_2 = QtWidgets.QWidget(self.InboxDashboard)
-                self.InvitationMessage_2.setGeometry(QtCore.QRect(20, 190, 1011, 101))
-                self.InvitationMessage_2.setObjectName("InvitationMessage_2")
-                self.textBrowser_2 = QtWidgets.QTextBrowser(self.InvitationMessage_2)
-                self.textBrowser_2.setGeometry(QtCore.QRect(10, 10, 991, 51))
-                self.textBrowser_2.setObjectName("textBrowser_2")
-                self.Accept3 = QtWidgets.QPushButton(self.InvitationMessage_2)
-                self.Accept3.setGeometry(QtCore.QRect(10, 70, 93, 28))
-                self.Accept3.setObjectName("Accept3")
-                self.Decline3 = QtWidgets.QPushButton(self.InvitationMessage_2)
-                self.Decline3.setGeometry(QtCore.QRect(110, 70, 93, 28))
-                self.Decline3.setObjectName("Decline3")
+                if checkempty[3] == 0:
+                        self.InvitationMessage4 = QtWidgets.QWidget(self.InboxDashboard)
+                        self.InvitationMessage4.setGeometry(QtCore.QRect(20, 410, 1011, 101))
+                        self.InvitationMessage4.setObjectName("InvitationMessage4")
+                        self.textBrowser4 = QtWidgets.QTextBrowser(self.InvitationMessage4)
+                        self.textBrowser4.setGeometry(QtCore.QRect(10, 10, 991, 51))
+                        self.textBrowser4.setObjectName("textBrowser4")
+                        self.pushButton4 = QtWidgets.QPushButton(self.InvitationMessage4)
+                        self.pushButton4.setGeometry(QtCore.QRect(10, 70, 93, 28))
+                        self.pushButton4.setObjectName("pushButton4")
+                        self.Decline4 = QtWidgets.QPushButton(self.InvitationMessage4)
+                        self.Decline4.setGeometry(QtCore.QRect(110, 70, 93, 28))
+                        self.Decline4.setObjectName("Decline4")
 
-                # NEW MESG
-                self.InvitationMessage3 = QtWidgets.QWidget(self.InboxDashboard)
-                self.InvitationMessage3.setGeometry(QtCore.QRect(20, 300, 1011, 101))
-                self.InvitationMessage3.setObjectName("InvitationMessage3")
-                self.textBrowser3 = QtWidgets.QTextBrowser(self.InvitationMessage3)
-                self.textBrowser3.setGeometry(QtCore.QRect(10, 10, 991, 51))
-                self.textBrowser3.setObjectName("textBrowser3")
-                self.pushButton43 = QtWidgets.QPushButton(self.InvitationMessage3)
-                self.pushButton43.setGeometry(QtCore.QRect(10, 70, 93, 28))
-                self.pushButton43.setObjectName("pushButton43")
-                self.Decline43 = QtWidgets.QPushButton(self.InvitationMessage3)
-                self.Decline43.setGeometry(QtCore.QRect(110, 70, 93, 28))
-                self.Decline43.setObjectName("Decline43")
-
-                self.InvitationMessage4 = QtWidgets.QWidget(self.InboxDashboard)
-                self.InvitationMessage4.setGeometry(QtCore.QRect(20, 410, 1011, 101))
-                self.InvitationMessage4.setObjectName("InvitationMessage4")
-                self.textBrowser4 = QtWidgets.QTextBrowser(self.InvitationMessage4)
-                self.textBrowser4.setGeometry(QtCore.QRect(10, 10, 991, 51))
-                self.textBrowser4.setObjectName("textBrowser4")
-                self.pushButton4 = QtWidgets.QPushButton(self.InvitationMessage4)
-                self.pushButton4.setGeometry(QtCore.QRect(10, 70, 93, 28))
-                self.pushButton4.setObjectName("pushButton4")
-                self.Decline4 = QtWidgets.QPushButton(self.InvitationMessage4)
-                self.Decline4.setGeometry(QtCore.QRect(110, 70, 93, 28))
-                self.Decline4.setObjectName("Decline4")
-
-                self.InvitationMessage5 = QtWidgets.QWidget(self.InboxDashboard)
-                self.InvitationMessage5.setGeometry(QtCore.QRect(20, 520, 1011, 101))
-                self.InvitationMessage5.setObjectName("InvitationMessage5")
-                self.textBrowser5 = QtWidgets.QTextBrowser(self.InvitationMessage5)
-                self.textBrowser5.setGeometry(QtCore.QRect(10, 10, 991, 51))
-                self.textBrowser5.setObjectName("textBrowser5")
-                self.pushButton5 = QtWidgets.QPushButton(self.InvitationMessage5)
-                self.pushButton5.setGeometry(QtCore.QRect(10, 70, 93, 28))
-                self.pushButton5.setObjectName("pushButton5")
-                self.Decline5 = QtWidgets.QPushButton(self.InvitationMessage5)
-                self.Decline5.setGeometry(QtCore.QRect(110, 70, 93, 28))
-                self.Decline5.setObjectName("Decline5")
+                if checkempty[4] == 0:
+                        self.InvitationMessage5 = QtWidgets.QWidget(self.InboxDashboard)
+                        self.InvitationMessage5.setGeometry(QtCore.QRect(20, 520, 1011, 101))
+                        self.InvitationMessage5.setObjectName("InvitationMessage5")
+                        self.textBrowser5 = QtWidgets.QTextBrowser(self.InvitationMessage5)
+                        self.textBrowser5.setGeometry(QtCore.QRect(10, 10, 991, 51))
+                        self.textBrowser5.setObjectName("textBrowser5")
+                        self.pushButton5 = QtWidgets.QPushButton(self.InvitationMessage5)
+                        self.pushButton5.setGeometry(QtCore.QRect(10, 70, 93, 28))
+                        self.pushButton5.setObjectName("pushButton5")
+                        self.Decline5 = QtWidgets.QPushButton(self.InvitationMessage5)
+                        self.Decline5.setGeometry(QtCore.QRect(110, 70, 93, 28))
+                        self.Decline5.setObjectName("Decline5")
 
 
 
