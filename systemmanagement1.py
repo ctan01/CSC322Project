@@ -8,10 +8,58 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import pandas as pd
 
 
 class Ui_MainWindow(object):
+    def openInboxPage(self):
+        from InboxPage import Ui_InboxPage
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_InboxPage()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openGroupPage(self):
+        from GroupPage import Ui_GroupPage
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_GroupPage()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def findUser(self):
+        df = pd.read_csv('UserData.csv')
+        username = str(self.comboBox.currentText())
+        rownum = df[df['Username'] == username].index[0]
+        df.loc[0, 'temp'] = username
+        df.loc[1, 'temp'] = rownum
+        df.to_csv('UserData.csv', index=False)
+
+    def openMemberPage(self):              # USER ID PARAMETERS
+        from memberpage1 import Ui_MainWindow
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openApplicationPage(self):              # USER ID PARAMETERS
+        from applicationpage1 import Ui_MainWindow
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openHomePageSU(self):
+        from HomePageSU import Ui_HomePageSU
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_HomePageSU()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+
     def setupUi(self, MainWindow):
+        df = pd.read_csv('UserData.csv')
+        count = df.shape[0]
+
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(836, 549)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -44,22 +92,8 @@ class Ui_MainWindow(object):
         self.pushButton_3 = QtWidgets.QPushButton(self.frame_4)
         self.pushButton_3.setGeometry(QtCore.QRect(330, 180, 93, 28))
         self.pushButton_3.setObjectName("pushButton_3")
-        self.spinBox = QtWidgets.QSpinBox(self.frame_4)
-        self.spinBox.setGeometry(QtCore.QRect(140, 70, 121, 22))
-        self.spinBox.setObjectName("spinBox")
-        self.label_3 = QtWidgets.QLabel(self.frame_4)
-        self.label_3.setGeometry(QtCore.QRect(140, 50, 121, 21))
-        self.label_3.setFrameShape(QtWidgets.QFrame.Panel)
-        self.label_3.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.label_3.setObjectName("label_3")
-        self.label_4 = QtWidgets.QLabel(self.frame_4)
-        self.label_4.setGeometry(QtCore.QRect(280, 50, 121, 21))
-        self.label_4.setFrameShape(QtWidgets.QFrame.Panel)
-        self.label_4.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.label_4.setObjectName("label_4")
-        self.spinBox_2 = QtWidgets.QSpinBox(self.frame_4)
-        self.spinBox_2.setGeometry(QtCore.QRect(280, 70, 121, 22))
-        self.spinBox_2.setObjectName("spinBox_2")
+
+
         self.members = QtWidgets.QLabel(self.frame_4)
         self.members.setGeometry(QtCore.QRect(20, 50, 91, 21))
         self.members.setFrameShape(QtWidgets.QFrame.Panel)
@@ -68,15 +102,13 @@ class Ui_MainWindow(object):
         self.comboBox = QtWidgets.QComboBox(self.frame_4)
         self.comboBox.setGeometry(QtCore.QRect(20, 70, 91, 22))
         self.comboBox.setObjectName("comboBox")
-        self.comboBox.addItem("")
-        self.comboBox.setItemText(0, "")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.pushButton_7 = QtWidgets.QPushButton(self.frame_4)
-        self.pushButton_7.setGeometry(QtCore.QRect(330, 120, 93, 28))
-        self.pushButton_7.setObjectName("pushButton_7")
+
+        while count != -1:
+            self.comboBox.addItem("")
+            count -= 1
+
+        self.pushButton_3.clicked.connect(self.findUser)
+
         self.frame_4.raise_()
         self.label_2.raise_()
         self.frame_2 = QtWidgets.QFrame(self.centralwidget)
@@ -92,9 +124,11 @@ class Ui_MainWindow(object):
         self.pushButton_2 = QtWidgets.QPushButton(self.frame_3)
         self.pushButton_2.setGeometry(QtCore.QRect(0, 420, 131, 28))
         self.pushButton_2.setObjectName("pushButton_2")
-        self.pushButton_4 = QtWidgets.QPushButton(self.frame_3)
-        self.pushButton_4.setGeometry(QtCore.QRect(20, 50, 93, 28))
-        self.pushButton_4.setObjectName("pushButton_4")
+
+        self.pushButton_3.clicked.connect(self.openMemberPage)
+        self.pushButton_3.clicked.connect(MainWindow.close)
+
+
         self.pushButton_5 = QtWidgets.QPushButton(self.frame_3)
         self.pushButton_5.setGeometry(QtCore.QRect(20, 100, 93, 28))
         self.pushButton_5.setObjectName("pushButton_5")
@@ -104,11 +138,20 @@ class Ui_MainWindow(object):
         self.label_5 = QtWidgets.QLabel(self.frame_3)
         self.label_5.setGeometry(QtCore.QRect(0, 0, 141, 20))
         self.label_5.setObjectName("label_5")
-        self.frame.raise_()
+
         self.pushButton.raise_()
-        self.label.raise_()
-        self.frame_2.raise_()
-        self.frame_3.raise_()
+        self.pushButton.clicked.connect(self.openHomePageSU)
+        self.pushButton.clicked.connect(MainWindow.close)
+
+        self.pushButton_2.clicked.connect(self.openApplicationPage)
+        self.pushButton_2.clicked.connect(MainWindow.close)
+
+        self.pushButton_6.clicked.connect(self.openGroupPage)
+
+        self.pushButton_5.clicked.connect(self.openInboxPage)
+
+
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -118,22 +161,24 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
+        df = pd.read_csv('UserData.csv')
+        count = df.shape[0]
+        i = 0
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.pushButton.setText(_translate("MainWindow", "<<"))
         self.label.setText(_translate("MainWindow", "                                 Team-Up"))
         self.label_2.setText(_translate("MainWindow", "System Management Page(Super User Only)"))
         self.pushButton_3.setText(_translate("MainWindow", "check profile"))
-        self.label_3.setText(_translate("MainWindow", "increase rep score"))
-        self.label_4.setText(_translate("MainWindow", "decrease rep score"))
-        self.members.setText(_translate("MainWindow", "member list"))
-        self.comboBox.setItemText(1, _translate("MainWindow", "member1"))
-        self.comboBox.setItemText(2, _translate("MainWindow", "member2"))
-        self.comboBox.setItemText(3, _translate("MainWindow", "member3"))
-        self.comboBox.setItemText(4, _translate("MainWindow", "member4"))
-        self.pushButton_7.setText(_translate("MainWindow", "confirm"))
-        self.pushButton_2.setText(_translate("MainWindow", "Application page >>"))
-        self.pushButton_4.setText(_translate("MainWindow", "home page"))
+        self.pushButton_2.setText(_translate("MainWindow", "application page >>"))
+        self.members.setText(_translate("MainWindow", "MemberList"))
+        while count != 0:
+            self.comboBox.setItemText(i, _translate("MainWindow", df.at[i, 'Username']))
+            i += 1
+            count -= 1
+
+
+
         self.pushButton_5.setText(_translate("MainWindow", "inbox page"))
         self.pushButton_6.setText(_translate("MainWindow", "group page"))
         self.label_5.setText(_translate("MainWindow", "         Navigation"))
