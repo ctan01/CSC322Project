@@ -147,9 +147,9 @@ class Ui_MainWindow(object):
         self.pushButton_2.clicked.connect(MainWindow.close)
 
         self.pushButton_6.clicked.connect(self.openGroupPage)
-        self.pushButton_6.clicked.connect(MainWindow.close)
+
         self.pushButton_5.clicked.connect(self.openInboxPage)
-        self.pushButton_5.clicked.connect(MainWindow.close)
+
 
 
         MainWindow.setCentralWidget(self.centralwidget)
