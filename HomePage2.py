@@ -5,10 +5,18 @@ import pandas as pd
 # HomePage2
 class Ui_HomePage2(object):
     def logout(self):
+        from HomePage import Ui_HomePage
         df = pd.read_csv('UserData.csv')
         for index, row in df.iterrows():
-            row['CurrentUser'] = 0
-        HomePage2.close()
+            if row['CurrentUser'] == 1:
+                row_num = df[df['CurrentUser'] == row['CurrentUser']].index[0]
+                df.loc[row_num, 'CurrentUser'] = 0
+                df.to_csv('UserData.csv', index=False)
+
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_HomePage()
+        self.ui.setupUi(self.window)
+        self.window.show()
 
 
     def openProfileWindow(self):
@@ -29,7 +37,9 @@ class Ui_HomePage2(object):
         self.pushButton_Logout.setFont(font)
         self.pushButton_Logout.setObjectName("pushButton_Logout")
 
-        self.pushButton_Logout.clicked.connect(self.logout)
+
+        self.pushButton_Logout.clicked.connect(self.logout) # log out user
+        self.pushButton_Logout.clicked.connect(HomePage2.close)
 
         self.pushButton_Groups = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_Groups.setGeometry(QtCore.QRect(790, 20, 81, 31))

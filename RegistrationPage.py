@@ -117,7 +117,7 @@ class Ui_registrationPage(object):
         else:
             skill11 = None
 
-        new_row = {'UserID': len(df.index),
+        new_row = {'UserID': len(df.index) + 1,
                    'First_Name': self.lineEdit_firstName.text(),
                    'Last_Name': self.lineEdit_lastName.text(),
                    'Email': self.lineEdit_email.text(),

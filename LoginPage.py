@@ -13,14 +13,18 @@ class Ui_loginPage(object):
     def login(self):
         df = pd.read_csv("UserData.csv")
         msg = QMessageBox()
+        # success = 1 if login success
         success = 0
         for index, row in df.iterrows():
-            if self.lineEdit_username.text() == row['Username'] and self.lineEdit_password.text() == row['Password']:
-                print('Login success')
+            if self.lineEdit_username.text() == row['Username'] and self.lineEdit_password.text() == row['Password'] \
+                    and row['Status'] != "Visitors":
                 success = 1
-                print(row)
+                print('Login success')
+
+                row_num = df[df['Username'] == row['Username']].index[0]
                 # CurretnUser = 1 means this user is currently logged in
-                # df = df.at[row, 'CurrentUser'] = 1
+                df.loc[row_num, 'CurrentUser'] = 1
+                df.to_csv('UserData.csv', index=False)
                 # if user is SU
                 if row['Status'] == 'SU':
                     self.window = QtWidgets.QMainWindow()

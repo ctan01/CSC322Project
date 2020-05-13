@@ -31,10 +31,12 @@ class Ui_HomePage(object):
                 if search_content == row['UserID'] or search_content == row['Username'] or \
                         search_content == row['First_Name'] or search_content == row['Last_Name']:
                     df_user_search_result.append(row)
+                    # print(df_user_search_result)
                     result_count = result_count + 1
             for index, row in df_group.iterrows():
                 if search_content == row['GroupName'] or search_content == row['GroupID']:
                     df_group_search_result.append(row)
+                    # print(df_group_search_result)
                     result_count = result_count + 1
 
         self.window = QtWidgets.QMainWindow()
@@ -86,6 +88,7 @@ class Ui_HomePage(object):
         self.pushButton_Login.setObjectName("pushButton_Login")
 
         self.pushButton_Login.clicked.connect(self.openLoginWindow)  # link login button to login page
+        self.pushButton_Login.clicked.connect(HomePage.close)
 
         self.pushButton_Search = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_Search.setGeometry(QtCore.QRect(200, 20, 51, 31))
