@@ -25,6 +25,7 @@ class Ui_MemberPoll(object):
         new_row = {'MemberPollID': (len(df.index)+1),
             'GroupID' : currentGroupID, # UNKOWN FOR NOW (LINK WITH GROUP ID VALUE == 1)
             'AffectedMemberID' : affectedMemberID, # MATCH WITH FIRST NAME
+            'FirstName' : firstname,
             'Type' : typepoll,
             'Yes' : 1,
             'No' : 0,

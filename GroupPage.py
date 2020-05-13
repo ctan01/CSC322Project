@@ -23,6 +23,10 @@ class Ui_GroupPage(object):
 
     def submitComment(self):
         pass
+
+    def CountVote20(self):
+        yes20count = 2
+        
     
     def openInboxPage(self):                # USERID PARAMETERS
         from InboxPage import Ui_InboxPage
@@ -81,12 +85,11 @@ class Ui_GroupPage(object):
         self.window.show()
 
     def openLeaveGroupConfirmation(self):
-        from LeaveGroupConfirmation import Ui_LeaveGroup as Form
-        Dialog = QtWidgets.QDialog()
-        Dialog.ui = Form
-        Dialog.ui.setupUi(Dialog)
-        Dialog.exec_()
-        Dialog.show()
+        from LeaveGroupConfirmation import Ui_LeaveGroup
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_LeaveGroup()
+        self.ui.setupUi(self.window)
+        self.window.show()
 
     def setupUi(self, GroupPage):
         df = pd.read_csv('UserData.csv')
@@ -132,6 +135,8 @@ class Ui_GroupPage(object):
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
         self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 749, 659))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
+
+        # MEET UP POLL BOX
 
         #self.MeetUpPoll = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)        # MEET UP POLL CLOSES AFTER 75% of users respond
         #self.MeetUpPoll.setGeometry(QtCore.QRect(10, 240, 701, 91))
@@ -181,7 +186,6 @@ class Ui_GroupPage(object):
                 comment2[indexcount] = row['Comment2']
                 comment3[indexcount] = row['Comment3']
                 indexcount = indexcount + 1
-
         checkempty = [0,0,0,0]
 
         if postcontents[0] == "":
@@ -192,6 +196,31 @@ class Ui_GroupPage(object):
             checkempty[2] = 1
         if postcontents[3] == "":
             checkempty[3] = 1
+
+        memberpollname = ["","",""]
+        memberpolltype =["","",""]
+        dfmember = pd.read_csv('MemberPoll.csv')
+        membercount = 0
+
+        for index, row in dfmember.iterrows():
+            if row['GroupID'] == currentGroupID:
+                memberpollname[membercount] = row['FirstName']
+                memberpolltype[membercount] = row['Type']
+                membercount = membercount + 1
+                if membercount == 2:
+                    break
+
+        print(memberpollname[0])
+
+        checkmemberpollempty = [0,0,0,0]
+        if memberpollname[0] == "":
+            checkmemberpollempty[0] = 1
+        if memberpollname[1] == "":
+            checkmemberpollempty[1] = 1
+        if memberpollname[2] == "":
+            checkmemberpollempty[2] = 1
+
+        
 
         # GROUP POSTS
         if checkempty[0] == 0:
@@ -210,6 +239,25 @@ class Ui_GroupPage(object):
             self.pushButton.setGeometry(QtCore.QRect(590, 140, 93, 28))
             self.pushButton.setObjectName("pushButton")
 
+        if checkempty[0] == 1:## VOTING BOX
+            if checkmemberpollempty[0] == 0:
+                checkmemberpollempty[0] = 1
+                self.VoteWarning00 = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)   # VOTE CLOSES AFTER 75% of USERS RESPOND
+                self.VoteWarning00.setGeometry(QtCore.QRect(10, 10, 701, 175))
+                self.VoteWarning00.setObjectName("VoteWarning00")
+
+                self.YesBox00 = QtWidgets.QCheckBox(self.VoteWarning00)
+                self.YesBox00.setGeometry(QtCore.QRect(10, 30, 81, 20))
+                self.YesBox00.setObjectName("YesBox00")
+                self.NoBox00 = QtWidgets.QCheckBox(self.VoteWarning00)
+                self.NoBox00.setGeometry(QtCore.QRect(10, 60, 81, 20))
+                self.NoBox00.setObjectName("NoBox00")
+
+                self.SubmitVote00 = QtWidgets.QPushButton(self.VoteWarning00)         # TAKE INPUT
+                self.SubmitVote00.setGeometry(QtCore.QRect(590, 140, 93, 28))
+                self.SubmitVote00.setObjectName("SubmitVote00")
+
+
         # GROUP POST TWO
         if checkempty[1] == 0:
             self.GroupPost2 = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)
@@ -227,6 +275,25 @@ class Ui_GroupPage(object):
             self.pushButton2.setGeometry(QtCore.QRect(590, 140, 93, 28))
             self.pushButton2.setObjectName("pushButton2")
 
+        if checkempty[1] == 1:## VOTING BOX
+            if checkmemberpollempty[0] == 0:
+                checkmemberpollempty[0] = 1
+                self.VoteWarning10 = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)   # VOTE CLOSES AFTER 75% of USERS RESPOND
+                self.VoteWarning10.setGeometry(QtCore.QRect(10, 200, 701, 175))
+                self.VoteWarning10.setObjectName("VoteWarning10")
+
+                self.YesBox10 = QtWidgets.QCheckBox(self.VoteWarning10)
+                self.YesBox10.setGeometry(QtCore.QRect(10, 30, 81, 20))
+                self.YesBox10.setObjectName("YesBox10")
+                self.NoBox10 = QtWidgets.QCheckBox(self.VoteWarning10)
+                self.NoBox10.setGeometry(QtCore.QRect(10, 60, 81, 20))
+                self.NoBox10.setObjectName("NoBox10")
+
+                self.SubmitVote10 = QtWidgets.QPushButton(self.VoteWarning10)         # TAKE INPUT
+                self.SubmitVote10.setGeometry(QtCore.QRect(590, 140, 93, 28))
+                self.SubmitVote10.setObjectName("SubmitVote10")
+
+
         # GROUP POST THREE
         if checkempty[2] == 0:
             self.GroupPost3 = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)
@@ -243,6 +310,43 @@ class Ui_GroupPage(object):
             self.pushButton3 = QtWidgets.QPushButton(self.GroupPost3)         # READ COMMMENT INPUT
             self.pushButton3.setGeometry(QtCore.QRect(590, 140, 93, 28))
             self.pushButton3.setObjectName("pushButton3")
+        
+        if checkempty[2] == 1:## VOTING BOX
+            if checkmemberpollempty[0] == 0:
+                checkmemberpollempty[0] = 1
+                self.VoteWarning20 = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)   # VOTE CLOSES AFTER 75% of USERS RESPOND
+                self.VoteWarning20.setGeometry(QtCore.QRect(10, 390, 701, 175))
+                self.VoteWarning20.setObjectName("VoteWarning")
+
+                self.YesBox20 = QtWidgets.QCheckBox(self.VoteWarning20)
+                self.YesBox20.setGeometry(QtCore.QRect(10, 30, 81, 20))
+                self.YesBox20.setObjectName("YesBox20")
+                self.YesBox20.stateChanged.connect(self.CountVote20)
+                self.NoBox20 = QtWidgets.QCheckBox(self.VoteWarning20)
+                self.NoBox20.setGeometry(QtCore.QRect(10, 60, 81, 20))
+                self.NoBox20.setObjectName("NoBox20")
+
+                self.SubmitVote20 = QtWidgets.QPushButton(self.VoteWarning20)         # TAKE INPUT
+                self.SubmitVote20.setGeometry(QtCore.QRect(590, 140, 93, 28))
+                self.SubmitVote20.setObjectName("SubmitVote20")
+
+            elif checkmemberpollempty[1] == 0:
+                checkmemberpollempty[1] = 1
+                self.VoteWarning21 = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)   # VOTE CLOSES AFTER 75% of USERS RESPOND
+                self.VoteWarning21.setGeometry(QtCore.QRect(10,390, 701, 175))
+                self.VoteWarning21.setObjectName("VoteWarning21")
+
+                self.YesBox21 = QtWidgets.QCheckBox(self.VoteWarning21)
+                self.YesBox21.setGeometry(QtCore.QRect(10, 30, 81, 20))
+                self.YesBox21.setObjectName("YesBox21")
+                self.NoBox21 = QtWidgets.QCheckBox(self.VoteWarning21)
+                self.NoBox21.setGeometry(QtCore.QRect(10, 60, 81, 20))
+                self.NoBox21.setObjectName("NoBox21")
+
+                self.SubmitVote21 = QtWidgets.QPushButton(self.VoteWarning21)         # TAKE INPUT
+                self.SubmitVote21.setGeometry(QtCore.QRect(590, 140, 93, 28))
+                self.SubmitVote21.setObjectName("SubmitVote21")
+
 
         # GROUP POST FOUR
         if checkempty[3] == 0:
@@ -268,6 +372,8 @@ class Ui_GroupPage(object):
         
         #for p in posts:
         #    p.draw()
+
+        ## VOTING BOX
 
         #self.VoteWarning = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)   # VOTE CLOSES AFTER 75% of USERS RESPOND
         #self.VoteWarning.setGeometry(QtCore.QRect(10, 340, 701, 91))
@@ -299,7 +405,6 @@ class Ui_GroupPage(object):
         self.Leave_Group_2.setGeometry(QtCore.QRect(0, 240, 221, 28))
         self.Leave_Group_2.setObjectName("Leave_Group_2")
         self.Leave_Group_2.clicked.connect(self.openLeaveGroupConfirmation)
-        # open leave group confirmation
 
         self.CreatePost = QtWidgets.QPushButton(self.GroupCommands)     # POP UP
         self.CreatePost.setGeometry(QtCore.QRect(0, 20, 221, 28))
@@ -364,6 +469,7 @@ class Ui_GroupPage(object):
         self.LogOUt.setText(_translate("GroupPage", "LogOut"))
         self.HomeButton.setText(_translate("GroupPage", "Home"))
         self.PushButton_CreateGroup.setText(_translate("GroupPage", "CreateGroup"))
+
         #self.MeetUpPoll.setTitle(_translate("GroupPage", "Poll"))
         #self.Choice1.setText(_translate("GroupPage", "Tuesday 2pm"))
         #self.SubmitVote.setText(_translate("GroupPage", "Submit"))
@@ -406,6 +512,33 @@ class Ui_GroupPage(object):
             checkempty[2] = 1
         if postcontents[3] == "":
             checkempty[3] = 1
+
+        memberpollname = ["","",""]
+        memberpolltype =["","",""]
+        dfmember = pd.read_csv('MemberPoll.csv')
+        membercount = 0
+
+        for index, row in dfmember.iterrows():
+            if row['GroupID'] == currentGroupID:
+                memberpollname[membercount] = row['FirstName']
+                memberpolltype[membercount] = row['Type']
+                membercount = membercount + 1
+                if membercount == 2:
+                    break
+
+        print(memberpollname[0])
+
+        checkmemberpollempty = [0,0,0,0]
+        if memberpollname[0] == "":
+            checkmemberpollempty[0] = 1
+        if memberpollname[1] == "":
+            checkmemberpollempty[1] = 1
+        if memberpollname[2] == "":
+            checkmemberpollempty[2] = 1
+
+
+
+
         # POST ONE
         if checkempty[0] == 0:
             self.GroupPost.setTitle(_translate("GroupPage", "Post"))
@@ -417,6 +550,18 @@ class Ui_GroupPage(object):
     "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\';\"><br /></p></body></html>"))
             
             self.pushButton.setText(_translate("GroupPage", "Comment"))
+
+        if checkempty[0] == 1:
+            if checkmemberpollempty[0] == 0:
+                checkmemberpollempty[0] = 1
+                self.VoteWarning00.setTitle(_translate("GroupPage", memberpolltype[0] + " " + memberpollname[0] + ""))
+                self.YesBox00.setText(_translate("GroupPage", "Yes"))
+                self.NoBox00.setText(_translate("GroupPage", "No"))
+                self.SubmitVote00.setText(_translate("GroupPage", "Submit"))
+                
+
+
+
 
         # POST TWO
         if checkempty[1] == 0:
@@ -430,6 +575,20 @@ class Ui_GroupPage(object):
             
             self.pushButton2.setText(_translate("GroupPage", "Comment"))
 
+        if checkempty[1] == 1:
+            if checkmemberpollempty[0] == 0:
+                checkmemberpollempty[0] = 1
+                self.VoteWarning10.setTitle(_translate("GroupPage", memberpolltype[0] + " " + memberpollname[0] + ""))
+                self.YesBox10.setText(_translate("GroupPage", "Yes"))
+                self.NoBox10.setText(_translate("GroupPage", "No"))
+                self.SubmitVote10.setText(_translate("GroupPage", "Submit"))
+            elif checkmemberpollempty[1] == 0:
+                checkmemberpollempty[1] = 1
+                self.VoteWarning11.setTitle(_translate("GroupPage", memberpolltype[1] + " " + memberpollname[1] + ""))
+                self.YesBox11.setText(_translate("GroupPage", "Yes"))
+                self.NoBox11.setText(_translate("GroupPage", "No"))
+                self.SubmitVote11.setText(_translate("GroupPage", "Submit"))
+
         # POST THREE
         if checkempty[2] == 0:
             self.GroupPost3.setTitle(_translate("GroupPage", "Post"))
@@ -441,6 +600,29 @@ class Ui_GroupPage(object):
     "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\';\"><br /></p></body></html>"))
             
             self.pushButton3.setText(_translate("GroupPage", "Comment"))
+
+        if checkempty[2] == 1:
+            if checkmemberpollempty[0] == 0:
+                checkmemberpollempty[0] = 1
+                yes20count = 2
+                no20count = 0
+                self.VoteWarning20.setTitle(_translate("GroupPage", memberpolltype[0] + " " + memberpollname[0] + "    CURRENT COUNT Yes: " + str(yes20count) + " CURRENT COUNT NO: " + str(no20count) + ""))
+                self.YesBox20.setText(_translate("GroupPage", "Yes"))
+                self.NoBox20.setText(_translate("GroupPage", "No"))
+                self.SubmitVote20.setText(_translate("GroupPage", "Submit"))
+            elif checkmemberpollempty[1] == 0:
+                checkmemberpollempty[1] = 1
+                self.VoteWarning21.setTitle(_translate("GroupPage", memberpolltype[1] + " " + memberpollname[1] + ""))
+                self.YesBox21.setText(_translate("GroupPage", "Yes"))
+                self.NoBox21.setText(_translate("GroupPage", "No"))
+                self.SubmitVote21.setText(_translate("GroupPage", "Submit"))
+            elif checkmemberpollempty[2] == 0:
+                self.VoteWarning22.setTitle(_translate("GroupPage", memberpolltype[2] + " " + memberpollname[2] + ""))
+                self.YesBox22.setText(_translate("GroupPage", "Yes"))
+                self.NoBox22.setText(_translate("GroupPage", "No"))
+                self.SubmitVote22.setText(_translate("GroupPage", "Submit"))
+
+
 
         # POST FOUR
         if checkempty[3] == 0:
