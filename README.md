@@ -19,13 +19,28 @@ An OU whose reputation score is equal to or more than 30 will be automatically p
 ## Super user(SU)
 SU will be periodically voted in by VIPs. The responsibilities of SU includes manually increasing or decreasing user's reputation score if necceasry, kicking out users with bad behavior, and review registration requests. 
 
+## Search
+Users or visitors can use the search bar and search button located on top left of every main pages to search for specific groups and users. can eith search by userID 
+
 ## Start a group
-To start a group, any users can access the group page from home page, and click the "New Group" button to create a new group. The user have to create a group name and write down project description describing the goal for this project. The user can invite up to 8 users to join the group. 
+To start a group, any users can access the groups page from home page, and click the "New Group" button to create a new group. The user have to create a group name and write down project description describing the goal for this project. The user can invite up to 8 users to join the group. 
 
 ## Invites
 Users can choose to accept or decline group invites in their inbox page. 
 
-##
+## Edit Profile
+Users can view and edit their profile throught the profile page.
+
+## Create Post
+Members with in one group can create post that can be view by other group members from the group page. 
+
+## Create meet up time poll
+Group members can create meet up time polls to have team meet ups.
+
+## Create member poll
+Group members can create member polls. There are 3 types of Member polls: vote to send warnings to member, vote to kick member out, and vote to send compliment to member. 
+
+
 
 
 
