@@ -26,21 +26,10 @@ class Ui_HomePage(object):
         df_user_search_result = []
         df_group_search_result = []
         result_count = 0
-        """df_user = pd.read_csv("UserData.csv")
+        df_user = pd.read_csv("UserData.csv")
         df_group = pd.read_csv('GroupData.csv')
-        while result_count <= 2:
-            for index, row in df_user.iterrows():
-                if search_content == row['UserID'] or search_content == row['Username'] or \
-                        search_content == row['First_Name'] or search_content == row['Last_Name']:
-                    df_user_search_result.append(row)
-                    # print(df_user_search_result)
-                    result_count = result_count + 1
-            for index, row in df_group.iterrows():
-                if search_content == row['GroupName'] or search_content == row['GroupID']:
-                    df_group_search_result.append(row)
-                    # print(df_group_search_result)
-                    result_count = result_count + 1
-"""
+        
+
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_SearchPage()
         self.ui.setupUi(self.window)
