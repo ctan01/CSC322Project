@@ -6,6 +6,14 @@ import pandas as pd
 
 
 class Ui_InboxPage(object):
+        def joinGroup(self):
+                from joinGroup import Ui_joinGroup
+                self.window = QtWidgets.QMainWindow()
+                self.ui = Ui_joinGroup()
+                self.ui.setupUi(self.window)
+                self.window.show()
+
+
         def openGroupsPage(self):
                 from UsersGroups import Ui_UsersGroupsPage
                 self.window = QtWidgets.QMainWindow() 
@@ -84,6 +92,7 @@ class Ui_InboxPage(object):
 
                 df = pd.read_csv('InboxMessages.csv')
                 #MessageID, UserID, Type, TypeID, GroupID, SubjectUserID
+                dfgroup = pd.read_csv('GroupData.csv')
                 dfcheck = pd.read_csv('UserData.csv')
                 currentUserRow = dfcheck[dfcheck['CurrentUser'] == 1]
                 currentUserID = currentUserRow['UserID'].iloc[0]
@@ -139,6 +148,9 @@ class Ui_InboxPage(object):
                                 self.pushButton = QtWidgets.QPushButton(self.InvitationMessage)
                                 self.pushButton.setGeometry(QtCore.QRect(10, 70, 93, 28))
                                 self.pushButton.setObjectName("pushButton")
+                                self.pushButton.clicked.connect(self.joinGroup)
+                                # ADD MEMBER TO GROUPID
+
                                 self.Decline2 = QtWidgets.QPushButton(self.InvitationMessage)
                                 self.Decline2.setGeometry(QtCore.QRect(110, 70, 93, 28))
                                 self.Decline2.setObjectName("Decline2")
@@ -154,6 +166,9 @@ class Ui_InboxPage(object):
                                 self.Accept3 = QtWidgets.QPushButton(self.InvitationMessage_2)
                                 self.Accept3.setGeometry(QtCore.QRect(10, 70, 93, 28))
                                 self.Accept3.setObjectName("Accept3")
+                                self.Accept3.clicked.connect(self.joinGroup)
+                                # ADD MEMBER TO GROUP ID , DELETE ROW FROM INBOXMESSAGES
+
                                 self.Decline3 = QtWidgets.QPushButton(self.InvitationMessage_2)
                                 self.Decline3.setGeometry(QtCore.QRect(110, 70, 93, 28))
                                 self.Decline3.setObjectName("Decline3")
@@ -169,6 +184,9 @@ class Ui_InboxPage(object):
                                 self.pushButton43 = QtWidgets.QPushButton(self.InvitationMessage3)
                                 self.pushButton43.setGeometry(QtCore.QRect(10, 70, 93, 28))
                                 self.pushButton43.setObjectName("pushButton43")
+                                self.pushButton43.clicked.connect(self.joinGroup)
+                                # ADD ROW TO GROUP ID
+                                # REMOVE FROM INBOX MESSAGES
                                 self.Decline43 = QtWidgets.QPushButton(self.InvitationMessage3)
                                 self.Decline43.setGeometry(QtCore.QRect(110, 70, 93, 28))
                                 self.Decline43.setObjectName("Decline43")
@@ -184,6 +202,8 @@ class Ui_InboxPage(object):
                                 self.pushButton4 = QtWidgets.QPushButton(self.InvitationMessage4)
                                 self.pushButton4.setGeometry(QtCore.QRect(10, 70, 93, 28))
                                 self.pushButton4.setObjectName("pushButton4")
+                                self.pushButton4.clicked.connect(self.joinGroup)
+
                                 self.Decline4 = QtWidgets.QPushButton(self.InvitationMessage4)
                                 self.Decline4.setGeometry(QtCore.QRect(110, 70, 93, 28))
                                 self.Decline4.setObjectName("Decline4")
@@ -199,6 +219,10 @@ class Ui_InboxPage(object):
                                 self.pushButton5 = QtWidgets.QPushButton(self.InvitationMessage5)
                                 self.pushButton5.setGeometry(QtCore.QRect(10, 70, 93, 28))
                                 self.pushButton5.setObjectName("pushButton5")
+                                self.pushButton5.clicked.connect(self.joinGroup)
+                                # REMOVE FROM INBOX AND ADD TO GROUP DATA
+
+
                                 self.Decline5 = QtWidgets.QPushButton(self.InvitationMessage5)
                                 self.Decline5.setGeometry(QtCore.QRect(110, 70, 93, 28))
                                 self.Decline5.setObjectName("Decline5")
