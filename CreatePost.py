@@ -39,7 +39,7 @@ class Ui_CreatePost(object):
 
             elif postarray[count] == "darn":
                 postarray[count] = "****"
-                checkTaboo == True
+                checkTaboo = True
             newpost = newpost + " " + str(postarray[count])
 
         stat = dfuser[(dfuser['CurrentUser']) == 1].index[0]
