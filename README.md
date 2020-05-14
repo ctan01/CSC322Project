@@ -20,10 +20,12 @@ An OU whose reputation score is equal to or more than 30 will be automatically p
 SU will be periodically voted in by VIPs. The responsibilities of SU includes manually increasing or decreasing user's reputation score if necceasry, kicking out users with bad behavior, and review registration requests. 
 
 ## Start a group
-To start a group, any users can access the group page from home page, and click the "New Group" button to create a new group. The user can invite up to 8 users to join the group. 
+To start a group, any users can access the group page from home page, and click the "New Group" button to create a new group. The user have to create a group name and write down project description describing the goal for this project. The user can invite up to 8 users to join the group. 
 
 ## Invites
 Users can choose to accept or decline group invites in their inbox page. 
+
+##
 
 
 
