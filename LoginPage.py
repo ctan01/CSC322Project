@@ -17,7 +17,7 @@ class Ui_loginPage(object):
         success = 0
         for index, row in df.iterrows():
             if self.lineEdit_username.text() == row['Username'] and self.lineEdit_password.text() == row['Password'] \
-                    and row['Status'] != "Visitors":
+                    and row['Status'] != "visitor":
                 success = 1
                 print('Login success')
 

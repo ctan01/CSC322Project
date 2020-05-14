@@ -46,6 +46,7 @@ class Ui_HomePageSU(object):
         self.window.show()
 
 
+
     def setupUi(self, HomePageSU):
         HomePageSU.setObjectName("HomePageSU")
         HomePageSU.resize(978, 709)
@@ -69,6 +70,7 @@ class Ui_HomePageSU(object):
         font.setFamily("Arial")
         self.pushButton_Search.setFont(font)
         self.pushButton_Search.setObjectName("pushButton_Search")
+
         self.textEdit_Search = QtWidgets.QTextEdit(self.centralwidget)
         self.textEdit_Search.setGeometry(QtCore.QRect(10, 20, 181, 31))
         self.textEdit_Search.setObjectName("textEdit_Search")
@@ -432,4 +434,3 @@ if __name__ == "__main__":
     ui.setupUi(HomePageSU)
     HomePageSU.show()
     sys.exit(app.exec_())
-

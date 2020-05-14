@@ -98,6 +98,8 @@ class Ui_HomePage2(object):
         font.setFamily("Arial")
         self.pushButton_Search.setFont(font)
         self.pushButton_Search.setObjectName("pushButton_Search")
+
+
         self.textEdit_Search = QtWidgets.QTextEdit(self.centralwidget)
         self.textEdit_Search.setGeometry(QtCore.QRect(10, 20, 181, 31))
         self.textEdit_Search.setObjectName("textEdit_Search")
