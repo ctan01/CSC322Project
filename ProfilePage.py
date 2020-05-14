@@ -136,52 +136,62 @@ class Ui_profilePage(object):
 
     def retranslateUi(self, ProfilePage):
         df = pd.read_csv('UserData.csv')
+
+        for index, row in df.iterrows():
+            if row['CurrentUser'] == 1:
+                current_user_index = index
+                print(current_user_index)
+
         combo_count = df.shape[0]
         i = 0
+
+        current_user_id = current_user_index + 1
         _translate = QtCore.QCoreApplication.translate
         ProfilePage.setWindowTitle(_translate("ProfilePage", "MainWindow"))
         self.label_Name.setText(_translate("ProfilePage", "Name:"))
         self.label_Email.setText(_translate("ProfilePage", "Email:"))
         self.label_Projects.setText(_translate("ProfilePage", "Projects:"))
         self.label_Score.setText(_translate("ProfilePage", "Score:"))
-        self.textBrowse_Name.setHtml(_translate("ProfilePage",
-                                                "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                                "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                                "p, li { white-space: pre-wrap; }\n"
-                                                "</style></head><body style=\" font-family:\'Arial\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-                                                "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'SimSun\';\">example</span></p></body></html>"))
-        self.textBrowser_Email.setHtml(_translate("ProfilePage",
-                                                  "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                                  "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                                  "p, li { white-space: pre-wrap; }\n"
-                                                  "</style></head><body style=\" font-family:\'Arial\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'SimSun\';\">example</span></p>\n"
-                                                  "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'SimSun\';\"><br /></p></body></html>"))
-        self.textBrowser_Score.setHtml(_translate("ProfilePage",
-                                                  "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                                  "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                                  "p, li { white-space: pre-wrap; }\n"
-                                                  "</style></head><body style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'SimSun\';\">example</span></p>\n"
-                                                  "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'SimSun\';\"><br /></p></body></html>"))
+        self.textBrowse_Name.setHtml(_translate("ProfilePage", df.loc[current_user_index, 'First_Name'] + " " + df.loc[
+            current_user_index, 'Last_Name']))
+        self.textBrowser_Email.setHtml(_translate("ProfilePage", df.loc[current_user_index, 'Email']))
+        self.textBrowser_Score.setHtml(_translate("ProfilePage", str(df.loc[current_user_index, 'Reputation_Score'])))
+        print(df.loc[current_user_index, 'Reputation_Score'])
         self.label_Inerest.setText(_translate("ProfilePage", "Interest:"))
         self.label_SkillSets.setText(_translate("ProfilePage", "Skill sets:"))
         self.pushButton_Edit.setText(_translate("ProfilePage", "Edit"))
         self.label_UserID.setText(_translate("ProfilePage", "User ID:"))
-        self.textBrowse_UserID.setHtml(_translate("ProfilePage",
-                                                  "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                                  "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                                  "p, li { white-space: pre-wrap; }\n"
-                                                  "</style></head><body style=\" font-family:\'Arial\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-                                                  "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'SimSun\';\">example</span></p></body></html>"))
+        self.textBrowse_UserID.setHtml(_translate("ProfilePage", str(df.loc[current_user_index, 'UserID'])))
         self.label_Status.setText(_translate("ProfilePage", "Status: "))
-        self.textBrowser_Status.setHtml(_translate("ProfilePage",
-                                                   "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                                   "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                                   "p, li { white-space: pre-wrap; }\n"
-                                                   "</style></head><body style=\" font-family:\'Arial\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-                                                   "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'SimSun\';\">example</span></p></body></html>"))
+        self.textBrowser_Status.setHtml(_translate("ProfilePage", df.loc[current_user_index, 'Status']))
 
+        """interests = []
+
+        if df.iloc[current_user_index, 'Interests0'] == 'Education':
+            interests.append(df.iloc[current_user_index, 'Interests1'])
+        if df.iloc[current_user_index, 'Interests0'] == 'Reading':
+            interests.append(df.iloc[current_user_index, 'Interests2'])
+        if df.iloc[current_user_index, 'Interests0'] == 'Coding':
+            interests.append(df.iloc[current_user_index, 'Interests3'])
+        if df.iloc[current_user_index, 'Interests0'] == 'Environment':
+            interests.append(df.iloc[current_user_index, 'Interests4'])
+        if df.iloc[current_user_index, 'Interests0'] == 'Sports':
+            interests.append(df.iloc[current_user_index, 'Interests5'])
+        if df.iloc[current_user_index, 'Interests0'] == 'Design':
+            interests.append(df.iloc[current_user_index, 'Interests6'])
+        if df.iloc[current_user_index, 'Interests0'] == 'Finance':
+            interests.append(df.iloc[current_user_index, 'Interests7'])
+        if df.iloc[current_user_index, 'Interests0'] == 'Technology':
+            interests.append(df.iloc[current_user_index, 'Interests8'])
+        if df.iloc[current_user_index, 'Interests0'] == 'Kids':
+            interests.append(df.iloc[current_user_index, 'Interests9'])
+        if df.iloc[current_user_index, 'Interests0'] == 'Family Activities':
+            interests.append(df.iloc[current_user_index, 'Interests10'])
+        if df.iloc[current_user_index, 'Interests0'] == 'Public Welfare':
+            interests.append(df.iloc[current_user_index, 'Interests11'])
+
+        print(interests)
+"""
         while combo_count != 0:
             if i == 0:
                 i += 1
@@ -218,6 +228,7 @@ class Ui_profilePage(object):
         combo_count = df.shape[0]
         i = 0
 
+
 if __name__ == "__main__":
     import sys
 
@@ -227,4 +238,3 @@ if __name__ == "__main__":
     ui.setupUi(ProfilePage)
     ProfilePage.show()
     sys.exit(app.exec_())
-

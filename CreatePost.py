@@ -15,33 +15,41 @@ class Ui_CreatePost(object):
     def publishPost(self):
         df = pd.read_csv('Posts.csv')
         dfgroup = pd.read_csv('GroupData.csv')
+        dfuser = pd.read_csv('UserData.csv')
         currentGroupRow = dfgroup[dfgroup['currentGroup'] ==  1]
         currentGroupID = currentGroupRow['GroupID'].iloc[0]
         print(currentGroupID)
-        
+        checkTaboo = False
         # TABOO CHECK
         fullpost = self.lineEdit_Postcontents.text()
         print(fullpost)
         postarray = fullpost.split()
         print(postarray[0])
-        checkTaboo = False
         count = -1
         newpost = ""
         for x in postarray:
             count = count + 1
             if postarray[count] == "hate":
                 postarray[count] = "****"
-                postarray[count]
                 checkTaboo = True
+
             elif postarray[count] == "bad":
                 postarray[count] = "***"
                 checkTaboo = True
+
             elif postarray[count] == "darn":
                 postarray[count] = "****"
-                checkTaboo = True
+                checkTaboo == True
             newpost = newpost + " " + str(postarray[count])
-            
-    
+
+        stat = dfuser[(dfuser['CurrentUser']) == 1].index[0]
+        if checkTaboo == True:
+            dfuser.loc[stat, 'Reputation_Score'] = dfuser.loc[stat, 'Reputation_Score'] - 1
+
+        if int(dfuser.at[stat, 'Reputation_Score']) < 30:
+            dfuser.loc[stat, 'Status'] = 'OU'
+
+        dfuser.to_csv('UserData.csv', index=False)
 
         # PostID, GroupID, PostContents, Comment0, Comment1, Comment2,Comment3
         new_row = {'PostID': (len(df.index)+1),
