@@ -413,4 +413,3 @@ if __name__ == "__main__":
     ui.setupUi(UsersGroups)
     UsersGroups.show()
     sys.exit(app.exec_())
-

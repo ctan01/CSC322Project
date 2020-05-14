@@ -25,6 +25,21 @@ class Ui_HomePage2(object):
         self.ui.setupUi(self.window)
         self.window.show()
 
+    def openInboxPage(self):
+        from InboxPage import Ui_InboxPage
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_InboxPage()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openUsersGroupsPage(self):
+        from UsersGroups import Ui_UsersGroupsPage
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_UsersGroupsPage()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+
     def setupUi(self, HomePage2):
         HomePage2.setObjectName("HomePage2")
         HomePage2.resize(980, 710)
@@ -47,12 +62,20 @@ class Ui_HomePage2(object):
         font.setFamily("Arial")
         self.pushButton_Groups.setFont(font)
         self.pushButton_Groups.setObjectName("pushButton_Groups")
+
+        self.pushButton_Groups.clicked.connect(self.openUsersGroupsPage)
+        self.pushButton_Groups.clicked.connect(HomePage2.close)
+
         self.pushButton_Inbox = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_Inbox.setGeometry(QtCore.QRect(700, 20, 81, 31))
         font = QtGui.QFont()
         font.setFamily("Arial")
         self.pushButton_Inbox.setFont(font)
         self.pushButton_Inbox.setObjectName("pushButton_Inbox")
+
+        self.pushButton_Inbox.clicked.connect(self.openInboxPage)
+        self.pushButton_Inbox.clicked.connect(HomePage2.close)
+
         self.pushButton_Profile = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_Profile.setGeometry(QtCore.QRect(610, 20, 81, 31))
 
@@ -368,7 +391,7 @@ class Ui_HomePage2(object):
                                                                    " "))
         self.label_Project3ID.setText(_translate("HomePage2", "Project ID: P007"))
         self.label_User2Score.setText(_translate("HomePage2", "Reputation Score: 31"))
-        self.label_Project1ID.setText(_translate("HomePage2", "Project ID: P001"))
+        self.label_Project1ID.setText(_translate("HomePage2", "Project ID: 1"))
         self.label_Project3Title.setText(_translate("HomePage2", "Project Title: Book and toy drive"))
         self.label_User1ProjectDescription.setText(_translate("HomePage2", "Project Description: Pop-up library \n"
                                                                            "                                 Outdoor cleanup project\n"

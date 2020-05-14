@@ -1,8 +1,12 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+import pandas as pd
 
 
 class Ui_profilePage(object):
+
     def setupUi(self, ProfilePage):
+        df = pd.read_csv('UserData.csv')
+        count = df.shape[0]
         ProfilePage.setObjectName("ProfilePage")
         ProfilePage.resize(398, 531)
         self.centralwidget = QtWidgets.QWidget(ProfilePage)
@@ -109,7 +113,31 @@ class Ui_profilePage(object):
         self.retranslateUi(ProfilePage)
         QtCore.QMetaObject.connectSlotsByName(ProfilePage)
 
+        while count != -1:
+            self.comboBox_Interest.addItem("")
+            count -= 1
+
+        count = df.shape[0]
+
+        while count != -1:
+            self.comboBox_SkillSets.addItem("")
+            count -= 1
+
+        count = df.shape[0]
+
+        while count != -1:
+            self.comboBox_Projects.addItem("")
+            count -= 1
+
+        count = df.shape[0]
+
+        self.retranslateUi(ProfilePage)
+        QtCore.QMetaObject.connectSlotsByName(ProfilePage)
+
     def retranslateUi(self, ProfilePage):
+        df = pd.read_csv('UserData.csv')
+        combo_count = df.shape[0]
+        i = 0
         _translate = QtCore.QCoreApplication.translate
         ProfilePage.setWindowTitle(_translate("ProfilePage", "MainWindow"))
         self.label_Name.setText(_translate("ProfilePage", "Name:"))
@@ -154,6 +182,41 @@ class Ui_profilePage(object):
                                                    "</style></head><body style=\" font-family:\'Arial\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
                                                    "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'SimSun\';\">example</span></p></body></html>"))
 
+        while combo_count != 0:
+            if i == 0:
+                i += 1
+                combo_count -= 1
+            else:
+                self.comboBox_Interest.setItemText(i, _translate("MainWindow", df.at[i, 'Username']))
+                i += 1
+                combo_count -= 1
+
+        combo_count = df.shape[0]
+        i = 0
+
+        while combo_count != 0:
+            if i == 0:
+                i += 1
+                combo_count -= 1
+            else:
+                self.comboBox_SkillSets.setItemText(i, _translate("MainWindow", df.at[i, 'Username']))
+                i += 1
+                combo_count -= 1
+
+        combo_count = df.shape[0]
+        i = 0
+
+        while combo_count != 0:
+            if i == 0:
+                i += 1
+                combo_count -= 1
+            else:
+                self.comboBox_Projects.setItemText(i, _translate("MainWindow", df.at[i, 'Username']))
+                i += 1
+                combo_count -= 1
+
+        combo_count = df.shape[0]
+        i = 0
 
 if __name__ == "__main__":
     import sys
@@ -164,3 +227,4 @@ if __name__ == "__main__":
     ui.setupUi(ProfilePage)
     ProfilePage.show()
     sys.exit(app.exec_())
+

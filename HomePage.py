@@ -19,12 +19,14 @@ class Ui_HomePage(object):
         self.ui.setupUi(self.window)
         self.window.show()
 
+
+
     def search(self):
         search_content = self.lineEdit_Search.text()
         df_user_search_result = []
         df_group_search_result = []
         result_count = 0
-        df_user = pd.read_csv("UserData.csv")
+        """df_user = pd.read_csv("UserData.csv")
         df_group = pd.read_csv('GroupData.csv')
         while result_count <= 2:
             for index, row in df_user.iterrows():
@@ -38,7 +40,7 @@ class Ui_HomePage(object):
                     df_group_search_result.append(row)
                     # print(df_group_search_result)
                     result_count = result_count + 1
-
+"""
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_SearchPage()
         self.ui.setupUi(self.window)
@@ -334,7 +336,7 @@ class Ui_HomePage(object):
         self.label_TopUsers.setText(_translate("HomePage", "Top Users:"))
         self.pushButton_Login.setText(_translate("HomePage", "Login"))
         self.pushButton_Search.setText(_translate("HomePage", "Search"))
-        self.label_Project1ID.setText(_translate("HomePage", "Project ID: P001"))
+        self.label_Project1ID.setText(_translate("HomePage", "Project ID: 1"))
         self.label_Project1Title.setText(_translate("HomePage", "Project Title: Pop up library"))
         self.label_Project1Descrip.setText(_translate("HomePage", "Project Description: Build a pop-up library \n"
                                                                   "                                and invite the community\n"
@@ -355,7 +357,7 @@ class Ui_HomePage(object):
                                                                  "                           Wilma Mckenzie, \n"
                                                                  "                           Nyah Villanueva  \n"
                                                                  ""))
-        self.label_Project2ID.setText(_translate("HomePage", "Project ID: P004"))
+        self.label_Project2ID.setText(_translate("HomePage", "Project ID: 4"))
         self.label_Project3Title.setText(_translate("HomePage", "Project Title: Book and toy drive"))
         self.label_Project3Descrip.setText(_translate("HomePage", "Project Description: Collect donations for \n"
                                                                   "                                local schools and\n"
@@ -366,16 +368,16 @@ class Ui_HomePage(object):
                                                                  "                           Rabia Rossi, \n"
                                                                  "                           Nyag Villanueva  \n"
                                                                  ""))
-        self.label_Project3ID.setText(_translate("HomePage", "Project ID: P007"))
+        self.label_Project3ID.setText(_translate("HomePage", "Project ID: 7"))
         self.label_User1Name.setText(_translate("HomePage", "Name: Wilma Mckenzie"))
         self.label_User1ProjectDescription.setText(_translate("HomePage", "Project Description: Pop-up library \n"
                                                                           "                                 Outdoor cleanup project\n"
                                                                           "                                 Document life stories  \n"
                                                                           " "))
         self.label_User1Stat.setText(_translate("HomePage", "User Status: SU"))
-        self.label_User1ID.setText(_translate("HomePage", "User ID: U005"))
+        self.label_User1ID.setText(_translate("HomePage", "User ID: 5"))
         self.label_user1Score.setText(_translate("HomePage", "Reputation Score: 49"))
-        self.label_User2ID.setText(_translate("HomePage", "User ID: U016"))
+        self.label_User2ID.setText(_translate("HomePage", "User ID: 16"))
         self.label_User2Name.setText(_translate("HomePage", "Name: Nyah Villanueva"))
         self.label_User2Stat.setText(_translate("HomePage", "User Status: VIP"))
         self.label_User2ProjectDescription.setText(_translate("HomePage", "Project Description: Book and toy drive \n"
@@ -385,7 +387,7 @@ class Ui_HomePage(object):
         self.label_User2Score.setText(_translate("HomePage", "Reputation Score: 31"))
         self.label_User3Score.setText(_translate("HomePage", "Reputation Score: 16"))
         self.label_User3Name.setText(_translate("HomePage", "Name: Stan Crossley"))
-        self.label_User3ID.setText(_translate("HomePage", "User ID: U067"))
+        self.label_User3ID.setText(_translate("HomePage", "User ID: 67"))
         self.label_User3Stat.setText(_translate("HomePage", "User Status: OU"))
         self.label_User3ProjectDescription.setText(
             _translate("HomePage", "Project Description: After school tutoring \n"
