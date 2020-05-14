@@ -1,3 +1,5 @@
 MemberPollID,GroupID,AffectedMemberID,FirstName,Type,Yes,No,Total
 1,4,16,James,Vote to Kick Member Out,1,0,0
 2,5,3,Julia,Vote to Send Compliment to Member,1,0,0
+3,2,2,Nadine,Vote to Send Warning to Member,1,0,0
+4,2,3,Yaocheng,Vote to Kick Member Out,1,0,0

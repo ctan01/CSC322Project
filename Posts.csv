@@ -3,4 +3,5 @@ PostID,GroupID,PostContents,Comment0,Comment1,Comment2,Comment3
 2,2,Testing Post from Create Post Function, , , ,
 3,-1,Hello a post is being made, , , ,
 4,8,another check, , , , 
-5,2, **** *** ****, , , , 
+5,2, *** ****, , , , 
+6,2, jj, , , , 
