@@ -13,6 +13,7 @@ import pandas as pd
 #    def draw(self):
 #        pass
 
+memberpollVote = [0,0,0]
 
 class Ui_GroupPage(object):
     def refreshGroupPage(self):
@@ -24,9 +25,15 @@ class Ui_GroupPage(object):
     def submitComment(self):
         pass
 
-    def CountVote20(self):
-        yes20count = 2
-        
+
+    def addVote0(self):
+        memberpollVote[0] = memberpollVote[0] + 1
+    
+    def addVote1(self):
+        memberpollVote[1] = memberpollVote[1] + 1
+
+    def addVote2(self):
+        memberpollVote[2] = memberpollVote[2] + 1
     
     def openInboxPage(self):                # USERID PARAMETERS
         from InboxPage import Ui_InboxPage
@@ -249,6 +256,8 @@ class Ui_GroupPage(object):
                 self.YesBox00 = QtWidgets.QCheckBox(self.VoteWarning00)
                 self.YesBox00.setGeometry(QtCore.QRect(10, 30, 81, 20))
                 self.YesBox00.setObjectName("YesBox00")
+                self.YesBox00.clicked.connect(self.addVote0)
+
                 self.NoBox00 = QtWidgets.QCheckBox(self.VoteWarning00)
                 self.NoBox00.setGeometry(QtCore.QRect(10, 60, 81, 20))
                 self.NoBox00.setObjectName("NoBox00")

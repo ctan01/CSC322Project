@@ -11,7 +11,8 @@ class Ui_InboxPage(object):
                 self.window = QtWidgets.QMainWindow()
                 self.ui = Ui_joinGroup()
                 self.ui.setupUi(self.window)
-                self.window.show()
+                self.window.show()      
+                
 
 
         def openGroupsPage(self):
@@ -167,6 +168,7 @@ class Ui_InboxPage(object):
                                 self.Accept3.setGeometry(QtCore.QRect(10, 70, 93, 28))
                                 self.Accept3.setObjectName("Accept3")
                                 self.Accept3.clicked.connect(self.joinGroup)
+                               
                                 # ADD MEMBER TO GROUP ID , DELETE ROW FROM INBOXMESSAGES
 
                                 self.Decline3 = QtWidgets.QPushButton(self.InvitationMessage_2)
@@ -220,7 +222,6 @@ class Ui_InboxPage(object):
                                 self.pushButton5.setGeometry(QtCore.QRect(10, 70, 93, 28))
                                 self.pushButton5.setObjectName("pushButton5")
                                 self.pushButton5.clicked.connect(self.joinGroup)
-                                # REMOVE FROM INBOX AND ADD TO GROUP DATA
 
 
                                 self.Decline5 = QtWidgets.QPushButton(self.InvitationMessage5)
