@@ -16,10 +16,18 @@ class Ui_MainWindow(object):
             df.loc[int(index), 'First_Name'] = self.lineEdit_firstName.text()
         if self.lineEdit_email.text() != "":
             df.loc[int(index), 'Email'] = self.lineEdit_email.text()
-        if self.lineEdit_status.text() != "":
-            df.loc[int(index), 'Status'] = self.lineEdit_status.text()
+
         if self.lineEdit_reputation.text() != "":
             df.loc[int(index), 'Reputation_Score'] = self.lineEdit_reputation.text()
+
+        rep = self.lineEdit_reputation.text()
+        if int(rep) > 20:
+            df.loc[int(index), 'Status'] = 'VIP'
+        elif int(rep) > 50:
+            df.loc[int(index), 'Status'] = 'SU'
+        else:
+            df.loc[int(index), 'Status'] = 'OU'
+
         df.to_csv('UserData.csv', index=False)
 
         # pop up window
@@ -53,12 +61,6 @@ class Ui_MainWindow(object):
         self.label_email.setFont(font)
         self.label_email.setObjectName("label_email")
 
-        self.label_status = QtWidgets.QLabel(self.centralwidget)
-        self.label_status.setGeometry(QtCore.QRect(20, 190, 101, 16))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        self.label_status.setFont(font)
-        self.label_status.setObjectName("label_username")
         self.label_reputation = QtWidgets.QLabel(self.centralwidget)
         self.label_reputation.setGeometry(QtCore.QRect(0, 240, 100, 18))
         font = QtGui.QFont()
@@ -89,9 +91,6 @@ class Ui_MainWindow(object):
         self.lineEdit_email = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_email.setGeometry(QtCore.QRect(100, 140, 291, 21))
         self.lineEdit_email.setObjectName("lineEdit_email")
-        self.lineEdit_status = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_status.setGeometry(QtCore.QRect(100, 190, 291, 21))
-        self.lineEdit_status.setObjectName("lineEdit_username")
         self.lineEdit_reputation = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_reputation.setGeometry(QtCore.QRect(100, 240, 291, 21))
         self.lineEdit_reputation.setObjectName("lineEdit_password")
@@ -119,7 +118,6 @@ class Ui_MainWindow(object):
         registrationPage.setWindowTitle(_translate("registrationPage", "MainWindow"))
         self.label_lastname.setText(_translate("registrationPage", "Last name:"))
         self.label_email.setText(_translate("registrationPage", "Email:"))
-        self.label_status.setText(_translate("registrationPage", "Status:"))
         self.label_reputation.setText(_translate("registrationPage", "ReputationScore:"))
         self.pushButton_submit.setText(_translate("registrationPage", "Submit"))
         self.label_firstname.setText(_translate("registrationPage", "First name:"))
