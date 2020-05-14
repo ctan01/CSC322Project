@@ -1,6 +1,6 @@
-NEW STUFF!!!!!!!!!!!!!
+NEW STUFF ADDED AFTER PRESENTATION
 taboo word is working now on create new post. for detail go down to taboo word section, evidence is saved as picture in the git
-demote base on rep score is also working now. evidence and detail are same as above
+demote base on rep score is also working now. evidence and detail are same as above. Fixed bug for connecting profile page to UserData.csv. 
 
 
 # CSC322Project
