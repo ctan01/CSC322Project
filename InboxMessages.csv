@@ -1,8 +1,11 @@
 MessageID,UserID,Type,GroupName,SubjectUserID
 1,1,Invitation,Community Garden,-1
-2,1,Invitation,Animal Rescue,-1
+2,1,Warning,Animal Rescue,-1
 3,16,Invitation,Coding Camp,-1
-4,1,Invitation,Chemistry Camp,-1
-5,16,Invitation,Book Club,-1
-6,16,Invitation,Blood Drive,-1
-7,16,Warning,Animal Rescue,-1
+4,16,Compliment,Book Club,-1
+5,16,Invitation,Blood Drive,-1
+6,16,Warning,Animal Rescue,-1
+7,2,Invitation,Community Garden,-1
+8,3,Invitation,Blood Drive,-1
+9,4,Warning,Chemistry Camp,-1
+10,1,Invitation,Blood Drive,-1

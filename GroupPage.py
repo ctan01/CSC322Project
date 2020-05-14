@@ -421,14 +421,6 @@ class Ui_GroupPage(object):
         self.CreateMemberPoll.setObjectName("CreateMemberPoll")
         self.CreateMemberPoll.clicked.connect(self.openCreateMemberPoll)
 
-        self.GroupInfo = QtWidgets.QPushButton(self.GroupCommands)
-        self.GroupInfo.setGeometry(QtCore.QRect(0, 110, 221, 28))
-        self.GroupInfo.setObjectName("GroupInfo")
-
-        self.PushButton_CreateGroup = QtWidgets.QPushButton(self.GroupCommands)
-        self.PushButton_CreateGroup.setGeometry(QtCore.QRect(0, 140, 221, 28))
-        self.PushButton_CreateGroup.setObjectName("CreateGroup")
-
 
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox.setGeometry(QtCore.QRect(10, 70, 211, 271))
@@ -468,7 +460,6 @@ class Ui_GroupPage(object):
         self.ProfileButton.setText(_translate("GroupPage", "Profile"))
         self.LogOUt.setText(_translate("GroupPage", "LogOut"))
         self.HomeButton.setText(_translate("GroupPage", "Home"))
-        self.PushButton_CreateGroup.setText(_translate("GroupPage", "CreateGroup"))
 
         #self.MeetUpPoll.setTitle(_translate("GroupPage", "Poll"))
         #self.Choice1.setText(_translate("GroupPage", "Tuesday 2pm"))
@@ -606,7 +597,7 @@ class Ui_GroupPage(object):
                 checkmemberpollempty[0] = 1
                 yes20count = 2
                 no20count = 0
-                self.VoteWarning20.setTitle(_translate("GroupPage", memberpolltype[0] + " " + memberpollname[0] + "    CURRENT COUNT Yes: " + str(yes20count) + " CURRENT COUNT NO: " + str(no20count) + ""))
+                self.VoteWarning20.setTitle(_translate("GroupPage", memberpolltype[0] + " " + memberpollname[0] + ""))
                 self.YesBox20.setText(_translate("GroupPage", "Yes"))
                 self.NoBox20.setText(_translate("GroupPage", "No"))
                 self.SubmitVote20.setText(_translate("GroupPage", "Submit"))
@@ -646,7 +637,6 @@ class Ui_GroupPage(object):
         self.CreatePost.setText(_translate("GroupPage", "Create Post"))
         self.CreateMeetUpPoll.setText(_translate("GroupPage", "Create Meet Up Poll"))
         self.CreateMemberPoll.setText(_translate("GroupPage", "Create Member Poll"))
-        self.GroupInfo.setText(_translate("GroupPage", "Group Info"))
         self.groupBox.setTitle(_translate("GroupPage", "Notifications:"))
         self.groupBox_2.setTitle(_translate("GroupPage", "Search"))
         self.HomeButton_2.setText(_translate("GroupPage", "Search"))

@@ -4,6 +4,14 @@ from PyQt5.QtWidgets import QMessageBox
 
 
 class Ui_MemberPoll(object):
+    def refreshGroupPage(self):
+        from GroupPage import Ui_GroupPage
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_GroupPage()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    
 
     def submitMemberPoll(self):
         df = pd.read_csv('MemberPoll.csv')
@@ -78,6 +86,7 @@ class Ui_MemberPoll(object):
         self.PublishPostButton.setObjectName("Publish")
         self.PublishPostButton.clicked.connect(self.submitMemberPoll) # BEGIN TO PUBLISH POST
         self.PublishPostButton.clicked.connect(MemberPoll.close)
+        self.PublishPostButton.clicked.connect(self.refreshGroupPage)
 
         self.retranslateUi(MemberPoll)
         QtCore.QMetaObject.connectSlotsByName(MemberPoll)
@@ -101,7 +110,7 @@ class Ui_MemberPoll(object):
         userSeven = " "
         df = pd.read_csv('GroupData.csv')
         for index, row in df.iterrows():
-            if row['GroupID'] == 1:
+            if row['currentGroup'] == 1:
                 userZero = userZero + row['Member0']
                 userOne = userOne + row['Member1']
                 userTwo = userTwo + row['Member2']

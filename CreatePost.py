@@ -18,11 +18,35 @@ class Ui_CreatePost(object):
         currentGroupRow = dfgroup[dfgroup['currentGroup'] ==  1]
         currentGroupID = currentGroupRow['GroupID'].iloc[0]
         print(currentGroupID)
+        
+        # TABOO CHECK
+        fullpost = self.lineEdit_Postcontents.text()
+        print(fullpost)
+        postarray = fullpost.split()
+        print(postarray[0])
+        checkTaboo = False
+        count = -1
+        newpost = ""
+        for x in postarray:
+            count = count + 1
+            if postarray[count] == "hate":
+                postarray[count] = "****"
+                postarray[count]
+                checkTaboo = True
+            elif postarray[count] == "bad":
+                postarray[count] = "***"
+                checkTaboo = True
+            elif postarray[count] == "darn":
+                postarray[count] = "****"
+                checkTaboo = True
+            newpost = newpost + " " + str(postarray[count])
+            
+    
 
         # PostID, GroupID, PostContents, Comment0, Comment1, Comment2,Comment3
         new_row = {'PostID': (len(df.index)+1),
             'GroupID' : currentGroupID,
-            'PostContents': self.lineEdit_Postcontents.text(),
+            'PostContents': newpost,
             'Comment0': " ",
             'Comment1': " ",
             'Comment2': " ",
