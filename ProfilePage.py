@@ -142,7 +142,6 @@ class Ui_profilePage(object):
                 current_user_index = index
                 print(current_user_index)
 
-
         combo_count = df.shape[0]
         i = 0
 
@@ -153,7 +152,8 @@ class Ui_profilePage(object):
         self.label_Email.setText(_translate("ProfilePage", "Email:"))
         self.label_Projects.setText(_translate("ProfilePage", "Projects:"))
         self.label_Score.setText(_translate("ProfilePage", "Score:"))
-        self.textBrowse_Name.setHtml(_translate("ProfilePage", df.loc[current_user_index, 'First_Name'] + " " + df.loc[current_user_index, 'Last_Name']))
+        self.textBrowse_Name.setHtml(_translate("ProfilePage", df.loc[current_user_index, 'First_Name'] + " " + df.loc[
+            current_user_index, 'Last_Name']))
         self.textBrowser_Email.setHtml(_translate("ProfilePage", df.loc[current_user_index, 'Email']))
         self.textBrowser_Score.setHtml(_translate("ProfilePage", str(df.loc[current_user_index, 'Reputation_Score'])))
         print(df.loc[current_user_index, 'Reputation_Score'])
@@ -165,10 +165,33 @@ class Ui_profilePage(object):
         self.label_Status.setText(_translate("ProfilePage", "Status: "))
         self.textBrowser_Status.setHtml(_translate("ProfilePage", df.loc[current_user_index, 'Status']))
 
-        row = df.iloc[current_user_index]
+        """interests = []
 
+        if df.iloc[current_user_index, 'Interests0'] == 'Education':
+            interests.append(df.iloc[current_user_index, 'Interests1'])
+        if df.iloc[current_user_index, 'Interests0'] == 'Reading':
+            interests.append(df.iloc[current_user_index, 'Interests2'])
+        if df.iloc[current_user_index, 'Interests0'] == 'Coding':
+            interests.append(df.iloc[current_user_index, 'Interests3'])
+        if df.iloc[current_user_index, 'Interests0'] == 'Environment':
+            interests.append(df.iloc[current_user_index, 'Interests4'])
+        if df.iloc[current_user_index, 'Interests0'] == 'Sports':
+            interests.append(df.iloc[current_user_index, 'Interests5'])
+        if df.iloc[current_user_index, 'Interests0'] == 'Design':
+            interests.append(df.iloc[current_user_index, 'Interests6'])
+        if df.iloc[current_user_index, 'Interests0'] == 'Finance':
+            interests.append(df.iloc[current_user_index, 'Interests7'])
+        if df.iloc[current_user_index, 'Interests0'] == 'Technology':
+            interests.append(df.iloc[current_user_index, 'Interests8'])
+        if df.iloc[current_user_index, 'Interests0'] == 'Kids':
+            interests.append(df.iloc[current_user_index, 'Interests9'])
+        if df.iloc[current_user_index, 'Interests0'] == 'Family Activities':
+            interests.append(df.iloc[current_user_index, 'Interests10'])
+        if df.iloc[current_user_index, 'Interests0'] == 'Public Welfare':
+            interests.append(df.iloc[current_user_index, 'Interests11'])
 
-
+        print(interests)
+"""
         while combo_count != 0:
             if i == 0:
                 i += 1
@@ -204,6 +227,7 @@ class Ui_profilePage(object):
 
         combo_count = df.shape[0]
         i = 0
+
 
 if __name__ == "__main__":
     import sys
