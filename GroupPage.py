@@ -641,7 +641,6 @@ class Ui_GroupPage(object):
         self.groupBox_2.setTitle(_translate("GroupPage", "Search"))
         self.HomeButton_2.setText(_translate("GroupPage", "Search"))
 
-
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
