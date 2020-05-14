@@ -1,3 +1,8 @@
+NEW STUFF!!!!!!!!!!!!!
+taboo word is working now on create new post. for detail go down to taboo word section, evidence is saved as picture in the git
+demote base on rep score is also working now. evidence and detail are same as above
+
+
 # CSC322Project
 Software Engineer group porject 
 
@@ -11,7 +16,7 @@ Our application provides a platform for users to form teams with other users who
 Visitors may view home page, search projects and users, but cannot interact with any projects or users.
 
 ## Ordinary users (OU)
-Vistors can register to become an OU after SU's approval and will be given a initial reputation score from 0-10. OUs can create or join groups to work on do good projects together. 
+Vistors can register to become an OU after SU's approval. OUs can create or join groups to work on do good projects together. 
 
 ## VIP
 An OU whose reputation score is equal to or more than 30 will be automatically promoted to VIP. VIP have the power to periodic vote for a SU who will be responsiblt for managing the system.
@@ -40,11 +45,15 @@ Group members can create meet up time polls to have team meet ups.
 ## Create member poll
 Group members can create member polls. There are 3 types of Member polls: vote to send warnings to member, vote to kick member out, and vote to send compliment to member. 
 
-##
 
+## Taboo Word
+The taboo word contains 3 words : 'darn' 'hate' 'bad'
+create post use those 3 words will be convert to * base on how many letters in the word
 
+##Demote Base on Score
+if a user's reputation score after got deducted drop below 30, then he will be demoted to OU, drop below 50 will be demoted to VIP
 
-
+SU can also manually set up for reputation score MANUALLY and the status will be change automatically as well
 
 
 
