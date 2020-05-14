@@ -3,7 +3,7 @@ Software Engineer group porject
 
 ## NEW STUFF ADDED AFTER PRESENTATION
 taboo word is working now on create new post. for detail go down to taboo word section, evidence is saved as picture in the git
-demote base on rep score is also working now. evidence and detail are same as above. Fixed bug for connecting profile page to UserData.csv. 
+demote base on rep score is also working now. evidence and detail are same as above. Fixed bug for connecting profile page to UserData.csv. Now user's reputation score will be automatically decrease based on complaints and user's status will be automatically promoted or demoted based on reputation score
 
 ## Pyqt 5 
 PyQt is a Python binding of the cross-platform GUI toolkit Qt, implemented as a Python plug-in.
